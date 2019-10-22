@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>鉢本 一二のブログ - プログラミング</title><link href="https://hachi12.com/" rel="alternate"></link><link href="https://hachi12.com/feeds/programming.atom.xml" rel="self"></link><id>https://hachi12.com/</id><updated>2019-09-20T00:00:00+09:00</updated><entry><title>Visual StudioでqDebugのログを表示させる方法</title><link href="https://hachi12.com/qDebug_in_VS.html" rel="alternate"></link><published>2019-09-20T00:00:00+09:00</published><updated>2019-09-20T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachi12.com,2019-09-20:/qDebug_in_VS.html</id><content type="html">&lt;h2&gt;問題&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>鉢本 一二のブログ - プログラミング</title><link href="https://hachimoto12.com/" rel="alternate"></link><link href="https://hachimoto12.com/feeds/programming.atom.xml" rel="self"></link><id>https://hachimoto12.com/</id><updated>2019-09-20T00:00:00+09:00</updated><entry><title>Visual StudioでqDebugのログを表示させる方法</title><link href="https://hachimoto12.com/qDebug_in_VS.html" rel="alternate"></link><published>2019-09-20T00:00:00+09:00</published><updated>2019-09-20T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2019-09-20:/qDebug_in_VS.html</id><content type="html">&lt;h2&gt;問題&lt;/h2&gt;
 &lt;p&gt;Visual Studioを使ってQt5 GUIアプリケーションを作成しているときに、qDebugでログを表示させたかった。
 しかし実行時、Visual Studioの出力ウィンドウでログがでず、ほかに出力ウィンドウに出力されていなかった。&lt;/p&gt;
 &lt;h2&gt;対策&lt;/h2&gt;
@@ -7,7 +7,7 @@
 &lt;ul&gt;
 &lt;li&gt;プロジェクトのプロパティ -&amp;gt; リンカ -&amp;gt; システム -&amp;gt; サブシステムでコンソールを選択。&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;実行するとコンソールが出てqDebugのログも出力されていた。&lt;/p&gt;</content><category term="プログラミング"></category><category term="Qt5"></category><category term="VisualStudio"></category></entry><entry><title>Visual Studio 2017 + FBX SDKでビルドしようとしたらエラーになったときの対処</title><link href="https://hachi12.com/fbx_build_error.html" rel="alternate"></link><published>2019-08-16T00:00:00+09:00</published><updated>2019-08-16T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachi12.com,2019-08-16:/fbx_build_error.html</id><summary type="html">&lt;h2&gt;環境&lt;/h2&gt;
+&lt;p&gt;実行するとコンソールが出てqDebugのログも出力されていた。&lt;/p&gt;</content><category term="プログラミング"></category><category term="Qt5"></category><category term="VisualStudio"></category></entry><entry><title>Visual Studio 2017 + FBX SDKでビルドしようとしたらエラーになったときの対処</title><link href="https://hachimoto12.com/fbx_build_error.html" rel="alternate"></link><published>2019-08-16T00:00:00+09:00</published><updated>2019-08-16T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2019-08-16:/fbx_build_error.html</id><summary type="html">&lt;h2&gt;環境&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Visual Studio 2017&lt;/li&gt;
 &lt;li&gt;FBX SDK 2019.5&lt;/li&gt;
@@ -56,7 +56,7 @@
 &lt;li&gt;その2. fbxsdk.libをリンクしてビルドする。
   ただしfbxsdk.libをリンクした場合、実行時にexeファイルと同じところにfbxsdk.dllを置かない動かないと実行されない。
   *-md.libをリンクして実行した場合は、dllなしでもexeファイルを実行できた。&lt;/li&gt;
-&lt;/ul&gt;</content><category term="プログラミング"></category><category term="c++"></category></entry><entry><title>AMD APP SDKが無いので、代わりにOpenCL Install Client Driver(ICD) LoaderでOpenCLを使ってみる</title><link href="https://hachi12.com/opencl_with_icd.html" rel="alternate"></link><published>2019-07-07T00:00:00+09:00</published><updated>2019-07-07T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachi12.com,2019-07-07:/opencl_with_icd.html</id><content type="html">&lt;p&gt;&lt;a href="https://developer.amd.com/amd-accelerated-parallel-processing-app-sdk/"&gt;AMD APP SDK&lt;/a&gt;が404のため。&lt;/p&gt;
+&lt;/ul&gt;</content><category term="プログラミング"></category><category term="c++"></category></entry><entry><title>AMD APP SDKが無いので、代わりにOpenCL Install Client Driver(ICD) LoaderでOpenCLを使ってみる</title><link href="https://hachimoto12.com/opencl_with_icd.html" rel="alternate"></link><published>2019-07-07T00:00:00+09:00</published><updated>2019-07-07T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2019-07-07:/opencl_with_icd.html</id><content type="html">&lt;p&gt;&lt;a href="https://developer.amd.com/amd-accelerated-parallel-processing-app-sdk/"&gt;AMD APP SDK&lt;/a&gt;が404のため。&lt;/p&gt;
 &lt;h2&gt;環境&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Windows 10&lt;/li&gt;
