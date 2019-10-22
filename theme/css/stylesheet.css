@@ -209,44 +209,11 @@ a:active {
     font-feature-settings: 'liga';
 }
 
-.icon_twitter {
-    background: #1DA1F2;
-    border-radius: 6px;
-    background-image: url("../images/Twitter_Social_Icon_Circle_Color.png");
-}
-
-.share_list, .share_list li {
-    display: inline-block;
-}
-.share_list {
-    margin: 0.3em auto;
-}
-.share_list li {
-    margin: auto 0.3em;
-}
-.icon_facebook {
-    background: #0077FF;
-    border-radius: 6px;
-    background-image: url("../images/f_logo_RGB-Blue_58.png");
-}
-
-.icon_hatebu {
-    background-image: url("../images/hatenabookmark-logomark.svg");
-}
-
-.icon_twitter, .icon_facebook, .icon_hatebu {
-    background-repeat: no-repeat;
-    background-size: 100%;
-    width: 32px;
-    height: 32px;
-}
-
 .highlight pre {
-    border-color: rgb(66, 66, 66);
-    border: 1px solid;
+    border: 2px solid;
+    border-color: rgb(210, 210, 210);
+    padding: 0.5em;
 }
-
-/* rgb(40, 156, 166);*/
 
 @media screen and (max-width: 768px) {
     .wrapper {
