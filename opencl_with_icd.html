@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset=utf-8>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0" />
+        <!-- ogp -->
+        <meta property="og:type" content="website"/>        <meta property="og:title" content="AMD APP SDKが無いので、代わりにOpenCL Install Client Driver(ICD) LoaderでOpenCLを使ってみる | Hachi12"/>
+        <meta property="og:url" content="https://hachi12.com/opencl_with_icd.html" />        <meta property="og:site_name" content="Hachi12" />
+        <!--
+        <title>Hachi12</title>
+        -->        <title>AMD APP SDKが無いので、代わりにOpenCL Install Client Driver(ICD) LoaderでOpenCLを使ってみる | Hachi12</title>        <link rel="stylesheet" type="text/css" href="https://hachi12.com/theme/css/stylesheet.css" /><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://hachi12.com/theme/css/pygment.css" />
+<style type="text/css">
+.content {
+    margin: 30px;
+}
+.title {
+    margin-bottom: 2em;
+    text-align: left;
+}
+.info {
+    margin: 2em auto;
+}
+.section {
+    margin-top: 2em;
+}
+.section h2, .section h3 {
+    margin: 2em auto;
+    padding: 0.7em 0 0.7em 1em;
+}
+.section h2 {
+    border-left: 10px solid rgb(66, 66, 66);
+    border-bottom: 2px solid rgb(66, 66, 66);
+}
+.section h3 {
+    border-left: 5px solid rgb(66, 66, 66);
+}
+.section ul, .section ol {
+    margin: 0.7em 1em;
+}
+.section li {
+    margin: 0.7em auto;
+}
+.section dl {
+    margin: 1em auto;
+}
+.section dd {
+    margin-left: 1em;
+}
+.highlight pre {
+    margin: 2em auto;
+    padding: 1em auto;
+    font-family: "Source Han Code JP", sans-serif;
+    font-size: 0.8em;
+    line-height: 1.5em;
+    overflow: auto;
+}
+.note {
+    border: 2px solid rgb(66, 66, 66);
+    border-radius: 5px;
+}
+.warning {
+    /*border: 2px solid rgb(66, 66, 66);*/
+    border: 2px solid rgb(200, 60, 50);
+    border-radius: 5px;
+}
+.admonition {
+    margin: 2em auto;
+    padding: 0.7em;
+}
+.admonition-title {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.warning .admonition-title {
+    color: rgb(200, 60, 50);
+}
+</style>    </head>
+    <body>
+        <div class="wrapper">
+            <header class="header">
+                <h1 class="header-title" ontouchstart="">
+                    <a href="https://hachi12.com/">
+                        <strong>Hachi12</strong>
+                    </a>
+                </h1>
+            </header>
+            <nav class="navigation" ontouchstart="">
+                <ul>
+                    <li>
+                       <a href="https://hachi12.com/">
+                           Top
+                       </a>
+                    </li>
+                    <li>
+                        <a href="https://hachi12.com/archives.html">
+                            アーカイブ
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/categories.html">
+                            カテゴリ
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://hachi12.com/tags.html">
+                            タグ
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="left-area"></div>
+            <main class="content" ontouchstart=""><h1 class="title">AMD APP SDKが無いので、代わりにOpenCL Install Client Driver(ICD) LoaderでOpenCLを使ってみる</h1>
+<div class="info">
+    <div>
+        作成日 : <time datetime="2019-07-07T00:00:00+09:00">2019/07/07</time>
+    </div>
+    <div>
+        更新日 : <time datetime="2019-07-07T00:00:00+09:00">2019/07/07</time>
+    </div>
+    <div class="category-item">
+        <i class="material-icons">folder</i>
+        ：        <a href="https://hachi12.com/category/programming.html" class="category">
+            プログラミング
+        </a>    </div>
+        <div class="tag-list">
+        <i class="material-icons">
+            local_offer
+        </i>
+        ：        <a href="/tag/opencl.html" class="tag">OpenCL</a>,<a href="/tag/cpp.html" class="tag">c++</a>    </div>
+    <ul class="share_list">
+        <li>
+            <a href="https://twitter.com/share?url=https://hachi12.com/opencl_with_icd.html&text=AMD APP SDKが無いので、代わりにOpenCL Install Client Driver(ICD) LoaderでOpenCLを使ってみる" target="_blank" rel="nofollow">
+                <div class="icon_twitter"></div>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.facebook.com/share.php?u=https://hachi12.com/opencl_with_icd.html&t=AMD APP SDKが無いので、代わりにOpenCL Install Client Driver(ICD) LoaderでOpenCLを使ってみる" target="_blank" rel="nofollow">
+                <div class="icon_facebook"></div>
+            </a>
+        </li>
+        <li>
+            <a href="https://b.hatena.ne.jp/add?mode=confirm&url=https://hachi12.com/opencl_with_icd.html&title=AMD APP SDKが無いので、代わりにOpenCL Install Client Driver(ICD) LoaderでOpenCLを使ってみる" target="_blank" rel="nofollow">
+                <div class="icon_hatebu"></div>
+            </a>
+        </li>
+    </ul>
+</div><p><a href="https://developer.amd.com/amd-accelerated-parallel-processing-app-sdk/">AMD APP SDK</a>が404のため。</p>
+<h2>環境</h2>
+<ul>
+<li>Windows 10</li>
+<li>Radeon RX 560.</li>
+<li>Visual Studio 2017 Communityインストール済み。</li>
+</ul>
+<h2>やり方</h2>
+<ol>
+<li>AMDのドライバーを最新にしておく。</li>
+<li>c:/windowsにあるOpenCL.dllが新しいことを確認。</li>
+<li><a href="https://github.com/KhronosGroup/OpenCL-ICD-Loader">OpenCL-ICD-Loader</a>からプロジェクトをダウンロード。</li>
+<li><a href="https://github.com/KhronosGroup/OpenCL-Headers">OpenCL Header</a>からヘッダーの最新版をダウンロード</li>
+<li>3と4.を解凍。</li>
+<li>OpenCL HeaderのCLフォルダをOpenCL-ICD-Loaderのincフォルダへコピー。</li>
+<li>OpenCL-ICD-Loaderのスクリプトを実行。</li>
+<li>OpenCLのプログラムを書く。</li>
+<li>ビルドの設定で、ライブラリをOpenCL-ICD-Loaderのbuild/OpenCL.libを指定する。</li>
+<li>ビルド</li>
+</ol>            </main>
+            <div class="right-area"></div>
+            <footer class="footer">
+                <span class="copyright">
+                    (c) 2019 鉢本　一二
+                </span>
+            </footer>
+        </div>
+    </body>
+</html>

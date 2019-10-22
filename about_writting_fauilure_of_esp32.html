@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset=utf-8>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0" />
+        <!-- ogp -->
+        <meta property="og:type" content="website"/>        <meta property="og:title" content="ESP32 Developerの書き込み失敗について | Hachi12"/>
+        <meta property="og:url" content="https://hachi12.com/about_writting_fauilure_of_esp32.html" />        <meta property="og:site_name" content="Hachi12" />
+        <!--
+        <title>Hachi12</title>
+        -->        <title>ESP32 Developerの書き込み失敗について | Hachi12</title>        <link rel="stylesheet" type="text/css" href="https://hachi12.com/theme/css/stylesheet.css" /><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://hachi12.com/theme/css/pygment.css" />
+<style type="text/css">
+.content {
+    margin: 30px;
+}
+.title {
+    margin-bottom: 2em;
+    text-align: left;
+}
+.info {
+    margin: 2em auto;
+}
+.section {
+    margin-top: 2em;
+}
+.section h2, .section h3 {
+    margin: 2em auto;
+    padding: 0.7em 0 0.7em 1em;
+}
+.section h2 {
+    border-left: 10px solid rgb(66, 66, 66);
+    border-bottom: 2px solid rgb(66, 66, 66);
+}
+.section h3 {
+    border-left: 5px solid rgb(66, 66, 66);
+}
+.section ul, .section ol {
+    margin: 0.7em 1em;
+}
+.section li {
+    margin: 0.7em auto;
+}
+.section dl {
+    margin: 1em auto;
+}
+.section dd {
+    margin-left: 1em;
+}
+.highlight pre {
+    margin: 2em auto;
+    padding: 1em auto;
+    font-family: "Source Han Code JP", sans-serif;
+    font-size: 0.8em;
+    line-height: 1.5em;
+    overflow: auto;
+}
+.note {
+    border: 2px solid rgb(66, 66, 66);
+    border-radius: 5px;
+}
+.warning {
+    /*border: 2px solid rgb(66, 66, 66);*/
+    border: 2px solid rgb(200, 60, 50);
+    border-radius: 5px;
+}
+.admonition {
+    margin: 2em auto;
+    padding: 0.7em;
+}
+.admonition-title {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.warning .admonition-title {
+    color: rgb(200, 60, 50);
+}
+</style>    </head>
+    <body>
+        <div class="wrapper">
+            <header class="header">
+                <h1 class="header-title" ontouchstart="">
+                    <a href="https://hachi12.com/">
+                        <strong>Hachi12</strong>
+                    </a>
+                </h1>
+            </header>
+            <nav class="navigation" ontouchstart="">
+                <ul>
+                    <li>
+                       <a href="https://hachi12.com/">
+                           Top
+                       </a>
+                    </li>
+                    <li>
+                        <a href="https://hachi12.com/archives.html">
+                            アーカイブ
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/categories.html">
+                            カテゴリ
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://hachi12.com/tags.html">
+                            タグ
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="left-area"></div>
+            <main class="content" ontouchstart=""><h1 class="title">ESP32 Developerの書き込み失敗について</h1>
+<div class="info">
+    <div>
+        作成日 : <time datetime="2019-07-13T00:00:00+09:00">2019/07/13</time>
+    </div>
+    <div>
+        更新日 : <time datetime="2019-07-13T00:00:00+09:00">2019/07/13</time>
+    </div>
+    <div class="category-item">
+        <i class="material-icons">folder</i>
+        ：        <a href="https://hachi12.com/category/microcomputer.html" class="category">
+            マイコン
+        </a>    </div>
+        <div class="tag-list">
+        <i class="material-icons">
+            local_offer
+        </i>
+        ：        <a href="/tag/microcomputer.html" class="tag">マイコン</a>,<a href="/tag/esp32.html" class="tag">ESP32</a>    </div>
+    <ul class="share_list">
+        <li>
+            <a href="https://twitter.com/share?url=https://hachi12.com/about_writting_fauilure_of_esp32.html&text=ESP32 Developerの書き込み失敗について" target="_blank" rel="nofollow">
+                <div class="icon_twitter"></div>
+            </a>
+        </li>
+        <li>
+            <a href="https://www.facebook.com/share.php?u=https://hachi12.com/about_writting_fauilure_of_esp32.html&t=ESP32 Developerの書き込み失敗について" target="_blank" rel="nofollow">
+                <div class="icon_facebook"></div>
+            </a>
+        </li>
+        <li>
+            <a href="https://b.hatena.ne.jp/add?mode=confirm&url=https://hachi12.com/about_writting_fauilure_of_esp32.html&title=ESP32 Developerの書き込み失敗について" target="_blank" rel="nofollow">
+                <div class="icon_hatebu"></div>
+            </a>
+        </li>
+    </ul>
+</div><p>マイコン初めて数か月の初心者のメモ。</p>
+<h2>環境</h2>
+<ul>
+<li>Windows 10</li>
+<li>スイッチサイエンス ESP Develper32</li>
+</ul>
+<h2>問題</h2>
+<p>スケッチを書き込もうとしたら失敗。
+失敗したときのログ</p>
+<div class="highlight"><pre><span></span>[<span class="nv">Starting</span>] <span class="nv">Upload</span> <span class="nv">sketch</span> <span class="o">-</span> <span class="mi">01</span>\<span class="mi">01</span>.<span class="nv">ino</span>
+[<span class="nv">Warning</span>] <span class="nv">Output</span> <span class="nv">path</span> <span class="nv">is</span> <span class="nv">not</span> <span class="nv">specified</span>. <span class="nv">Unable</span> <span class="nv">to</span> <span class="nv">reuse</span> <span class="nv">previously</span> <span class="nv">compiled</span> <span class="nv">files</span>. <span class="nv">Upload</span> <span class="nv">could</span> <span class="nv">be</span> <span class="nv">slow</span>. <span class="nv">See</span> <span class="nv">README</span>.
+構成をロード中…
+パッケージを初期化中…
+ボードを準備中…
+検証中…
+最大<span class="mi">1310720</span>バイトのフラッシュメモリのうち、スケッチが<span class="mi">255788</span>バイト（<span class="mi">19</span><span class="o">%</span>）を使っています。
+最大<span class="mi">327680</span>バイトの<span class="nv">RAM</span>のうち、グローバル変数が<span class="mi">13932</span>バイト（<span class="mi">4</span><span class="o">%</span>）を使っていて、ローカル変数で<span class="mi">313748</span>バイト使うことができます。
+マイコンボードに書き込んでいます...
+<span class="nv">esptool</span>.<span class="nv">py</span> <span class="nv">v2</span>.<span class="mi">6</span>
+<span class="nv">Serial</span> <span class="nv">port</span> <span class="nv">COM4</span>
+<span class="nv">Connecting</span>........<span class="nv">_____</span>.....<span class="nv">_____</span>.....<span class="nv">_____</span>.....<span class="nv">_____</span>.....<span class="nv">_____</span>.....<span class="nv">_____</span>.....<span class="nv">_____</span>
+
+<span class="nv">A</span> <span class="nv">fatal</span> <span class="nv">error</span> <span class="nv">occurred</span>: <span class="nv">Failed</span> <span class="nv">to</span> <span class="k">connect</span> <span class="nv">to</span> <span class="nv">ESP32</span>: <span class="nv">Timed</span> <span class="nv">out</span> <span class="nv">waiting</span> <span class="k">for</span> <span class="nv">packet</span> <span class="nv">header</span>
+スケッチの書き込み中にエラーが発生しました
+[<span class="nv">Error</span>] <span class="k">Exit</span> <span class="nv">with</span> <span class="nv">code</span><span class="o">=</span><span class="mi">1</span>
+</pre></div>
+
+
+<h2>原因</h2>
+<p>書き込むときにRESETボタンを押していなかった。</p>
+<h2>対策</h2>
+<p>Connectingが表示されたらRESETボタンを押しっぱなしにする。
+Writtingが始まったら離す。
+最後に</p>
+<div class="highlight"><pre><span></span><span class="n">Leaving</span><span class="p">...</span>
+<span class="n">Hard</span> <span class="n">resetting</span> <span class="n">via</span> <span class="n">RTS</span> <span class="n">pin</span><span class="p">...</span>
+</pre></div>
+
+
+<p>が出力されたら書き込み成功。</p>            </main>
+            <div class="right-area"></div>
+            <footer class="footer">
+                <span class="copyright">
+                    (c) 2019 鉢本　一二
+                </span>
+            </footer>
+        </div>
+    </body>
+</html>

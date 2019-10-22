@@ -1,0 +1,259 @@
+* {
+    /* 上の余白を消す */
+    padding: 0;
+    margin: 0;
+}
+
+html, body, textarea {
+    font-size: 16px;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    line-height: 1.8em;
+    background-color: rgb(250, 250, 250);
+    color: rgb(66, 66, 66);
+    /*font-family: "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック体", "YuGothic", "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", "Meiryo", "verdana", sans-serif;*/
+    font-family: "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", "Meiryo", "verdana", sans-serif;
+}
+
+a:link {
+    text-decoration: none;
+    color: rgb(40, 156, 166);
+}
+a:visited {
+    text-decoration: none;
+    color: rgb(40, 156, 166);
+}
+a:hover {
+    text-decoration: underline;
+    color: rgb(200, 60, 50);
+}
+a:active {
+    text-decoration: none;
+    color: rgb(40, 156, 166);
+}
+
+.wrapper {
+    width: initial;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 250px 2.5em auto 20%;
+    grid-template-columns: 25% 50% 25%;
+    grid-template-areas: 
+        "header header header"
+        "navigation navigation navigation"
+        "left-area content right-area"
+        ".... footer ...."
+        ;
+}
+
+.header {
+    height: 250px;
+    /*background-color: rgb(30, 130, 100);*/
+    background-color: rgb(40, 156, 166);
+    grid-area: header;
+
+    /* タイトルを中央に配置 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-title a {
+    color: rgb(250, 250, 250);
+    text-decoration: none;
+}
+
+.header-title a:hover {
+    /*border-bottom: 3px solid rgb(250, 250, 250);*/
+    text-decoration: underline;
+}
+
+.navigation {
+    grid-area: navigation;
+    background-color: rgb(66, 66, 66);
+    color: rgb(250, 250, 250);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.navigation ul {
+    flex-wrap: wrap;
+}
+.navigation li {
+    flex: 0 0 auto;
+    display: inline-block;
+    margin: 0.5em 1em;
+}
+.navigation ul li a {
+    text-decoration: none;
+}
+.navigation ul li a:link {
+    color: rgb(250, 250, 250);
+}
+.navigation ul li a:visited {
+    color: rgb(250, 250, 250);
+}
+.navigation ul li a:hover {
+    color: rgb(250, 250, 250);
+    text-decoration: underline;
+}
+.navigation ul li a:active {
+    color: rgb(250, 250, 250);
+}
+.footer {
+    grid-area: footer;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-area {
+    grid-area: left-area;
+}
+.right-area {
+    grid-area: right-area;
+}
+
+.content {
+    width: inherit;
+    grid-area: content;
+}
+
+.content>h2 {
+    margin: 1.7em auto;
+}
+
+.content ul, .content li {
+    margin-left:  1em;
+}
+
+.content img {
+    width: 100%;
+    height: auto;
+}
+
+.content img:focus {
+    width: 100%;
+    height: auto;
+    transition: all 1s ease-in-out;
+    outline: none;
+}
+
+.category {
+    text-decoration: none;
+    color: rgb(66, 66, 66);
+}
+
+.category:hover {
+    text-decoration: underline;
+}
+.title {
+    margin: 2em auto;
+    padding: 2em auto;
+    font-size: 2em;
+    line-height: 1.25em;
+    text-align: center;
+}
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0.5em 0.3em;
+    margin: 30px auto;
+    width: 70%;
+}
+.article-title {
+    padding: 0;
+    margin: 0;
+    font-size: 1.25em;
+    margin: 0.5em;
+    text-decoration: none;
+    word-break: break-wordk;
+}
+.article-title a {
+    color: rgb(66, 66, 66);
+    text-decoration: none;
+    line-height:1em;
+}
+.article-title a:hover {
+    text-decoration: underline;
+    line-height:1em;
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    vertical-align: middle;
+  
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+  
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+  
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+.icon_twitter {
+    background: #1DA1F2;
+    border-radius: 6px;
+    background-image: url("../images/Twitter_Social_Icon_Circle_Color.png");
+}
+
+.share_list, .share_list li {
+    display: inline-block;
+}
+.share_list {
+    margin: 0.3em auto;
+}
+.share_list li {
+    margin: auto 0.3em;
+}
+.icon_facebook {
+    background: #0077FF;
+    border-radius: 6px;
+    background-image: url("../images/f_logo_RGB-Blue_58.png");
+}
+
+.icon_hatebu {
+    background-image: url("../images/hatenabookmark-logomark.svg");
+}
+
+.icon_twitter, .icon_facebook, .icon_hatebu {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 32px;
+    height: 32px;
+}
+
+/* rgb(40, 156, 166);*/
+
+@media screen and (max-width: 768px) {
+    .wrapper {
+        grid-template-columns: 5% 90% 5%;
+    }
+    body {
+        font-size: 0.7em;
+    }
+    .content {
+        width: auto;
+    }
+    .left-area, .right-area {
+        width: 10%;
+    }
+}

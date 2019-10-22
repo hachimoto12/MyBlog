@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Hachi12 - マイコン</title><link href="https://hachi12.com/" rel="alternate"></link><link href="https://hachi12.com/feeds/microcomputer.atom.xml" rel="self"></link><id>https://hachi12.com/</id><updated>2019-07-13T00:00:00+09:00</updated><entry><title>ESP32 Developerの書き込み失敗について</title><link href="https://hachi12.com/about_writting_fauilure_of_esp32.html" rel="alternate"></link><published>2019-07-13T00:00:00+09:00</published><updated>2019-07-13T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachi12.com,2019-07-13:/about_writting_fauilure_of_esp32.html</id><summary type="html">&lt;p&gt;マイコン初めて数か月の初心者のメモ。&lt;/p&gt;
+&lt;h2&gt;環境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Windows 10&lt;/li&gt;
+&lt;li&gt;スイッチサイエンス ESP Develper32&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;問題&lt;/h2&gt;
+&lt;p&gt;スケッチを書き込もうとしたら失敗。
+失敗したときのログ&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[&lt;span class="nv"&gt;Starting&lt;/span&gt;] &lt;span class="nv"&gt;Upload&lt;/span&gt; &lt;span class="nv"&gt;sketch&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;01&lt;/span&gt;\&lt;span class="mi"&gt;01&lt;/span&gt;.&lt;span class="nv"&gt;ino&lt;/span&gt;
+[&lt;span class="nv"&gt;Warning&lt;/span&gt;] &lt;span class="nv"&gt;Output&lt;/span&gt; &lt;span class="nv"&gt;path&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;not&lt;/span&gt; &lt;span class="nv"&gt;specified&lt;/span&gt;. &lt;span class="nv"&gt;Unable&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;reuse&lt;/span&gt; &lt;span class="nv"&gt;previously&lt;/span&gt; &lt;span class="nv"&gt;compiled&lt;/span&gt; &lt;span class="nv"&gt;files&lt;/span&gt;. &lt;span class="nv"&gt;Upload&lt;/span&gt; &lt;span class="nv"&gt;could&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;slow&lt;/span&gt;. &lt;span class="nv"&gt;See&lt;/span&gt; &lt;span class="nv"&gt;README&lt;/span&gt;.
+構成をロード中…
+パッケージを初期化中…
+ボードを準備中…
+検証中…
+最大&lt;span class="mi"&gt;1310720&lt;/span&gt;バイトのフラッシュメモリのうち、スケッチが&lt;span class="mi"&gt;255788&lt;/span&gt;バイト（&lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;）を使っています。
+最大&lt;span class="mi"&gt;327680&lt;/span&gt;バイトの&lt;span class="nv"&gt;RAM …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;マイコン初めて数か月の初心者のメモ。&lt;/p&gt;
+&lt;h2&gt;環境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Windows 10&lt;/li&gt;
+&lt;li&gt;スイッチサイエンス ESP Develper32&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;問題&lt;/h2&gt;
+&lt;p&gt;スケッチを書き込もうとしたら失敗。
+失敗したときのログ&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[&lt;span class="nv"&gt;Starting&lt;/span&gt;] &lt;span class="nv"&gt;Upload&lt;/span&gt; &lt;span class="nv"&gt;sketch&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;01&lt;/span&gt;\&lt;span class="mi"&gt;01&lt;/span&gt;.&lt;span class="nv"&gt;ino&lt;/span&gt;
+[&lt;span class="nv"&gt;Warning&lt;/span&gt;] &lt;span class="nv"&gt;Output&lt;/span&gt; &lt;span class="nv"&gt;path&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;not&lt;/span&gt; &lt;span class="nv"&gt;specified&lt;/span&gt;. &lt;span class="nv"&gt;Unable&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;reuse&lt;/span&gt; &lt;span class="nv"&gt;previously&lt;/span&gt; &lt;span class="nv"&gt;compiled&lt;/span&gt; &lt;span class="nv"&gt;files&lt;/span&gt;. &lt;span class="nv"&gt;Upload&lt;/span&gt; &lt;span class="nv"&gt;could&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;slow&lt;/span&gt;. &lt;span class="nv"&gt;See&lt;/span&gt; &lt;span class="nv"&gt;README&lt;/span&gt;.
+構成をロード中…
+パッケージを初期化中…
+ボードを準備中…
+検証中…
+最大&lt;span class="mi"&gt;1310720&lt;/span&gt;バイトのフラッシュメモリのうち、スケッチが&lt;span class="mi"&gt;255788&lt;/span&gt;バイト（&lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;）を使っています。
+最大&lt;span class="mi"&gt;327680&lt;/span&gt;バイトの&lt;span class="nv"&gt;RAM&lt;/span&gt;のうち、グローバル変数が&lt;span class="mi"&gt;13932&lt;/span&gt;バイト（&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;）を使っていて、ローカル変数で&lt;span class="mi"&gt;313748&lt;/span&gt;バイト使うことができます。
+マイコンボードに書き込んでいます...
+&lt;span class="nv"&gt;esptool&lt;/span&gt;.&lt;span class="nv"&gt;py&lt;/span&gt; &lt;span class="nv"&gt;v2&lt;/span&gt;.&lt;span class="mi"&gt;6&lt;/span&gt;
+&lt;span class="nv"&gt;Serial&lt;/span&gt; &lt;span class="nv"&gt;port&lt;/span&gt; &lt;span class="nv"&gt;COM4&lt;/span&gt;
+&lt;span class="nv"&gt;Connecting&lt;/span&gt;........&lt;span class="nv"&gt;_____&lt;/span&gt;.....&lt;span class="nv"&gt;_____&lt;/span&gt;.....&lt;span class="nv"&gt;_____&lt;/span&gt;.....&lt;span class="nv"&gt;_____&lt;/span&gt;.....&lt;span class="nv"&gt;_____&lt;/span&gt;.....&lt;span class="nv"&gt;_____&lt;/span&gt;.....&lt;span class="nv"&gt;_____&lt;/span&gt;
+
+&lt;span class="nv"&gt;A&lt;/span&gt; &lt;span class="nv"&gt;fatal&lt;/span&gt; &lt;span class="nv"&gt;error&lt;/span&gt; &lt;span class="nv"&gt;occurred&lt;/span&gt;: &lt;span class="nv"&gt;Failed&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="k"&gt;connect&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;ESP32&lt;/span&gt;: &lt;span class="nv"&gt;Timed&lt;/span&gt; &lt;span class="nv"&gt;out&lt;/span&gt; &lt;span class="nv"&gt;waiting&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;packet&lt;/span&gt; &lt;span class="nv"&gt;header&lt;/span&gt;
+スケッチの書き込み中にエラーが発生しました
+[&lt;span class="nv"&gt;Error&lt;/span&gt;] &lt;span class="k"&gt;Exit&lt;/span&gt; &lt;span class="nv"&gt;with&lt;/span&gt; &lt;span class="nv"&gt;code&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;原因&lt;/h2&gt;
+&lt;p&gt;書き込むときにRESETボタンを押していなかった。&lt;/p&gt;
+&lt;h2&gt;対策&lt;/h2&gt;
+&lt;p&gt;Connectingが表示されたらRESETボタンを押しっぱなしにする。
+Writtingが始まったら離す。
+最後に&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Leaving&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;
+&lt;span class="n"&gt;Hard&lt;/span&gt; &lt;span class="n"&gt;resetting&lt;/span&gt; &lt;span class="n"&gt;via&lt;/span&gt; &lt;span class="n"&gt;RTS&lt;/span&gt; &lt;span class="n"&gt;pin&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;が出力されたら書き込み成功。&lt;/p&gt;</content><category term="マイコン"></category><category term="マイコン"></category><category term="ESP32"></category></entry></feed>
