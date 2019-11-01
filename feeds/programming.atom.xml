@@ -1,5 +1,129 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>鉢本 一二のブログ - プログラミング</title><link href="https://hachimoto12.com/" rel="alternate"></link><link href="https://hachimoto12.com/feeds/programming.atom.xml" rel="self"></link><id>https://hachimoto12.com/</id><updated>2019-09-20T00:00:00+09:00</updated><entry><title>Visual StudioでqDebugのログを表示させる方法</title><link href="https://hachimoto12.com/qDebug_in_VS.html" rel="alternate"></link><published>2019-09-20T00:00:00+09:00</published><updated>2019-09-20T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2019-09-20:/qDebug_in_VS.html</id><content type="html">&lt;h2&gt;問題&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>鉢本 一二のブログ - プログラミング</title><link href="https://hachimoto12.com/" rel="alternate"></link><link href="https://hachimoto12.com/feeds/programming.atom.xml" rel="self"></link><id>https://hachimoto12.com/</id><updated>2019-11-01T00:00:00+09:00</updated><entry><title>Rustのインストール方法 Linuxの場合</title><link href="https://hachimoto12.com/rust_install.html" rel="alternate"></link><published>2019-11-01T00:00:00+09:00</published><updated>2019-11-01T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2019-11-01:/rust_install.html</id><summary type="html">&lt;p&gt;Rustのインストール方法をメモ。&lt;br&gt;
+今回インストールされたRustのバージョンは、&lt;strong&gt;rustc 1.38.0 (625451e37 2019-09-23)&lt;/strong&gt;  &lt;/p&gt;
+&lt;p&gt;まず、コマンドを実行。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ curl https://sh.rustup.rs -sSf &lt;span class="p"&gt;|&lt;/span&gt; sh
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;コマンドを実行すると、インストールが始まる。&lt;br&gt;
+インストールの方法を入力する必要がある。とりあえず、１を選択。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;info: downloading installer
+
+Welcome to Rust!
+
+This will download and install the official compiler for the Rust
+programming language, and its package manager, Cargo.
+
+It will add the …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Rustのインストール方法をメモ。&lt;br&gt;
+今回インストールされたRustのバージョンは、&lt;strong&gt;rustc 1.38.0 (625451e37 2019-09-23)&lt;/strong&gt;  &lt;/p&gt;
+&lt;p&gt;まず、コマンドを実行。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ curl https://sh.rustup.rs -sSf &lt;span class="p"&gt;|&lt;/span&gt; sh
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;コマンドを実行すると、インストールが始まる。&lt;br&gt;
+インストールの方法を入力する必要がある。とりあえず、１を選択。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;info: downloading installer
+
+Welcome to Rust!
+
+This will download and install the official compiler for the Rust
+programming language, and its package manager, Cargo.
+
+It will add the cargo, rustc, rustup and other commands to
+Cargo&amp;#39;s bin directory, located at:
+
+  /home/local/.cargo/bin
+
+This can be modified with the CARGO_HOME environment variable.
+
+Rustup metadata and toolchains will be installed into the Rustup
+home directory, located at:
+
+  /home/local/.rustup
+
+This can be modified with the RUSTUP_HOME environment variable.
+
+This path will then be added to your PATH environment variable by
+modifying the profile file located at:
+
+  /home/local/.profile
+
+You can uninstall at any time with rustup self uninstall and
+these changes will be reverted.
+
+Current installation options:
+
+
+   default host triple: x86_64-unknown-linux-gnu
+     default toolchain: stable
+               profile: default
+  modify PATH variable: yes
+
+1) Proceed with installation (default)
+2) Customize installation
+3) Cancel installation
+&amp;gt;1　&amp;lt;--- ここで入力が発生。
+
+info: profile set to &amp;#39;default&amp;#39;
+info: syncing channel updates for &amp;#39;stable-x86_64-unknown-linux-gnu&amp;#39;
+info: latest update on 2019-09-26, rust version 1.38.0 (625451e37 2019-09-23)
+info: downloading component &amp;#39;cargo&amp;#39;
+  4.7 MiB /   4.7 MiB (100 %)   4.2 MiB/s in  1s ETA:  0s
+info: downloading component &amp;#39;clippy&amp;#39;
+info: downloading component &amp;#39;rust-docs&amp;#39;
+ 11.7 MiB /  11.7 MiB (100 %)   5.2 MiB/s in  2s ETA:  0s
+info: downloading component &amp;#39;rust-std&amp;#39;
+173.3 MiB / 173.3 MiB (100 %)   4.0 MiB/s in 42s ETA:  0s
+info: downloading component &amp;#39;rustc&amp;#39;
+ 66.1 MiB /  66.1 MiB (100 %)   4.7 MiB/s in 14s ETA:  0s
+info: downloading component &amp;#39;rustfmt&amp;#39;
+info: installing component &amp;#39;cargo&amp;#39;
+info: installing component &amp;#39;clippy&amp;#39;
+info: installing component &amp;#39;rust-docs&amp;#39;
+ 11.7 MiB /  11.7 MiB (100 %) 745.6 KiB/s in  9s ETA:  0s
+info: installing component &amp;#39;rust-std&amp;#39;
+173.3 MiB / 173.3 MiB (100 %)  22.8 MiB/s in  8s ETA:  0s
+info: installing component &amp;#39;rustc&amp;#39;
+ 66.1 MiB /  66.1 MiB (100 %)  12.2 MiB/s in  5s ETA:  0s
+info: installing component &amp;#39;rustfmt&amp;#39;
+info: default toolchain set to &amp;#39;stable&amp;#39;
+
+  stable installed - rustc 1.38.0 (625451e37 2019-09-23)
+
+
+Rust is installed now. Great!
+
+To get started you need Cargo&amp;#39;s bin directory ($HOME/.cargo/bin) in your PATH
+environment variable. Next time you log in this will be done
+automatically.
+
+To configure your current shell run source $HOME/.cargo/env
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;インストールの最後の出力にもがあるが、Rustは$HOME/.cargoにインストールされている。&lt;br&gt;
+$HOME/.cargo/envの内容が、Rustのパスを設定がされている内容となっている。&lt;br&gt;
+envファイルを使ってを起動時にRustを実行できるようにするため、$HOME/.bashrcを編集する。&lt;br&gt;
+.bashrcを開き、一番下の行に次の文を追加。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;source $HOME/.cargo/env
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;.bashrcを読み込む。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;source&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/.bashrc
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;パスがちゃんと設定されているか確認のため、以下のコマンドを実行。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ rustc --version
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;次のようにバージョン情報が出力されれば、OK。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rustc &lt;span class="m"&gt;1&lt;/span&gt;.38.0 &lt;span class="o"&gt;(&lt;/span&gt;625451e37 &lt;span class="m"&gt;2019&lt;/span&gt;-09-23&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="プログラミング"></category><category term="Rust"></category></entry><entry><title>Visual StudioでqDebugのログを表示させる方法</title><link href="https://hachimoto12.com/qDebug_in_VS.html" rel="alternate"></link><published>2019-09-20T00:00:00+09:00</published><updated>2019-09-20T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2019-09-20:/qDebug_in_VS.html</id><content type="html">&lt;h2&gt;問題&lt;/h2&gt;
 &lt;p&gt;Visual Studioを使ってQt5 GUIアプリケーションを作成しているときに、qDebugでログを表示させたかった。
 しかし実行時、Visual Studioの出力ウィンドウでログがでず、ほかに出力ウィンドウに出力されていなかった。&lt;/p&gt;
 &lt;h2&gt;対策&lt;/h2&gt;
