@@ -1,5 +1,213 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>鉢本 一二のブログ</title><link href="https://hachimoto12.com/" rel="alternate"></link><link href="https://hachimoto12.com/feeds/all.atom.xml" rel="self"></link><id>https://hachimoto12.com/</id><updated>2019-11-05T00:00:00+09:00</updated><entry><title>AndroidのTextViewを右寄せにする方法</title><link href="https://hachimoto12.com/android_textview_right_justfit.html" rel="alternate"></link><published>2019-11-05T00:00:00+09:00</published><updated>2019-11-05T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2019-11-05:/android_textview_right_justfit.html</id><content type="html">&lt;p&gt;AndroidでTextViewを右寄せにする方法をメモ。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>鉢本 一二のブログ</title><link href="https://hachimoto12.com/" rel="alternate"></link><link href="https://hachimoto12.com/feeds/all.atom.xml" rel="self"></link><id>https://hachimoto12.com/</id><updated>2020-01-25T00:00:00+09:00</updated><entry><title>Unrealで雨が降った後に波紋を出す</title><link href="https://hachimoto12.com/unreal_particle_rain_repple.html" rel="alternate"></link><published>2020-01-25T00:00:00+09:00</published><updated>2020-01-25T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2020-01-25:/unreal_particle_rain_repple.html</id><summary type="html">&lt;p&gt;ゲームエンジンを使って雨を降らせるというのを行いたいと思い、google先生で調べたところ &lt;a href="http://nn-hokuson.hatenablog.com/entry/2019/07/05/090946"&gt;おもちゃラボさんの【Unity】広重のような雨のエフェクトを作る&lt;/a&gt;が見つかり、雨の感じが自分好みだった。&lt;/p&gt;
+&lt;p&gt;このような雨の降らせ方をUnrealでもできないかと、素人ながらに試行錯誤し、それらしく作れたのでその時の手順をメモした。&lt;/p&gt;
+&lt;h2&gt;環境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Unreal Engin: v4.23.1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;手順&lt;/h2&gt;
+&lt;h3&gt;プロジェクトの作成&lt;/h3&gt;
+&lt;p&gt;とりあえず、プロジェクトを作成。&lt;br&gt;
+プロジェクト名は、&lt;code&gt;Rain_Project&lt;/code&gt;とする。&lt;/p&gt;
+&lt;h3&gt;床の設定&lt;/h3&gt;
+&lt;p&gt;デフォルトの床のマテリアルを変更する。&lt;br&gt;
+&lt;code&gt;Floor&lt;/code&gt;を選択し、マテリアルは&lt;code&gt;M_Floor_01&lt;/code&gt;にする。&lt;br&gt;
+&lt;img alt="床のマテリアルを設定" src="images/2020_01_25_32.png" title="床のマテリアルを設定"&gt;  &lt;/p&gt;
+&lt;h3&gt;雨マテリアルを作成&lt;/h3&gt;
+&lt;p&gt;テクスチャはこのような感じを作成。&lt;br&gt;
+名前は、とりあえず&lt;code&gt;T_Rain&lt;/code&gt;という名前を付けて、Unrealにインポート。&lt;br&gt;
+&lt;img alt="雨のテクスチャ" src="images/2020_01_25_01.png" title="雨のテクスチャ"&gt;  &lt;/p&gt;
+&lt;p&gt;次に雨のマテリアルを作成する。&lt;br&gt;
+マテリアルの名前は、&lt;code&gt;M_Rain&lt;/code&gt;とした。&lt;br&gt;
+&lt;code&gt;M_Rain&lt;/code&gt;を開くと、メインマテリアルが１つある状態となっている。
+&lt;img alt="雨のマテリアル" src="images/2020_01_25_02.png" title="雨のマテリアル"&gt;  &lt;/p&gt;
+&lt;p&gt;メインマテリアルの設定を変更する。&lt;/p&gt;
+&lt;p&gt;詳細タブにある&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Material -&amp;gt; Blend Mode&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;の …&lt;/p&gt;</summary><content type="html">&lt;p&gt;ゲームエンジンを使って雨を降らせるというのを行いたいと思い、google先生で調べたところ &lt;a href="http://nn-hokuson.hatenablog.com/entry/2019/07/05/090946"&gt;おもちゃラボさんの【Unity】広重のような雨のエフェクトを作る&lt;/a&gt;が見つかり、雨の感じが自分好みだった。&lt;/p&gt;
+&lt;p&gt;このような雨の降らせ方をUnrealでもできないかと、素人ながらに試行錯誤し、それらしく作れたのでその時の手順をメモした。&lt;/p&gt;
+&lt;h2&gt;環境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Unreal Engin: v4.23.1&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;手順&lt;/h2&gt;
+&lt;h3&gt;プロジェクトの作成&lt;/h3&gt;
+&lt;p&gt;とりあえず、プロジェクトを作成。&lt;br&gt;
+プロジェクト名は、&lt;code&gt;Rain_Project&lt;/code&gt;とする。&lt;/p&gt;
+&lt;h3&gt;床の設定&lt;/h3&gt;
+&lt;p&gt;デフォルトの床のマテリアルを変更する。&lt;br&gt;
+&lt;code&gt;Floor&lt;/code&gt;を選択し、マテリアルは&lt;code&gt;M_Floor_01&lt;/code&gt;にする。&lt;br&gt;
+&lt;img alt="床のマテリアルを設定" src="images/2020_01_25_32.png" title="床のマテリアルを設定"&gt;  &lt;/p&gt;
+&lt;h3&gt;雨マテリアルを作成&lt;/h3&gt;
+&lt;p&gt;テクスチャはこのような感じを作成。&lt;br&gt;
+名前は、とりあえず&lt;code&gt;T_Rain&lt;/code&gt;という名前を付けて、Unrealにインポート。&lt;br&gt;
+&lt;img alt="雨のテクスチャ" src="images/2020_01_25_01.png" title="雨のテクスチャ"&gt;  &lt;/p&gt;
+&lt;p&gt;次に雨のマテリアルを作成する。&lt;br&gt;
+マテリアルの名前は、&lt;code&gt;M_Rain&lt;/code&gt;とした。&lt;br&gt;
+&lt;code&gt;M_Rain&lt;/code&gt;を開くと、メインマテリアルが１つある状態となっている。
+&lt;img alt="雨のマテリアル" src="images/2020_01_25_02.png" title="雨のマテリアル"&gt;  &lt;/p&gt;
+&lt;p&gt;メインマテリアルの設定を変更する。&lt;/p&gt;
+&lt;p&gt;詳細タブにある&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Material -&amp;gt; Blend Mode&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;の&lt;code&gt;Opacue&lt;/code&gt;を&lt;code&gt;Translucent&lt;/code&gt;に変更。&lt;br&gt;
+&lt;img alt="Translucentに変更" src="images/2020_01_25_03.png" title="Translucentに変更"&gt;  &lt;/p&gt;
+&lt;p&gt;メインマテリアルの詳細に関する設定はこれで終了。&lt;br&gt;
+次に、&lt;code&gt;T_Rain&lt;/code&gt;をマテリアルに適用するため&lt;code&gt;Texture Sample&lt;/code&gt;ノードを追加。
+&lt;img alt="Texture Sampleノードを追加" src="images/2020_01_25_04.png" title="Texture Sampleノードを追加"&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Texture Sample&lt;/code&gt;ノードに&lt;code&gt;T_Rain&lt;/code&gt;を適用する。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Texutre Sample&lt;/code&gt;ノードの詳細タブにある&lt;code&gt;Material Expression Texture Base&lt;/code&gt;の&lt;code&gt;Texture&lt;/code&gt;の項目で&lt;code&gt;T_Rain&lt;/code&gt;を設定する。&lt;br&gt;
+&lt;img alt="T_Rainを設定" src="images/2020_01_25_05.png" title="T_Rainを設定"&gt;  &lt;/p&gt;
+&lt;p&gt;これで&lt;code&gt;Texture Sample&lt;/code&gt;ノードの詳細に関する設定は終了。&lt;br&gt;
+次にノードを繋げていく。  &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Texture Sample&lt;/code&gt;ノードの&lt;code&gt;RGB&lt;/code&gt; -&amp;gt; メインマテリアルの&lt;code&gt;エミッシブルカラー&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Texture Sample&lt;/code&gt;ノードの&lt;code&gt;A&lt;/code&gt; -&amp;gt; メインマテリアルの&lt;code&gt;オパシティ&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;それぞれに接続する。&lt;br&gt;
+&lt;img alt="雨のマテリアル完成系" src="images/2020_01_25_06.png" title="雨マテリアルの完成系"&gt;&lt;br&gt;
+&lt;img alt="雨のマテリアルの結果" src="images/2020_01_25_07.png" title="雨マテリアルの結果"&gt;  &lt;/p&gt;
+&lt;h3&gt;波紋マテリアルを作成&lt;/h3&gt;
+&lt;p&gt;波紋のテクスチャを用意。&lt;br&gt;
+テクスチャ名は、とりあえず&lt;code&gt;T_Repple&lt;/code&gt;という名前にした。&lt;br&gt;
+&lt;img alt="波紋のテクスチャ" src="images/2020_01_25_08.png" title="波紋のテクスチャ"&gt;  &lt;/p&gt;
+&lt;p&gt;波紋のマテリアルを作成する。&lt;br&gt;
+マテリアルの名前は、&lt;code&gt;M_Repple&lt;/code&gt;にした。&lt;br&gt;
+エミッシブルカラーは&lt;code&gt;Texture Sample&lt;/code&gt;とメインマテリアルをそのまま繋ぐが、オパシティは &lt;code&gt;Texture Sample&lt;/code&gt; と &lt;code&gt;Particle Color&lt;/code&gt; を合わせて使用する。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Texture Sample&lt;/code&gt;ノードの&lt;code&gt;Texture&lt;/code&gt;の項目は、&lt;code&gt;T_Repple&lt;/code&gt;を設定  &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;オパシティ&lt;/code&gt;をパーティクル側で調整出来るようにする。&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;Particle Color&lt;/code&gt;を追加  &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Multiply&lt;/code&gt;を追加  &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Texture Sample&lt;/code&gt;の&lt;code&gt;A&lt;/code&gt;と&lt;code&gt;Particle Color&lt;/code&gt;の白を&lt;code&gt;Multiple&lt;/code&gt;の&lt;code&gt;A&lt;/code&gt;と&lt;code&gt;B&lt;/code&gt;に繋げる。&lt;br&gt;
+２つは&lt;code&gt;A&lt;/code&gt;, &lt;code&gt;B&lt;/code&gt;どちらにつないでも問題ない。  &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Multiply&lt;/code&gt;の出力をメインの&lt;code&gt;オパシティ&lt;/code&gt;に繋げる。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;以下がその完成系。&lt;br&gt;
+&lt;img alt="波紋のマテリアル完成系" src="images/2020_01_25_09.png" title="波紋マテリアルの完成系"&gt;&lt;br&gt;
+&lt;img alt="波紋のマテリアルの結果" src="images/2020_01_25_10.png" title="波紋マテリアルの結果"&gt;  &lt;/p&gt;
+&lt;h3&gt;雨を降らせる&lt;/h3&gt;
+&lt;p&gt;雨と波紋それぞれのマテリアルを用意できたので、実際に雨を降らせる。  &lt;/p&gt;
+&lt;p&gt;まず、パーティクルを作成する。&lt;br&gt;
+パーティクルの名前は、&lt;code&gt;Rain_System&lt;/code&gt;という名前を付けた。&lt;br&gt;
+作成した&lt;code&gt;Rain_System&lt;/code&gt;を開くと次のような画面がでてくる。&lt;br&gt;
+&lt;img alt="作成したパーティクルの画面" src="images/2020_01_25_11.png" title="作成したパーティクルの画面"&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Required&lt;/code&gt;や&lt;code&gt;Spawn&lt;/code&gt;というモジュールがあるが、初期のモジュールでは必要なものが無かったり、使わないモジュールがあったりしており、またそれぞれのモジュールの設定などもあるので、なるべく簡潔に説明する。&lt;/p&gt;
+&lt;p&gt;まず、使ったモジュールは以下である。&lt;br&gt;
+&lt;img alt="Rain_Emitterの必要なモジュール" src="images/2020_01_25_12.png" title="Rain_Emitterの必要なモジュール"&gt;  &lt;/p&gt;
+&lt;p&gt;番号順に説明する。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;ここでは、エミッタの名前を変更する。&lt;br&gt;
+&lt;code&gt;Rain Emitter&lt;/code&gt;という名前にする。&lt;br&gt;
+&lt;img alt="エミッタの名前を変更" src="images/2020_01_25_13.png" title="エミッタの名前を変更"&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Required&lt;/code&gt;モジュール。&lt;br&gt;
+マテリアルを設定する。&lt;code&gt;M_Rain&lt;/code&gt;を設定。&lt;br&gt;
+&lt;img alt="マテリアルを変更" src="images/2020_01_25_14.png" title="マテリアルを変更"&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Spawn&lt;/code&gt;モジュール。&lt;br&gt;
+発生させるパーティクルの数を設定する。数は、&lt;code&gt;5000&lt;/code&gt;にする。&lt;br&gt;
+&lt;img alt="Constantの値を設定" src="images/2020_01_25_15.png" title="Constantの値を設定"&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Event Generator&lt;/code&gt;モジュール。&lt;br&gt;
+パーティクル衝突時に、イベントを生成するようにする。&lt;br&gt;
+このモジュールは、この後説明する&lt;code&gt;波紋を表示&lt;/code&gt;のために必要になってくる。  &lt;ul&gt;
+&lt;li&gt;最初に&lt;code&gt;+&lt;/code&gt;ボタンでイベントを1つ追加する。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Type&lt;/code&gt;を&lt;code&gt;コリジョン&lt;/code&gt;に設定する。
+イベントの発生条件を床と雨が衝突したときにイベントを発生させるため。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CustomName&lt;/code&gt;を&lt;code&gt;onKilledRain&lt;/code&gt;と入力。&lt;br&gt;
+通知するイベント名は、まぁ雨がkillした後のイベントということで。&lt;br&gt;
+&lt;img alt="Constantの値を設定" src="images/2020_01_25_16.png" title="Constantの値を設定"&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Lifetime&lt;/code&gt;モジュール。&lt;br&gt;
+雨のライフタイムを設定。&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;min&lt;/code&gt;は&lt;code&gt;0.0&lt;/code&gt;を設定&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;max&lt;/code&gt;は&lt;code&gt;0.3&lt;/code&gt;を設定&lt;br&gt;
+&lt;img alt="Lifetimeの設定" src="images/2020_01_25_17.png" title="Lifetimeの設定"&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Initial Size&lt;/code&gt;モジュール。&lt;br&gt;
+特に何もしない。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Initial Location&lt;/code&gt;モジュール。&lt;br&gt;
+雨を降らせる範囲を設定。&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Distribution&lt;/code&gt;は&lt;code&gt;Distribution Vector Uniform&lt;/code&gt;にする。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;max&lt;/code&gt;は、x=&lt;code&gt;500&lt;/code&gt;, y=&lt;code&gt;500&lt;/code&gt;, z=&lt;code&gt;500&lt;/code&gt;を設定&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;min&lt;/code&gt;は、x=&lt;code&gt;-500&lt;/code&gt;, y=&lt;code&gt;-500&lt;/code&gt;, z=&lt;code&gt;-0.1&lt;/code&gt;を設定&lt;br&gt;
+&lt;img alt="パーティクルの範囲設定" src="images/2020_01_25_18.png" title="パーティクルの範囲設定"&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Const Acceleration&lt;/code&gt;モジュール。&lt;br&gt;
+雨が降る速度を変更。&lt;br&gt;
+パーティクルを下に移動させるため、マイナスの数字を入力する。&lt;code&gt;z&lt;/code&gt;に&lt;code&gt;-5000&lt;/code&gt;を入力。&lt;br&gt;
+&lt;img alt="雨の降るスピードを設定" src="images/2020_01_25_19.png" title="雨の降るスピードを設定"&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Actor Collision&lt;/code&gt;モジュール。&lt;br&gt;
+これは特になにもしない。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Lock Axis&lt;/code&gt;モジュール。これを設定しないと、カメラの向きを変えたときなど雨の降り方がおかしなことになる。&lt;br&gt;
+&lt;code&gt;Lock Axis Flags&lt;/code&gt;の設定を&lt;code&gt;Rotate Z&lt;/code&gt;を指定する。&lt;br&gt;
+&lt;img alt="回転を抑制" src="images/2020_01_25_20.png" title="回転を抑制"&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;ここで、一旦設定したパーティクル&lt;code&gt;Rain_System&lt;/code&gt;をビューポートに設置する。 &lt;br&gt;
+&lt;code&gt;Rain_System&lt;/code&gt;の位置は、xyzともに &lt;code&gt;0&lt;/code&gt; にした。次の図のように雨が降ってくるようになった。&lt;br&gt;
+&lt;img alt="ビューポートに設置" src="images/2020_01_25_21.png" title="ビューポートに設置"&gt;&lt;/p&gt;
+&lt;h3&gt;波紋を表示&lt;/h3&gt;
+&lt;p&gt;波紋の表示のタイミングは、雨が降る -&amp;gt; 床に当たる -&amp;gt; 波紋を表示、というふうにしたい。&lt;br&gt;
+エミッタは左から右に実行されるので、&lt;code&gt;Rain Emitter&lt;/code&gt;の右側に波紋用のエミッタを作成する。  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="波紋用のエミッタを作成" src="images/2020_01_25_22.png" title="波紋用のエミッタを作成"&gt;&lt;/p&gt;
+&lt;p&gt;波紋を表示させるために、使ったモジュールは以下である。&lt;br&gt;
+&lt;img alt="必要なモジュール" src="images/2020_01_25_23.png" title="必要なモジュール"&gt;  &lt;/p&gt;
+&lt;p&gt;番号順に説明する。  &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;Required&lt;/code&gt;モジュール。&lt;br&gt;
+ここでは、マテリアルを&lt;code&gt;M_Repple&lt;/code&gt;に変更する。&lt;br&gt;
+&lt;img alt="マテリアルを変更" src="images/2020_01_25_24.png" title="マテリアルを変更"&gt;  &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Spawn&lt;/code&gt;モジュール。&lt;br&gt;
+このモジュールで、波紋をスポーンしない。なので、数は&lt;code&gt;0&lt;/code&gt;にする。&lt;br&gt;
+&lt;img alt="Constantの値を設定" src="images/2020_01_25_25.png" title="Constantの値を設定"&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;EventReceiver Spawn&lt;/code&gt;モジュール。&lt;br&gt;
+雨の&lt;code&gt;Event Generator&lt;/code&gt;モジュールが発行したイベントを受け取り、パーティクルをスポーンする。&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Constant&lt;/code&gt;に１を設定。&lt;br&gt;
+なぜ1かというと、雨1粒につき波紋を1つだけスポーンさせたいため&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Source&lt;/code&gt;&lt;br&gt;
+ここでは、上記の雨で設定した&lt;code&gt;Event Generator&lt;/code&gt;モジュールの値と同じものを入力する。&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;Event Generator Type&lt;/code&gt;は、&lt;code&gt;コリジョン&lt;/code&gt;を設定&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Event Name&lt;/code&gt;は、&lt;code&gt;onKilledRain&lt;/code&gt;を入力&lt;br&gt;
+&lt;img alt="Constantの値を設定" src="images/2020_01_25_26.png" title="Constantの値を設定"&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Lifetime&lt;/code&gt;モジュール&lt;br&gt;
+波紋のライフタイムを設定。&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;min&lt;/code&gt;は&lt;code&gt;0.0&lt;/code&gt;を設定&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;max&lt;/code&gt;は&lt;code&gt;2.0&lt;/code&gt;を設定&lt;br&gt;
+&lt;img alt="Lifetimeの設定" src="images/2020_01_25_27.png" title="Lifetimeの設定"&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Initial Location&lt;/code&gt;モジュール&lt;br&gt;
+波紋を表示させる位置について、&lt;code&gt;XY&lt;/code&gt;について設定はしない。&lt;br&gt;
+ただし、&lt;code&gt;Z&lt;/code&gt;が&lt;code&gt;0&lt;/code&gt;のままでは、床の上部分と座標が被り波紋の線がはっきりとしない。&lt;br&gt;
+波紋を表示させる高さを変える。一応床より少し上にする。  &lt;br&gt;
+&lt;code&gt;Max&lt;/code&gt;と&lt;code&gt;Min&lt;/code&gt;の&lt;code&gt;Z&lt;/code&gt;に&lt;code&gt;0.01&lt;/code&gt;を入力。&lt;br&gt;
+&lt;img alt="高さの設定" src="images/2020_01_25_28.png" title="高さの設定"&gt;  &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Initial Size&lt;/code&gt;モジュール&lt;br&gt;
+特に何もしない。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Color Over Life&lt;/code&gt;モジュール&lt;br&gt;
+徐々に波紋が消えるように色を設定する。&lt;br&gt;
+基本、追加時の初期設定で徐々に消えるようになっているので、特に何もしない。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Size By Life&lt;/code&gt;モジュール。&lt;br&gt;
+波紋が徐々に広がるようにするために使用。&lt;br&gt;
+&lt;code&gt;Points&lt;/code&gt; -&amp;gt; &lt;code&gt;0&lt;/code&gt; -&amp;gt; &lt;code&gt;Out Val&lt;/code&gt; の&lt;code&gt;X&lt;/code&gt;, &lt;code&gt;Y&lt;/code&gt;, &lt;code&gt;Z&lt;/code&gt;に&lt;code&gt;0&lt;/code&gt;を入力。  &lt;br&gt;
+&lt;img alt="Size By Lifeの設定" src="images/2020_01_25_29.png" title="Size By Lifeの設定"&gt;  &lt;/li&gt;
+&lt;li&gt;&lt;code&gt;Lock Axis&lt;/code&gt;モジュール&lt;br&gt;
+これを設定しないと、波紋が縦に表示される。&lt;br&gt;
+なので、&lt;code&gt;Lock Axis Flags&lt;/code&gt;を&lt;code&gt;Z&lt;/code&gt;にする。&lt;br&gt;
+&lt;img alt="Lock Axis Flagsの設定" src="images/2020_01_25_30.png" title="SLock Axis Flagsの設定"&gt;  &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;すべての設定は完了したので、ビューポートで確認。&lt;br&gt;
+&lt;img alt="ビューポート確認" src="images/2020_01_25_31.png" title="ビューポート確認"&gt;  &lt;/p&gt;</content><category term="3D"></category><category term="Unreal"></category><category term="作り方"></category></entry><entry><title>AndroidのTextViewを右寄せにする方法</title><link href="https://hachimoto12.com/android_textview_right_justfit.html" rel="alternate"></link><published>2019-11-05T00:00:00+09:00</published><updated>2019-11-05T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2019-11-05:/android_textview_right_justfit.html</id><content type="html">&lt;p&gt;AndroidでTextViewを右寄せにする方法をメモ。&lt;/p&gt;
 &lt;h2&gt;環境&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Android Studio : 3.5.2&lt;/li&gt;
@@ -211,14 +419,16 @@ envファイルを使ってを起動時にRustを実行できるようにする�
 &lt;h2&gt;問題&lt;/h2&gt;
 &lt;p&gt;スケッチを書き込もうとしたら失敗。
 失敗したときのログ&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[&lt;span class="nv"&gt;Starting&lt;/span&gt;] &lt;span class="nv"&gt;Upload&lt;/span&gt; &lt;span class="nv"&gt;sketch&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;01&lt;/span&gt;\&lt;span class="mi"&gt;01&lt;/span&gt;.&lt;span class="nv"&gt;ino&lt;/span&gt;
-[&lt;span class="nv"&gt;Warning&lt;/span&gt;] &lt;span class="nv"&gt;Output&lt;/span&gt; &lt;span class="nv"&gt;path&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;not&lt;/span&gt; &lt;span class="nv"&gt;specified&lt;/span&gt;. &lt;span class="nv"&gt;Unable&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;reuse&lt;/span&gt; &lt;span class="nv"&gt;previously&lt;/span&gt; &lt;span class="nv"&gt;compiled&lt;/span&gt; &lt;span class="nv"&gt;files&lt;/span&gt;. &lt;span class="nv"&gt;Upload&lt;/span&gt; &lt;span class="nv"&gt;could&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;slow&lt;/span&gt;. &lt;span class="nv"&gt;See&lt;/span&gt; &lt;span class="nv"&gt;README&lt;/span&gt;.
-構成をロード中…
-パッケージを初期化中…
-ボードを準備中…
-検証中…
-最大&lt;span class="mi"&gt;1310720&lt;/span&gt;バイトのフラッシュメモリのうち、スケッチが&lt;span class="mi"&gt;255788&lt;/span&gt;バイト（&lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;）を使っています。
-最大&lt;span class="mi"&gt;327680&lt;/span&gt;バイトの&lt;span class="nv"&gt;RAM …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;マイコン初めて数か月の初心者のメモ。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Starting&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Upload&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sketch&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;01&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="mf"&gt;01.&lt;/span&gt;&lt;span class="n"&gt;ino&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Warning&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;Output&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;path&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;is&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;not&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;specified&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Unable&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;reuse&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;previously&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;compiled&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Upload&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;could&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;be&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;slow&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;See&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;README&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;構成をロード中&lt;/span&gt;&lt;span class="err"&gt;…&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;パッケージを初期化中&lt;/span&gt;&lt;span class="err"&gt;…&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;ボードを準備中&lt;/span&gt;&lt;span class="err"&gt;…&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;検証中&lt;/span&gt;&lt;span class="err"&gt;…&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;最大1310720バイトのフラッシュメモリのうち&lt;/span&gt;&lt;span class="err"&gt;、&lt;/span&gt;&lt;span class="n"&gt;スケッチが255788バイト&lt;/span&gt;&lt;span class="err"&gt;（&lt;/span&gt;&lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="err"&gt;）&lt;/span&gt;&lt;span class="n"&gt;を使っています&lt;/span&gt;&lt;span class="err"&gt;。&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;最大327680バイトのRAMのうち&lt;/span&gt;&lt;span class="err"&gt;、&lt;/span&gt;&lt;span class="n"&gt;グローバル変数が13932バイト&lt;/span&gt;&lt;span class="err"&gt;（&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="err"&gt;）&lt;/span&gt;&lt;span class="n"&gt;を使っていて&lt;/span&gt;&lt;span class="err"&gt;、&lt;/span&gt;&lt;span class="n"&gt;ローカル変数で313748バイト使うことができます&lt;/span&gt;&lt;span class="err"&gt;。&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;マイコンボードに書き込んでいます&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;esptool&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;マイコン初めて数か月の初心者のメモ。&lt;/p&gt;
 &lt;h2&gt;環境&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Windows 10&lt;/li&gt;
@@ -227,22 +437,22 @@ envファイルを使ってを起動時にRustを実行できるようにする�
 &lt;h2&gt;問題&lt;/h2&gt;
 &lt;p&gt;スケッチを書き込もうとしたら失敗。
 失敗したときのログ&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[&lt;span class="nv"&gt;Starting&lt;/span&gt;] &lt;span class="nv"&gt;Upload&lt;/span&gt; &lt;span class="nv"&gt;sketch&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="mi"&gt;01&lt;/span&gt;\&lt;span class="mi"&gt;01&lt;/span&gt;.&lt;span class="nv"&gt;ino&lt;/span&gt;
-[&lt;span class="nv"&gt;Warning&lt;/span&gt;] &lt;span class="nv"&gt;Output&lt;/span&gt; &lt;span class="nv"&gt;path&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;not&lt;/span&gt; &lt;span class="nv"&gt;specified&lt;/span&gt;. &lt;span class="nv"&gt;Unable&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;reuse&lt;/span&gt; &lt;span class="nv"&gt;previously&lt;/span&gt; &lt;span class="nv"&gt;compiled&lt;/span&gt; &lt;span class="nv"&gt;files&lt;/span&gt;. &lt;span class="nv"&gt;Upload&lt;/span&gt; &lt;span class="nv"&gt;could&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;slow&lt;/span&gt;. &lt;span class="nv"&gt;See&lt;/span&gt; &lt;span class="nv"&gt;README&lt;/span&gt;.
-構成をロード中…
-パッケージを初期化中…
-ボードを準備中…
-検証中…
-最大&lt;span class="mi"&gt;1310720&lt;/span&gt;バイトのフラッシュメモリのうち、スケッチが&lt;span class="mi"&gt;255788&lt;/span&gt;バイト（&lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;）を使っています。
-最大&lt;span class="mi"&gt;327680&lt;/span&gt;バイトの&lt;span class="nv"&gt;RAM&lt;/span&gt;のうち、グローバル変数が&lt;span class="mi"&gt;13932&lt;/span&gt;バイト（&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;）を使っていて、ローカル変数で&lt;span class="mi"&gt;313748&lt;/span&gt;バイト使うことができます。
-マイコンボードに書き込んでいます...
-&lt;span class="nv"&gt;esptool&lt;/span&gt;.&lt;span class="nv"&gt;py&lt;/span&gt; &lt;span class="nv"&gt;v2&lt;/span&gt;.&lt;span class="mi"&gt;6&lt;/span&gt;
-&lt;span class="nv"&gt;Serial&lt;/span&gt; &lt;span class="nv"&gt;port&lt;/span&gt; &lt;span class="nv"&gt;COM4&lt;/span&gt;
-&lt;span class="nv"&gt;Connecting&lt;/span&gt;........&lt;span class="nv"&gt;_____&lt;/span&gt;.....&lt;span class="nv"&gt;_____&lt;/span&gt;.....&lt;span class="nv"&gt;_____&lt;/span&gt;.....&lt;span class="nv"&gt;_____&lt;/span&gt;.....&lt;span class="nv"&gt;_____&lt;/span&gt;.....&lt;span class="nv"&gt;_____&lt;/span&gt;.....&lt;span class="nv"&gt;_____&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Starting&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Upload&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sketch&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;01&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="mf"&gt;01.&lt;/span&gt;&lt;span class="n"&gt;ino&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Warning&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;Output&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;path&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;is&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;not&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;specified&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Unable&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;reuse&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;previously&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;compiled&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Upload&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;could&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;be&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;slow&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;See&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;README&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;構成をロード中&lt;/span&gt;&lt;span class="err"&gt;…&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;パッケージを初期化中&lt;/span&gt;&lt;span class="err"&gt;…&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;ボードを準備中&lt;/span&gt;&lt;span class="err"&gt;…&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;検証中&lt;/span&gt;&lt;span class="err"&gt;…&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;最大1310720バイトのフラッシュメモリのうち&lt;/span&gt;&lt;span class="err"&gt;、&lt;/span&gt;&lt;span class="n"&gt;スケッチが255788バイト&lt;/span&gt;&lt;span class="err"&gt;（&lt;/span&gt;&lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="err"&gt;）&lt;/span&gt;&lt;span class="n"&gt;を使っています&lt;/span&gt;&lt;span class="err"&gt;。&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;最大327680バイトのRAMのうち&lt;/span&gt;&lt;span class="err"&gt;、&lt;/span&gt;&lt;span class="n"&gt;グローバル変数が13932バイト&lt;/span&gt;&lt;span class="err"&gt;（&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="err"&gt;）&lt;/span&gt;&lt;span class="n"&gt;を使っていて&lt;/span&gt;&lt;span class="err"&gt;、&lt;/span&gt;&lt;span class="n"&gt;ローカル変数で313748バイト使うことができます&lt;/span&gt;&lt;span class="err"&gt;。&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;マイコンボードに書き込んでいます&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;esptool&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;v2&lt;/span&gt;&lt;span class="mf"&gt;.6&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;Serial&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;port&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;COM4&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;Connecting&lt;/span&gt;&lt;span class="p"&gt;........&lt;/span&gt;&lt;span class="n"&gt;_____&lt;/span&gt;&lt;span class="p"&gt;.....&lt;/span&gt;&lt;span class="n"&gt;_____&lt;/span&gt;&lt;span class="p"&gt;.....&lt;/span&gt;&lt;span class="n"&gt;_____&lt;/span&gt;&lt;span class="p"&gt;.....&lt;/span&gt;&lt;span class="n"&gt;_____&lt;/span&gt;&lt;span class="p"&gt;.....&lt;/span&gt;&lt;span class="n"&gt;_____&lt;/span&gt;&lt;span class="p"&gt;.....&lt;/span&gt;&lt;span class="n"&gt;_____&lt;/span&gt;&lt;span class="p"&gt;.....&lt;/span&gt;&lt;span class="n"&gt;_____&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 
-&lt;span class="nv"&gt;A&lt;/span&gt; &lt;span class="nv"&gt;fatal&lt;/span&gt; &lt;span class="nv"&gt;error&lt;/span&gt; &lt;span class="nv"&gt;occurred&lt;/span&gt;: &lt;span class="nv"&gt;Failed&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="k"&gt;connect&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;ESP32&lt;/span&gt;: &lt;span class="nv"&gt;Timed&lt;/span&gt; &lt;span class="nv"&gt;out&lt;/span&gt; &lt;span class="nv"&gt;waiting&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;packet&lt;/span&gt; &lt;span class="nv"&gt;header&lt;/span&gt;
-スケッチの書き込み中にエラーが発生しました
-[&lt;span class="nv"&gt;Error&lt;/span&gt;] &lt;span class="k"&gt;Exit&lt;/span&gt; &lt;span class="nv"&gt;with&lt;/span&gt; &lt;span class="nv"&gt;code&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;fatal&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;error&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nl"&gt;occurred&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Failed&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;connect&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nl"&gt;ESP32&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Timed&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;out&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;waiting&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;packet&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;header&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;スケッチの書き込み中にエラーが発生しました&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Error&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;Exit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;with&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -252,8 +462,8 @@ envファイルを使ってを起動時にRustを実行できるようにする�
 &lt;p&gt;Connectingが表示されたらRESETボタンを押しっぱなしにする。
 Writtingが始まったら離す。
 最後に&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Leaving&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;
-&lt;span class="n"&gt;Hard&lt;/span&gt; &lt;span class="n"&gt;resetting&lt;/span&gt; &lt;span class="n"&gt;via&lt;/span&gt; &lt;span class="n"&gt;RTS&lt;/span&gt; &lt;span class="n"&gt;pin&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;Leaving...&lt;/span&gt;
+&lt;span class="err"&gt;Hard resetting via RTS pin...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
