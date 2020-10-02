@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <!-- icon -->
+        <link rel="shortcut icon" href="https://hachimoto12.com/theme/images/favicon.ico"/>
+        <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="https://hachimoto12.com/theme/images/icon180.png">
+        <link rel="icon" type="image/png" href="https://hachimoto12.com/theme/images/icon256.png">        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-150670088-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-150670088-1');
+        </script>        <meta charset=utf-8>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0" />
+        <!-- ogp -->
+        <meta property="og:type" content="website"/>        <meta property="og:title" content="OpenGLのマウス操作の実装メモ | 鉢本　一二のブログ"/>
+        <meta property="og:url" content="https://hachimoto12.com/OpenGL_Camera.html" />        <meta property="og:site_name" content="鉢本　一二のブログ" />
+        <!--
+        <title>鉢本　一二のブログ</title>
+        -->        <title>OpenGLのマウス操作の実装メモ | 鉢本　一二のブログ</title>        <link rel="stylesheet" type="text/css" href="https://hachimoto12.com/theme/css/stylesheet.css" /><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://hachimoto12.com/theme/css/pygment.css" />
+<style type="text/css">
+.content {
+    margin: 30px;
+}
+.title {
+    margin-bottom: 2em;
+    text-align: left;
+}
+.info {
+    margin: 2em auto;
+}
+.section {
+    margin-top: 2em;
+}
+.section h2, .section h3 {
+    margin: 2em auto;
+    padding: 0.7em 0 0.7em 1em;
+}
+.section h2 {
+    border-left: 10px solid rgb(66, 66, 66);
+    border-bottom: 2px solid rgb(66, 66, 66);
+}
+.section h3 {
+    border-left: 5px solid rgb(66, 66, 66);
+}
+.section ul, .section ol {
+    margin: 0.7em 1em;
+}
+.section li {
+    margin: 0.7em auto;
+}
+.section dl {
+    margin: 1em auto;
+}
+.section dd {
+    margin-left: 1em;
+}
+.highlight pre {
+    margin: 2em auto;
+    padding: 1em auto;
+    font-family: "Source Han Code JP", sans-serif;
+    font-size: 0.8em;
+    line-height: 1.5em;
+    overflow: auto;
+}
+.note {
+    border: 2px solid rgb(66, 66, 66);
+    border-radius: 5px;
+}
+.warning {
+    /*border: 2px solid rgb(66, 66, 66);*/
+    border: 2px solid rgb(200, 60, 50);
+    border-radius: 5px;
+}
+.admonition {
+    margin: 2em auto;
+    padding: 0.7em;
+}
+.admonition-title {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.warning .admonition-title {
+    color: rgb(200, 60, 50);
+}
+</style>    </head>
+    <body>
+        <div class="wrapper">
+            <header class="header">
+                <h1 class="header-title" ontouchstart="">
+                    <a href="https://hachimoto12.com/">
+                        <strong>鉢本　一二のブログ</strong>
+                    </a>
+                </h1>
+            </header>
+            <nav class="navigation" ontouchstart="">
+                <ul>
+                    <li>
+                       <a href="https://hachimoto12.com/">
+                           Top
+                       </a>
+                    </li>
+                    <li>
+                        <a href="https://hachimoto12.com/archives.html">
+                            アーカイブ
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/categories.html">
+                            カテゴリ
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://hachimoto12.com/tags.html">
+                            タグ
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="left-area"></div>
+            <main class="content" ontouchstart=""><h1 class="title">OpenGLのマウス操作の実装メモ</h1>
+<div class="info">
+    <div>
+        作成日 : <time datetime="2020-10-02T00:00:00+09:00">2020/10/02</time>
+    </div>
+    <div>
+        更新日 : <time datetime="2020-10-02T00:00:00+09:00">2020/10/02</time>
+    </div>
+    <div class="category-item">
+        <i class="material-icons">folder</i>
+        ：        <a href="https://hachimoto12.com/category/programming.html" class="category">
+            プログラミング
+        </a>    </div>
+        <div class="tag-list">
+        <i class="material-icons">
+            local_offer
+        </i>
+        ：        <a href="/tag/opengl.html" class="tag">OpenGL</a>    </div>
+</div><p>3D画面をマウス操作したときのカメラの動きの実装をメモ。 <br>
+自分的にはいい感じに動いているが、もしかしたら間違いがあるかもしれない。  </p>
+<p>カメラは以下のようにした場合の実装のメモとなっている。  </p>
+<div class="highlight"><pre><span></span><span class="k">struct</span> <span class="n">Camera</span>
+<span class="p">{</span>
+    <span class="k">enum</span> <span class="n">ZoomType</span>
+    <span class="p">{</span>
+        <span class="n">IN</span><span class="p">,</span>
+        <span class="n">OUT</span><span class="p">,</span>
+    <span class="p">};</span>
+
+    <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span> <span class="c1">// 位置</span>
+    <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span> <span class="n">center</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>    <span class="c1">// 注視点</span>
+    <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span> <span class="n">up</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>  <span class="c1">// 上方向</span>
+    <span class="n">glm</span><span class="o">::</span><span class="n">uvec2</span> <span class="n">size</span><span class="p">;</span>  <span class="c1">// ウィンドウサイズ</span>
+
+    <span class="kt">void</span> <span class="nf">zoom</span><span class="p">(</span><span class="n">ZoomType</span> <span class="n">type</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="nf">move</span><span class="p">(</span><span class="k">const</span> <span class="n">glm</span><span class="o">::</span><span class="n">dvec2</span><span class="o">&amp;</span> <span class="n">mouse_pos0</span><span class="p">,</span> <span class="k">const</span> <span class="n">glm</span><span class="o">::</span><span class="n">dvec2</span><span class="o">&amp;</span> <span class="n">mouse_pos1</span><span class="p">)</span> <span class="k">noexcept</span><span class="p">;</span>
+    <span class="kt">void</span> <span class="nf">revolution</span><span class="p">(</span><span class="k">const</span> <span class="n">glm</span><span class="o">::</span><span class="n">dvec2</span><span class="o">&amp;</span> <span class="n">old_cursor_pos</span><span class="p">,</span> <span class="k">const</span> <span class="n">glm</span><span class="o">::</span><span class="n">dvec2</span><span class="o">&amp;</span> <span class="n">new_cursor_pos</span><span class="p">)</span> <span class="k">noexcept</span>
+<span class="p">};</span>    
+</pre></div>
+
+
+<h2>ズーム</h2>
+<p>ズームは、カメラの注視点(center) に向かってに カメラの位置(pos) を移動させるようにした。</p>
+<h3>ズームイン</h3>
+<p>ズームインは、カメラの位置(pos) が カメラの注視点(center) へ近づく</p>
+<p><img alt="ズームイン" src="images/2020_10_02_01.png" title="ズームイン">  </p>
+<h3>ズームアウト</h3>
+<p>ズームアウトは、カメラの位置(pos) が カメラの注視点(center) から離れる</p>
+<p><img alt="ズームアウト" src="images/2020_10_02_02.png" title="ズームアウト">  </p>
+<h3>実装</h3>
+<div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">Camera</span><span class="o">::</span><span class="n">zoom</span><span class="p">(</span><span class="n">ZoomType</span> <span class="n">type</span><span class="p">)</span> <span class="k">noexcept</span>
+<span class="p">{</span>
+    <span class="k">auto</span> <span class="n">d</span> <span class="o">=</span> <span class="mf">1.0f</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">type</span> <span class="o">==</span> <span class="n">ZoomType</span><span class="o">::</span><span class="n">IN</span><span class="p">)</span> <span class="n">d</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0f</span><span class="p">;</span>  <span class="c1">// ズームインだと近づくのでマイナスにする</span>
+
+    <span class="c1">// 移動方向を求める</span>
+    <span class="k">const</span> <span class="k">auto</span> <span class="n">dir</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">normalize</span><span class="p">(</span><span class="n">pos</span> <span class="o">-</span> <span class="n">center</span><span class="p">);</span>
+
+    <span class="c1">// 新しい位置を求める</span>
+    <span class="k">const</span> <span class="k">auto</span> <span class="n">mouse_pos1</span> <span class="o">=</span> <span class="n">pos</span> <span class="o">+</span> <span class="n">dir</span> <span class="o">*</span> <span class="n">d</span><span class="p">;</span>
+
+    <span class="c1">// カメラがズームインできる最小値を設定. 0.3fは適当に設定</span>
+    <span class="c1">// ズームアウトは今回とくに制限を設けない</span>
+    <span class="k">const</span> <span class="kt">float</span> <span class="n">min_near</span> <span class="o">=</span> <span class="n">znear</span> <span class="o">+</span> <span class="mf">0.3f</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">glm</span><span class="o">::</span><span class="n">distance</span><span class="p">(</span><span class="n">mouse_pos1</span><span class="p">,</span> <span class="n">center</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">min_near</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">pos</span> <span class="o">=</span> <span class="n">mouse_pos1</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2>移動</h2>
+<p>カメラの移動は、カメラの位置(pos)と注視点(center)が共に移動するように実装する。  </p>
+<h3>実装</h3>
+<div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">Camera</span><span class="o">::</span><span class="n">move</span><span class="p">(</span><span class="k">const</span> <span class="n">glm</span><span class="o">::</span><span class="n">dvec2</span><span class="o">&amp;</span> <span class="n">mouse_pos0</span><span class="p">,</span> <span class="k">const</span> <span class="n">glm</span><span class="o">::</span><span class="n">dvec2</span><span class="o">&amp;</span> <span class="n">mouse_pos1</span><span class="p">)</span> <span class="k">noexcept</span>
+<span class="p">{</span>
+    <span class="k">const</span> <span class="k">auto</span> <span class="n">view</span> <span class="o">=</span> <span class="n">viewMatrix</span><span class="p">();</span>
+    <span class="k">const</span> <span class="k">auto</span> <span class="n">proj</span> <span class="o">=</span> <span class="n">projectionMatrix</span><span class="p">();</span>
+    <span class="k">const</span> <span class="k">auto</span> <span class="n">viewport</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">vec4</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">size</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">size</span><span class="p">.</span><span class="n">y</span><span class="p">);</span>
+
+    <span class="c1">// マウス座標をワールド座標に変換</span>
+    <span class="k">const</span> <span class="k">auto</span> <span class="n">p0</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">unProject</span><span class="p">(</span>
+        <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="p">(</span><span class="n">mouse_pos0</span><span class="p">.</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">mouse_pos0</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">mouse_pos0</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">mouse_pos0</span><span class="p">.</span><span class="n">y</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+        <span class="n">view</span><span class="p">,</span> <span class="n">proj</span><span class="p">,</span> <span class="n">viewport</span>
+    <span class="p">);</span>
+    <span class="k">const</span> <span class="k">auto</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">unProject</span><span class="p">(</span>
+        <span class="n">glm</span><span class="o">::</span><span class="n">vec3</span><span class="p">(</span><span class="n">mouse_pos1</span><span class="p">.</span><span class="n">x</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">mouse_pos1</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">mouse_pos1</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">mouse_pos1</span><span class="p">.</span><span class="n">y</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+        <span class="n">view</span><span class="p">,</span> <span class="n">proj</span><span class="p">,</span> <span class="n">viewport</span>
+    <span class="p">);</span>
+
+    <span class="c1">// マウス移動した分をカメラの位置と注視点に追加</span>
+    <span class="k">constexpr</span> <span class="kt">float</span> <span class="n">SPEED</span> <span class="o">=</span> <span class="mf">30.0f</span><span class="p">;</span>
+    <span class="k">const</span> <span class="k">auto</span> <span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="n">p1</span> <span class="o">-</span> <span class="n">p0</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">glm</span><span class="o">::</span><span class="n">distance</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">pos</span><span class="p">)</span> <span class="o">*</span> <span class="n">SPEED</span><span class="p">);</span>
+    <span class="n">pos</span> <span class="o">+=</span> <span class="n">d</span><span class="p">;</span>
+    <span class="n">center</span> <span class="o">+=</span> <span class="n">d</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<h2>回転</h2>
+<p>カメラの回転は、注視点(center)を中心とした球体に沿ってカメラが移動するようにする。<br>
+この時、カメラの位置(pos)と上方向(up)が変化する。<br>
+<code>球面座標</code> で求められるらしい。<br>
+よくわかっていない。参考にしたサイトがあったがメモするのを忘れてしまった。  </p>
+<p><img alt="回転" src="images/2020_10_02_03.png" title="回転">  </p>
+<p>とりあえず、ソースコードを乗っける。</p>
+<h3>実装</h3>
+<div class="highlight"><pre><span></span><span class="kt">void</span> <span class="n">Camera</span><span class="o">::</span><span class="n">revolution</span><span class="p">(</span><span class="k">const</span> <span class="n">glm</span><span class="o">::</span><span class="n">dvec2</span><span class="o">&amp;</span> <span class="n">mouse_pos0</span><span class="p">,</span> <span class="k">const</span> <span class="n">glm</span><span class="o">::</span><span class="n">dvec2</span><span class="o">&amp;</span> <span class="n">mouse_pos1</span><span class="p">)</span> <span class="k">noexcept</span>
+<span class="p">{</span>
+    <span class="k">constexpr</span> <span class="k">auto</span> <span class="n">SPEED</span> <span class="o">=</span> <span class="mf">10.0f</span><span class="p">;</span>
+
+    <span class="k">const</span> <span class="k">auto</span> <span class="n">u</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">normalize</span><span class="p">(</span><span class="n">up</span><span class="p">);</span>
+    <span class="k">const</span> <span class="k">auto</span> <span class="n">w</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">normalize</span><span class="p">(</span><span class="n">glm</span><span class="o">::</span><span class="n">cross</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">pos</span><span class="p">));</span>
+
+    <span class="k">const</span> <span class="kt">float</span> <span class="n">theta_u</span> <span class="o">=</span> <span class="p">(</span><span class="n">mouse_pos0</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">mouse_pos1</span><span class="p">.</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">SPEED</span><span class="p">;</span>
+    <span class="k">auto</span> <span class="n">q</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">angleAxis</span><span class="p">(</span><span class="n">glm</span><span class="o">::</span><span class="n">radians</span><span class="p">(</span><span class="n">theta_u</span><span class="p">),</span> <span class="n">u</span><span class="p">);</span>
+    <span class="k">auto</span> <span class="n">tmp_pos</span> <span class="o">=</span> <span class="n">q</span> <span class="o">*</span> <span class="n">pos</span> <span class="o">*</span> <span class="n">glm</span><span class="o">::</span><span class="n">conjugate</span><span class="p">(</span><span class="n">q</span><span class="p">);</span>
+
+    <span class="k">const</span> <span class="kt">float</span> <span class="n">theta_w</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">mouse_pos1</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">mouse_pos0</span><span class="p">.</span><span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="n">SPEED</span><span class="p">;</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">angleAxis</span><span class="p">(</span><span class="n">glm</span><span class="o">::</span><span class="n">radians</span><span class="p">(</span><span class="n">theta_w</span><span class="p">),</span> <span class="n">w</span><span class="p">);</span>
+    <span class="k">const</span> <span class="k">auto</span> <span class="n">p</span> <span class="o">=</span> <span class="n">glm</span><span class="o">::</span><span class="n">conjugate</span><span class="p">(</span><span class="n">q</span><span class="p">);</span>
+    <span class="n">tmp_pos</span> <span class="o">=</span> <span class="n">q</span> <span class="o">*</span> <span class="n">tmp_pos</span> <span class="o">*</span> <span class="n">p</span><span class="p">;</span>
+
+    <span class="n">pos</span> <span class="o">=</span> <span class="n">tmp_pos</span><span class="p">;</span>
+    <span class="n">up</span> <span class="o">=</span> <span class="n">q</span> <span class="o">*</span> <span class="n">up</span> <span class="o">*</span> <span class="n">p</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div><p>
+<br>
+<br>
+<br>
+</p>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://bo-ben-yi-er-noburogu-1.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>            </main>
+            <div class="right-area"></div>
+            <footer class="footer">
+                <span class="copyright">
+                    (c) 2019 鉢本　一二
+                </span>
+            </footer>
+        </div>        <script id="dsq-count-scr" src="//bo-ben-yi-er-noburogu-1.disqus.com/count.js" async></script>    </body>
+</html>

@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="ja">
-    <head>        <!-- Global site tag (gtag.js) - Google Analytics -->
+    <head>
+        <!-- icon -->
+        <link rel="shortcut icon" href="https://hachimoto12.com/theme/images/favicon.ico"/>
+        <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="https://hachimoto12.com/theme/images/icon180.png">
+        <link rel="icon" type="image/png" href="https://hachimoto12.com/theme/images/icon256.png">        <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-150670088-1"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
@@ -143,22 +147,22 @@
 <h2>問題</h2>
 <p>スケッチを書き込もうとしたら失敗。
 失敗したときのログ</p>
-<div class="highlight"><pre><span></span><span class="o">[</span><span class="n">Starting</span><span class="o">]</span><span class="w"> </span><span class="n">Upload</span><span class="w"> </span><span class="n">sketch</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">01</span><span class="err">\</span><span class="mf">01.</span><span class="n">ino</span><span class="w"></span>
-<span class="o">[</span><span class="n">Warning</span><span class="o">]</span><span class="w"> </span><span class="k">Output</span><span class="w"> </span><span class="k">path</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">specified</span><span class="p">.</span><span class="w"> </span><span class="n">Unable</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">reuse</span><span class="w"> </span><span class="n">previously</span><span class="w"> </span><span class="n">compiled</span><span class="w"> </span><span class="n">files</span><span class="p">.</span><span class="w"> </span><span class="n">Upload</span><span class="w"> </span><span class="n">could</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">slow</span><span class="p">.</span><span class="w"> </span><span class="n">See</span><span class="w"> </span><span class="n">README</span><span class="p">.</span><span class="w"></span>
-<span class="n">構成をロード中</span><span class="err">…</span><span class="w"></span>
-<span class="n">パッケージを初期化中</span><span class="err">…</span><span class="w"></span>
-<span class="n">ボードを準備中</span><span class="err">…</span><span class="w"></span>
-<span class="n">検証中</span><span class="err">…</span><span class="w"></span>
-<span class="n">最大1310720バイトのフラッシュメモリのうち</span><span class="err">、</span><span class="n">スケッチが255788バイト</span><span class="err">（</span><span class="mi">19</span><span class="o">%</span><span class="err">）</span><span class="n">を使っています</span><span class="err">。</span><span class="w"></span>
-<span class="n">最大327680バイトのRAMのうち</span><span class="err">、</span><span class="n">グローバル変数が13932バイト</span><span class="err">（</span><span class="mi">4</span><span class="o">%</span><span class="err">）</span><span class="n">を使っていて</span><span class="err">、</span><span class="n">ローカル変数で313748バイト使うことができます</span><span class="err">。</span><span class="w"></span>
-<span class="n">マイコンボードに書き込んでいます</span><span class="p">...</span><span class="w"></span>
-<span class="n">esptool</span><span class="p">.</span><span class="n">py</span><span class="w"> </span><span class="n">v2</span><span class="mf">.6</span><span class="w"></span>
-<span class="n">Serial</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="n">COM4</span><span class="w"></span>
-<span class="n">Connecting</span><span class="p">........</span><span class="n">_____</span><span class="p">.....</span><span class="n">_____</span><span class="p">.....</span><span class="n">_____</span><span class="p">.....</span><span class="n">_____</span><span class="p">.....</span><span class="n">_____</span><span class="p">.....</span><span class="n">_____</span><span class="p">.....</span><span class="n">_____</span><span class="w"></span>
+<div class="highlight"><pre><span></span>[Starting] Upload sketch - 01\01.ino
+[Warning] Output path is not specified. Unable to reuse previously compiled files. Upload could be slow. See README.
+構成をロード中…
+パッケージを初期化中…
+ボードを準備中…
+検証中…
+最大1310720バイトのフラッシュメモリのうち、スケッチが255788バイト（19%）を使っています。
+最大327680バイトのRAMのうち、グローバル変数が13932バイト（4%）を使っていて、ローカル変数で313748バイト使うことができます。
+マイコンボードに書き込んでいます...
+esptool.py v2.6
+Serial port COM4
+Connecting........_____....._____....._____....._____....._____....._____....._____
 
-<span class="n">A</span><span class="w"> </span><span class="n">fatal</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="nl">occurred</span><span class="p">:</span><span class="w"> </span><span class="n">Failed</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">connect</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nl">ESP32</span><span class="p">:</span><span class="w"> </span><span class="n">Timed</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="n">waiting</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">packet</span><span class="w"> </span><span class="n">header</span><span class="w"></span>
-<span class="n">スケッチの書き込み中にエラーが発生しました</span><span class="w"></span>
-<span class="o">[</span><span class="n">Error</span><span class="o">]</span><span class="w"> </span><span class="k">Exit</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">code</span><span class="o">=</span><span class="mi">1</span><span class="w"></span>
+A fatal error occurred: Failed to connect to ESP32: Timed out waiting for packet header
+スケッチの書き込み中にエラーが発生しました
+[Error] Exit with code=1
 </pre></div>
 
 
@@ -168,8 +172,8 @@
 <p>Connectingが表示されたらRESETボタンを押しっぱなしにする。
 Writtingが始まったら離す。
 最後に</p>
-<div class="highlight"><pre><span></span><span class="err">Leaving...</span>
-<span class="err">Hard resetting via RTS pin...</span>
+<div class="highlight"><pre><span></span>Leaving...
+Hard resetting via RTS pin...
 </pre></div>
 
 
