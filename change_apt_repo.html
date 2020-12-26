@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <!-- icon -->
+        <link rel="shortcut icon" href="https://hachimoto12.com/theme/images/favicon.ico"/>
+        <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="https://hachimoto12.com/theme/images/icon180.png">
+        <link rel="icon" type="image/png" href="https://hachimoto12.com/theme/images/icon256.png">        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-150670088-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-150670088-1');
+        </script>        <meta charset=utf-8>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0" />
+        <!-- ogp -->
+        <meta property="og:type" content="website"/>        <meta property="og:title" content="aptのレポジトリ先を変更 | 鉢本　一二のブログ"/>
+        <meta property="og:url" content="https://hachimoto12.com/change_apt_repo.html" />        <meta property="og:site_name" content="鉢本　一二のブログ" />
+        <!--
+        <title>鉢本　一二のブログ</title>
+        -->        <title>aptのレポジトリ先を変更 | 鉢本　一二のブログ</title>        <link rel="stylesheet" type="text/css" href="https://hachimoto12.com/theme/css/stylesheet.css" /><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://hachimoto12.com/theme/css/pygment.css" />
+<style type="text/css">
+.content {
+    margin: 30px;
+}
+.title {
+    margin-bottom: 2em;
+    text-align: left;
+}
+.info {
+    margin: 2em auto;
+}
+.section {
+    margin-top: 2em;
+}
+.section h2, .section h3 {
+    margin: 2em auto;
+    padding: 0.7em 0 0.7em 1em;
+}
+.section h2 {
+    border-left: 10px solid rgb(66, 66, 66);
+    border-bottom: 2px solid rgb(66, 66, 66);
+}
+.section h3 {
+    border-left: 5px solid rgb(66, 66, 66);
+}
+.section ul, .section ol {
+    margin: 0.7em 1em;
+}
+.section li {
+    margin: 0.7em auto;
+}
+.section dl {
+    margin: 1em auto;
+}
+.section dd {
+    margin-left: 1em;
+}
+.highlight pre {
+    margin: 2em auto;
+    padding: 1em auto;
+    font-family: "Source Han Code JP", sans-serif;
+    font-size: 0.8em;
+    line-height: 1.5em;
+    overflow: auto;
+}
+.note {
+    border: 2px solid rgb(66, 66, 66);
+    border-radius: 5px;
+}
+.warning {
+    /*border: 2px solid rgb(66, 66, 66);*/
+    border: 2px solid rgb(200, 60, 50);
+    border-radius: 5px;
+}
+.admonition {
+    margin: 2em auto;
+    padding: 0.7em;
+}
+.admonition-title {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.warning .admonition-title {
+    color: rgb(200, 60, 50);
+}
+</style>    </head>
+    <body>
+        <div class="wrapper">
+            <header class="header">
+                <h1 class="header-title" ontouchstart="">
+                    <a href="https://hachimoto12.com/">
+                        <strong>鉢本　一二のブログ</strong>
+                    </a>
+                </h1>
+            </header>
+            <nav class="navigation" ontouchstart="">
+                <ul>
+                    <li>
+                       <a href="https://hachimoto12.com/">
+                           Top
+                       </a>
+                    </li>
+                    <li>
+                        <a href="https://hachimoto12.com/archives.html">
+                            アーカイブ
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/categories.html">
+                            カテゴリ
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://hachimoto12.com/tags.html">
+                            タグ
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="left-area"></div>
+            <main class="content" ontouchstart=""><h1 class="title">aptのレポジトリ先を変更</h1>
+<div class="info">
+    <div>
+        作成日 : <time datetime="2020-12-26T00:00:00+09:00">2020/12/26</time>
+    </div>
+    <div>
+        更新日 : <time datetime="2020-12-26T00:00:00+09:00">2020/12/26</time>
+    </div>
+    <div class="category-item">
+        <i class="material-icons">folder</i>
+        ：        <a href="https://hachimoto12.com/category/linux.html" class="category">
+            Linux
+        </a>    </div>
+        <div class="tag-list">
+        <i class="material-icons">
+            local_offer
+        </i>
+        ：        <a href="/tag/linux.html" class="tag">Linux</a>    </div>
+</div><p>インストール時に apt のデフォルトで設定されているリポジトリ先を日本内のリポジトリに変更する。<br>
+リポジトリ先として <code>IIJ</code> や <code>jaist</code> などがあるが、今回は <code>riken</code> にする。<br>
+次のコマンドを実行する。  </p>
+<div class="highlight"><pre><span></span><code>sudo sed -i.bak -e <span class="s2">&quot;s|http://archive.ubuntu.com/ubuntu|http://ftp.riken.jp/Linux/ubuntu|g&quot;</span> /etc/apt/sources.list
+</code></pre></div><p>
+<br>
+<br>
+<br>
+</p>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://bo-ben-yi-er-noburogu-1.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>            </main>
+            <div class="right-area"></div>
+            <footer class="footer">
+                <span class="copyright">
+                    (c) 2019 鉢本　一二
+                </span>
+            </footer>
+        </div>        <script id="dsq-count-scr" src="//bo-ben-yi-er-noburogu-1.disqus.com/count.js" async></script>    </body>
+</html>
