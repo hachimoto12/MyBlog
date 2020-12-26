@@ -1,12 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>鉢本 一二のブログ</title><link href="https://hachimoto12.com/" rel="alternate"></link><link href="https://hachimoto12.com/feeds/all.atom.xml" rel="self"></link><id>https://hachimoto12.com/</id><updated>2020-10-23T00:00:00+09:00</updated><entry><title>Blenderのアドオン作成</title><link href="https://hachimoto12.com/blender_addon_hexagons.html" rel="alternate"></link><published>2020-10-23T00:00:00+09:00</published><updated>2020-10-23T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2020-10-23:/blender_addon_hexagons.html</id><content type="html">&lt;p&gt;&lt;img alt="Blenderアドオン" src="images/2020_10_23_01.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>鉢本 一二のブログ</title><link href="https://hachimoto12.com/" rel="alternate"></link><link href="https://hachimoto12.com/feeds/all.atom.xml" rel="self"></link><id>https://hachimoto12.com/</id><updated>2020-12-26T00:00:00+09:00</updated><entry><title>WSL2でLinuxをインストール後に起動しようとしたら0x800701bcというエラーが出た</title><link href="https://hachimoto12.com/wsl2_error_0x800701bc.html" rel="alternate"></link><published>2020-12-26T00:00:00+09:00</published><updated>2020-12-26T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2020-12-26:/wsl2_error_0x800701bc.html</id><summary type="html">&lt;h2&gt;環境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;windows10 Oct 2020&lt;/li&gt;
+&lt;li&gt;WSL2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;問題&lt;/h2&gt;
+&lt;p&gt;windows10 のバージョンが 1903 か 1909 の時に WSL1 で Linux を使えるようにしたが、しばらく使わず。その後Linuxをアンインストール。&lt;br&gt;
+最近になってまた使おうと思い、WSLのバージョンを 1 から 2 にした後 Ubuntu をインストールし起動しようとしたところ&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;WslRegisterDistribution failed with error: 0x800701bc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;というエラーが出た。&lt;/p&gt;
+&lt;h2&gt;原因&lt;/h2&gt;
+&lt;p&gt;kernel component を更新していないせいだった。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://qiita.com/hali/items/bf04a1e4012025a38d6b"&gt;参考 - WslRegisterDistribution failed with error: 0x800701bc - Qiita&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;対策&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://docs.microsoft.com/ja-jp/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package"&gt;手順 4 - Linux カーネル更新プログラム パッケージをダウンロードする&lt;/a&gt; から …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;環境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;windows10 Oct 2020&lt;/li&gt;
+&lt;li&gt;WSL2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;問題&lt;/h2&gt;
+&lt;p&gt;windows10 のバージョンが 1903 か 1909 の時に WSL1 で Linux を使えるようにしたが、しばらく使わず。その後Linuxをアンインストール。&lt;br&gt;
+最近になってまた使おうと思い、WSLのバージョンを 1 から 2 にした後 Ubuntu をインストールし起動しようとしたところ&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;WslRegisterDistribution failed with error: 0x800701bc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;というエラーが出た。&lt;/p&gt;
+&lt;h2&gt;原因&lt;/h2&gt;
+&lt;p&gt;kernel component を更新していないせいだった。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://qiita.com/hali/items/bf04a1e4012025a38d6b"&gt;参考 - WslRegisterDistribution failed with error: 0x800701bc - Qiita&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;対策&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://docs.microsoft.com/ja-jp/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package"&gt;手順 4 - Linux カーネル更新プログラム パッケージをダウンロードする&lt;/a&gt; から &lt;code&gt;x64 マシン用 WSL2 Linux カーネル更新プログラム パッケージ&lt;/code&gt; をダウンロードしインストール。&lt;br&gt;
+インストール後、再度Ubuntuを起動するとエラーが消えて、無事起動できた。&lt;/p&gt;</content><category term="WSL2"></category><category term="WSL2"></category></entry><entry><title>Blenderのアドオン作成</title><link href="https://hachimoto12.com/blender_addon_hexagons.html" rel="alternate"></link><published>2020-10-23T00:00:00+09:00</published><updated>2020-10-23T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2020-10-23:/blender_addon_hexagons.html</id><content type="html">&lt;p&gt;&lt;img alt="Blenderアドオン" src="images/2020_10_23_01.png"&gt;&lt;/p&gt;
 &lt;p&gt;ふと、なんとなく Blender のアドオンが作りたくなったので作成。&lt;br&gt;
 内容は、六角形が均等に並んだメッシュを作成するもの。&lt;br&gt;
 六角形の床ってなんがいいよねって、てな感じで自動で作成できるものが欲しかった。  &lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/hachimoto12/Hexagons"&gt;アドオン&lt;/a&gt;&lt;/p&gt;</content><category term="Blender"></category><category term="Blender"></category></entry><entry><title>OpenGLのマウス操作の実装メモ</title><link href="https://hachimoto12.com/OpenGL_Camera.html" rel="alternate"></link><published>2020-10-02T00:00:00+09:00</published><updated>2020-10-02T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2020-10-02:/OpenGL_Camera.html</id><summary type="html">&lt;p&gt;3D画面をマウス操作したときのカメラの動きの実装をメモ。 &lt;br&gt;
 自分的にはいい感じに動いているが、もしかしたら間違いがあるかもしれない。  &lt;/p&gt;
 &lt;p&gt;カメラは以下のようにした場合の実装のメモとなっている。  &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;Camera&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;Camera&lt;/span&gt;
 &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="k"&gt;enum&lt;/span&gt; &lt;span class="n"&gt;ZoomType&lt;/span&gt;
     &lt;span class="p"&gt;{&lt;/span&gt;
@@ -20,10 +53,10 @@
     &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;uvec2&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;  &lt;span class="c1"&gt;// ウィンドウサイズ&lt;/span&gt;
 
     &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;zoom&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ZoomType&lt;/span&gt; &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;noexcept&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;move&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;dvec2&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;mouse_pos0 …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;3D画面をマウス操作したときのカメラの動きの実装をメモ。 &lt;br&gt;
+    &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;move&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;dvec2&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;mouse_pos0 …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;3D画面をマウス操作したときのカメラの動きの実装をメモ。 &lt;br&gt;
 自分的にはいい感じに動いているが、もしかしたら間違いがあるかもしれない。  &lt;/p&gt;
 &lt;p&gt;カメラは以下のようにした場合の実装のメモとなっている。  &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;Camera&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;Camera&lt;/span&gt;
 &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="k"&gt;enum&lt;/span&gt; &lt;span class="n"&gt;ZoomType&lt;/span&gt;
     &lt;span class="p"&gt;{&lt;/span&gt;
@@ -40,8 +73,7 @@
     &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;move&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;dvec2&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;mouse_pos0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;dvec2&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;mouse_pos1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;noexcept&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
     &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;revolution&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;dvec2&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;old_cursor_pos&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;dvec2&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;new_cursor_pos&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;noexcept&lt;/span&gt;
 &lt;span class="p"&gt;};&lt;/span&gt;    
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;ズーム&lt;/h2&gt;
 &lt;p&gt;ズームは、カメラの注視点(center) に向かってに カメラの位置(pos) を移動させるようにした。&lt;/p&gt;
@@ -52,7 +84,7 @@
 &lt;p&gt;ズームアウトは、カメラの位置(pos) が カメラの注視点(center) から離れる&lt;/p&gt;
 &lt;p&gt;&lt;img alt="ズームアウト" src="images/2020_10_02_02.png" title="ズームアウト"&gt;  &lt;/p&gt;
 &lt;h3&gt;実装&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="n"&gt;Camera&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;zoom&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ZoomType&lt;/span&gt; &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;noexcept&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="n"&gt;Camera&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;zoom&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ZoomType&lt;/span&gt; &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;noexcept&lt;/span&gt;
 &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="k"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;1.0f&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
     &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;type&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;ZoomType&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;IN&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;1.0f&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;  &lt;span class="c1"&gt;// ズームインだと近づくのでマイナスにする&lt;/span&gt;
@@ -71,13 +103,12 @@
         &lt;span class="n"&gt;pos&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;mouse_pos1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;移動&lt;/h2&gt;
 &lt;p&gt;カメラの移動は、カメラの位置(pos)と注視点(center)が共に移動するように実装する。  &lt;/p&gt;
 &lt;h3&gt;実装&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="n"&gt;Camera&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;move&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;dvec2&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;mouse_pos0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;dvec2&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;mouse_pos1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;noexcept&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="n"&gt;Camera&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;move&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;dvec2&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;mouse_pos0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;dvec2&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;mouse_pos1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;noexcept&lt;/span&gt;
 &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="k"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;view&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;viewMatrix&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
     &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="k"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;proj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;projectionMatrix&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
@@ -99,8 +130,7 @@
     &lt;span class="n"&gt;pos&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
     &lt;span class="n"&gt;center&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;回転&lt;/h2&gt;
 &lt;p&gt;カメラの回転は、注視点(center)を中心とした球体に沿ってカメラが移動するようにする。&lt;br&gt;
@@ -110,7 +140,7 @@
 &lt;p&gt;&lt;img alt="回転" src="images/2020_10_02_03.png" title="回転"&gt;  &lt;/p&gt;
 &lt;p&gt;とりあえず、ソースコードを乗っける。&lt;/p&gt;
 &lt;h3&gt;実装&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="n"&gt;Camera&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;revolution&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;dvec2&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;mouse_pos0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;dvec2&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;mouse_pos1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;noexcept&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="n"&gt;Camera&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;revolution&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;dvec2&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;mouse_pos0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;dvec2&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;mouse_pos1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;noexcept&lt;/span&gt;
 &lt;span class="p"&gt;{&lt;/span&gt;
     &lt;span class="k"&gt;constexpr&lt;/span&gt; &lt;span class="k"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;SPEED&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mf"&gt;10.0f&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
@@ -129,7 +159,7 @@
     &lt;span class="n"&gt;pos&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tmp_pos&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
     &lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;q&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</content><category term="プログラミング"></category><category term="OpenGL"></category></entry><entry><title>Unrealで雨が降った後に波紋を出す</title><link href="https://hachimoto12.com/unreal_particle_rain_repple.html" rel="alternate"></link><published>2020-01-25T00:00:00+09:00</published><updated>2020-01-25T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2020-01-25:/unreal_particle_rain_repple.html</id><summary type="html">&lt;p&gt;ゲームエンジンを使って雨を降らせるというのを行いたいと思い、google先生で調べたところ &lt;a href="http://nn-hokuson.hatenablog.com/entry/2019/07/05/090946"&gt;おもちゃラボさんの【Unity】広重のような雨のエフェクトを作る&lt;/a&gt;が見つかり、雨の感じが自分好みだった。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="プログラミング"></category><category term="OpenGL"></category></entry><entry><title>Unrealで雨が降った後に波紋を出す</title><link href="https://hachimoto12.com/unreal_particle_rain_repple.html" rel="alternate"></link><published>2020-01-25T00:00:00+09:00</published><updated>2020-01-25T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2020-01-25:/unreal_particle_rain_repple.html</id><summary type="html">&lt;p&gt;ゲームエンジンを使って雨を降らせるというのを行いたいと思い、google先生で調べたところ &lt;a href="http://nn-hokuson.hatenablog.com/entry/2019/07/05/090946"&gt;おもちゃラボさんの【Unity】広重のような雨のエフェクトを作る&lt;/a&gt;が見つかり、雨の感じが自分好みだった。&lt;/p&gt;
 &lt;p&gt;このような雨の降らせ方をUnrealでもできないかと、素人ながらに試行錯誤し、それらしく作れたのでその時の手順をメモした。&lt;/p&gt;
 &lt;h2&gt;環境&lt;/h2&gt;
 &lt;ul&gt;
@@ -362,29 +392,27 @@
 &lt;p&gt;&lt;img alt="実行2" src="images/2019_11_05_07.png" title="実行2"&gt;  &lt;/p&gt;</content><category term="プログラミング"></category><category term="Android"></category></entry><entry><title>Rustのインストール方法 Linuxの場合</title><link href="https://hachimoto12.com/rust_install.html" rel="alternate"></link><published>2019-11-01T00:00:00+09:00</published><updated>2019-11-01T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2019-11-01:/rust_install.html</id><summary type="html">&lt;p&gt;Rustのインストール方法をメモ。&lt;br&gt;
 今回インストールされたRustのバージョンは、&lt;strong&gt;rustc 1.38.0 (625451e37 2019-09-23)&lt;/strong&gt;  &lt;/p&gt;
 &lt;p&gt;まず、コマンドを実行。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ curl https://sh.rustup.rs -sSf &lt;span class="p"&gt;|&lt;/span&gt; sh
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ curl https://sh.rustup.rs -sSf &lt;span class="p"&gt;|&lt;/span&gt; sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;コマンドを実行すると、インストールが始まる。&lt;br&gt;
 インストールの方法を入力する必要がある。とりあえず、１を選択。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;info: downloading installer
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;info: downloading installer
 
 Welcome to Rust!
 
 This will download and install the official compiler for the Rust
 programming language, and its package manager, Cargo.
 
-It will add the …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Rustのインストール方法をメモ。&lt;br&gt;
+It will add the …&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Rustのインストール方法をメモ。&lt;br&gt;
 今回インストールされたRustのバージョンは、&lt;strong&gt;rustc 1.38.0 (625451e37 2019-09-23)&lt;/strong&gt;  &lt;/p&gt;
 &lt;p&gt;まず、コマンドを実行。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ curl https://sh.rustup.rs -sSf &lt;span class="p"&gt;|&lt;/span&gt; sh
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ curl https://sh.rustup.rs -sSf &lt;span class="p"&gt;|&lt;/span&gt; sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;コマンドを実行すると、インストールが始まる。&lt;br&gt;
 インストールの方法を入力する必要がある。とりあえず、１を選択。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;info: downloading installer
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;info: downloading installer
 
 Welcome to Rust!
 
@@ -460,30 +488,26 @@ environment variable. Next time you log in this will be done
 automatically.
 
 To configure your current shell run source $HOME/.cargo/env
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;インストールの最後の出力にもあるが、Rustは$HOME/.cargoにインストールされている。&lt;br&gt;
 $HOME/.cargo/envの内容が、Rustのパスを設定がされている内容となっている。&lt;br&gt;
 envファイルを使ってを起動時にRustを実行できるようにするため、$HOME/.bashrcを編集する。&lt;br&gt;
 .bashrcを開き、一番下の行に次の文を追加。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;source $HOME/.cargo/env
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;source $HOME/.cargo/env
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;.bashrcを読み込む。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;source&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/.bashrc
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ &lt;span class="nb"&gt;source&lt;/span&gt; &lt;span class="nv"&gt;$HOME&lt;/span&gt;/.bashrc
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;パスがちゃんと設定されているか確認のため、以下のコマンドを実行。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ rustc --version
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ rustc --version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;次のようにバージョン情報が出力されれば、OK。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rustc &lt;span class="m"&gt;1&lt;/span&gt;.38.0 &lt;span class="o"&gt;(&lt;/span&gt;625451e37 &lt;span class="m"&gt;2019&lt;/span&gt;-09-23&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</content><category term="プログラミング"></category><category term="Rust"></category></entry><entry><title>Visual StudioでqDebugのログを表示させる方法</title><link href="https://hachimoto12.com/qDebug_in_VS.html" rel="alternate"></link><published>2019-09-20T00:00:00+09:00</published><updated>2019-09-20T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2019-09-20:/qDebug_in_VS.html</id><content type="html">&lt;h2&gt;問題&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;rustc &lt;span class="m"&gt;1&lt;/span&gt;.38.0 &lt;span class="o"&gt;(&lt;/span&gt;625451e37 &lt;span class="m"&gt;2019&lt;/span&gt;-09-23&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="プログラミング"></category><category term="Rust"></category></entry><entry><title>Visual StudioでqDebugのログを表示させる方法</title><link href="https://hachimoto12.com/qDebug_in_VS.html" rel="alternate"></link><published>2019-09-20T00:00:00+09:00</published><updated>2019-09-20T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2019-09-20:/qDebug_in_VS.html</id><content type="html">&lt;h2&gt;問題&lt;/h2&gt;
 &lt;p&gt;Visual Studioを使ってQt5 GUIアプリケーションを作成しているときに、qDebugでログを表示させたかった。
 しかし実行時、Visual Studioの出力ウィンドウでログがでず、ほかに出力ウィンドウに出力されていなかった。&lt;/p&gt;
 &lt;h2&gt;対策&lt;/h2&gt;
@@ -549,16 +573,16 @@ envファイルを使ってを起動時にRustを実行できるようにする�
 &lt;h2&gt;問題&lt;/h2&gt;
 &lt;p&gt;スケッチを書き込もうとしたら失敗。
 失敗したときのログ&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[Starting] Upload sketch - 01\01.ino
-[Warning] Output path is not specified. Unable to reuse previously compiled files. Upload could be slow. See README.
-構成をロード中…
-パッケージを初期化中…
-ボードを準備中…
-検証中…
-最大1310720バイトのフラッシュメモリのうち、スケッチが255788バイト（19%）を使っています。
-最大327680バイトのRAMのうち、グローバル変数が13932バイト（4%）を使っていて、ローカル変数で313748バイト使うことができます。
-マイコンボードに書き込んでいます...
-esptool.py …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;マイコン初めて数か月の初心者のメモ。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Starting&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Upload&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sketch&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;01&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="mf"&gt;01.&lt;/span&gt;&lt;span class="n"&gt;ino&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Warning&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;Output&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;path&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;is&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;not&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;specified&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Unable&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;reuse&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;previously&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;compiled&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Upload&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;could&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;be&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;slow&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;See&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;README&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;構成をロード中&lt;/span&gt;&lt;span class="err"&gt;…&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;パッケージを初期化中&lt;/span&gt;&lt;span class="err"&gt;…&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;ボードを準備中&lt;/span&gt;&lt;span class="err"&gt;…&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;検証中&lt;/span&gt;&lt;span class="err"&gt;…&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;最大1310720バイトのフラッシュメモリのうち&lt;/span&gt;&lt;span class="err"&gt;、&lt;/span&gt;&lt;span class="n"&gt;スケッチが255788バイト&lt;/span&gt;&lt;span class="err"&gt;（&lt;/span&gt;&lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="err"&gt;）&lt;/span&gt;&lt;span class="n"&gt;を使っています&lt;/span&gt;&lt;span class="err"&gt;。&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;最大327680バイトのRAMのうち&lt;/span&gt;&lt;span class="err"&gt;、&lt;/span&gt;&lt;span class="n"&gt;グローバル変数が13932バイト&lt;/span&gt;&lt;span class="err"&gt;（&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="err"&gt;）&lt;/span&gt;&lt;span class="n"&gt;を使っていて&lt;/span&gt;&lt;span class="err"&gt;、&lt;/span&gt;&lt;span class="n"&gt;ローカル変数で313748バイト使うことができます&lt;/span&gt;&lt;span class="err"&gt;。&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;マイコンボードに書き込んでいます&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;esptool&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;マイコン初めて数か月の初心者のメモ。&lt;/p&gt;
 &lt;h2&gt;環境&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Windows 10&lt;/li&gt;
@@ -567,24 +591,23 @@ esptool.py …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;�
 &lt;h2&gt;問題&lt;/h2&gt;
 &lt;p&gt;スケッチを書き込もうとしたら失敗。
 失敗したときのログ&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[Starting] Upload sketch - 01\01.ino
-[Warning] Output path is not specified. Unable to reuse previously compiled files. Upload could be slow. See README.
-構成をロード中…
-パッケージを初期化中…
-ボードを準備中…
-検証中…
-最大1310720バイトのフラッシュメモリのうち、スケッチが255788バイト（19%）を使っています。
-最大327680バイトのRAMのうち、グローバル変数が13932バイト（4%）を使っていて、ローカル変数で313748バイト使うことができます。
-マイコンボードに書き込んでいます...
-esptool.py v2.6
-Serial port COM4
-Connecting........_____....._____....._____....._____....._____....._____....._____
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Starting&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Upload&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sketch&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;01&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="mf"&gt;01.&lt;/span&gt;&lt;span class="n"&gt;ino&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Warning&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;Output&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;path&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;is&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;not&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;specified&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Unable&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;reuse&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;previously&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;compiled&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;files&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Upload&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;could&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;be&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;slow&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;See&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;README&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;構成をロード中&lt;/span&gt;&lt;span class="err"&gt;…&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;パッケージを初期化中&lt;/span&gt;&lt;span class="err"&gt;…&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;ボードを準備中&lt;/span&gt;&lt;span class="err"&gt;…&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;検証中&lt;/span&gt;&lt;span class="err"&gt;…&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;最大1310720バイトのフラッシュメモリのうち&lt;/span&gt;&lt;span class="err"&gt;、&lt;/span&gt;&lt;span class="n"&gt;スケッチが255788バイト&lt;/span&gt;&lt;span class="err"&gt;（&lt;/span&gt;&lt;span class="mi"&gt;19&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="err"&gt;）&lt;/span&gt;&lt;span class="n"&gt;を使っています&lt;/span&gt;&lt;span class="err"&gt;。&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;最大327680バイトのRAMのうち&lt;/span&gt;&lt;span class="err"&gt;、&lt;/span&gt;&lt;span class="n"&gt;グローバル変数が13932バイト&lt;/span&gt;&lt;span class="err"&gt;（&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="err"&gt;）&lt;/span&gt;&lt;span class="n"&gt;を使っていて&lt;/span&gt;&lt;span class="err"&gt;、&lt;/span&gt;&lt;span class="n"&gt;ローカル変数で313748バイト使うことができます&lt;/span&gt;&lt;span class="err"&gt;。&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;マイコンボードに書き込んでいます&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;esptool&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;v2&lt;/span&gt;&lt;span class="mf"&gt;.6&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;Serial&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;port&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;COM4&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;Connecting&lt;/span&gt;&lt;span class="p"&gt;........&lt;/span&gt;&lt;span class="n"&gt;_____&lt;/span&gt;&lt;span class="p"&gt;.....&lt;/span&gt;&lt;span class="n"&gt;_____&lt;/span&gt;&lt;span class="p"&gt;.....&lt;/span&gt;&lt;span class="n"&gt;_____&lt;/span&gt;&lt;span class="p"&gt;.....&lt;/span&gt;&lt;span class="n"&gt;_____&lt;/span&gt;&lt;span class="p"&gt;.....&lt;/span&gt;&lt;span class="n"&gt;_____&lt;/span&gt;&lt;span class="p"&gt;.....&lt;/span&gt;&lt;span class="n"&gt;_____&lt;/span&gt;&lt;span class="p"&gt;.....&lt;/span&gt;&lt;span class="n"&gt;_____&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 
-A fatal error occurred: Failed to connect to ESP32: Timed out waiting for packet header
-スケッチの書き込み中にエラーが発生しました
-[Error] Exit with code=1
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;span class="n"&gt;A&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;fatal&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;error&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nl"&gt;occurred&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Failed&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;connect&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nl"&gt;ESP32&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Timed&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;out&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;waiting&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;packet&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;header&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;スケッチの書き込み中にエラーが発生しました&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;Error&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;Exit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;with&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;code&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;原因&lt;/h2&gt;
 &lt;p&gt;書き込むときにRESETボタンを押していなかった。&lt;/p&gt;
@@ -592,10 +615,9 @@ A fatal error occurred: Failed to connect to ESP32: Timed out waiting for packet
 &lt;p&gt;Connectingが表示されたらRESETボタンを押しっぱなしにする。
 Writtingが始まったら離す。
 最後に&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Leaving...
-Hard resetting via RTS pin...
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;Leaving...&lt;/span&gt;
+&lt;span class="err"&gt;Hard resetting via RTS pin...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;が出力されたら書き込み成功。&lt;/p&gt;</content><category term="マイコン"></category><category term="マイコン"></category><category term="ESP32"></category></entry><entry><title>AMD APP SDKが無いので、代わりにOpenCL Install Client Driver(ICD) LoaderでOpenCLを使ってみる</title><link href="https://hachimoto12.com/opencl_with_icd.html" rel="alternate"></link><published>2019-07-07T00:00:00+09:00</published><updated>2019-07-07T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2019-07-07:/opencl_with_icd.html</id><content type="html">&lt;p&gt;&lt;a href="https://developer.amd.com/amd-accelerated-parallel-processing-app-sdk/"&gt;AMD APP SDK&lt;/a&gt;が404のため。&lt;/p&gt;
 &lt;h2&gt;環境&lt;/h2&gt;
