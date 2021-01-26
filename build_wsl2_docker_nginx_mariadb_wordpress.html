@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <!-- icon -->
+        <link rel="shortcut icon" href="/theme/images/favicon.ico"/>
+        <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/theme/images/icon180.png">
+        <link rel="icon" type="image/png" href="/theme/images/icon256.png">        <meta charset=utf-8>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0" />
+        <!-- ogp -->
+        <meta property="og:type" content="website"/>        <meta property="og:title" content="WSL2でDocker + nginx + mariadb + wordpress を構築をしてみた | 鉢本　一二のブログ"/>
+        <meta property="og:url" content="/build_wsl2_docker_nginx_mariadb_wordpress.html" />        <meta property="og:site_name" content="鉢本　一二のブログ" />
+        <!--
+        <title>鉢本　一二のブログ</title>
+        -->        <title>WSL2でDocker + nginx + mariadb + wordpress を構築をしてみた | 鉢本　一二のブログ</title>        <link rel="stylesheet" type="text/css" href="/theme/css/stylesheet.css" /><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/theme/css/pygment.css" />
+<style type="text/css">
+.content {
+    margin: 30px;
+}
+.title {
+    margin-bottom: 2em;
+    text-align: left;
+}
+.info {
+    margin: 2em auto;
+}
+.section {
+    margin-top: 2em;
+}
+.section h2, .section h3 {
+    margin: 2em auto;
+    padding: 0.7em 0 0.7em 1em;
+}
+.section h2 {
+    border-left: 10px solid rgb(66, 66, 66);
+    border-bottom: 2px solid rgb(66, 66, 66);
+}
+.section h3 {
+    border-left: 5px solid rgb(66, 66, 66);
+}
+.section ul, .section ol {
+    margin: 0.7em 1em;
+}
+.section li {
+    margin: 0.7em auto;
+}
+.section dl {
+    margin: 1em auto;
+}
+.section dd {
+    margin-left: 1em;
+}
+.highlight pre {
+    margin: 2em auto;
+    padding: 1em auto;
+    font-family: "Source Han Code JP", sans-serif;
+    font-size: 0.8em;
+    line-height: 1.5em;
+    overflow: auto;
+}
+.note {
+    border: 2px solid rgb(66, 66, 66);
+    border-radius: 5px;
+}
+.warning {
+    /*border: 2px solid rgb(66, 66, 66);*/
+    border: 2px solid rgb(200, 60, 50);
+    border-radius: 5px;
+}
+.admonition {
+    margin: 2em auto;
+    padding: 0.7em;
+}
+.admonition-title {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.warning .admonition-title {
+    color: rgb(200, 60, 50);
+}
+</style>    </head>
+    <body>
+        <div class="wrapper">
+            <header class="header">
+                <h1 class="header-title" ontouchstart="">
+                    <a href="/">
+                        <strong>鉢本　一二のブログ</strong>
+                    </a>
+                </h1>
+            </header>
+            <nav class="navigation" ontouchstart="">
+                <ul>
+                    <li>
+                       <a href="/">
+                           Top
+                       </a>
+                    </li>
+                    <li>
+                        <a href="/archives.html">
+                            アーカイブ
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/categories.html">
+                            カテゴリ
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/tags.html">
+                            タグ
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="left-area"></div>
+            <main class="content" ontouchstart=""><h1 class="title">WSL2でDocker + nginx + mariadb + wordpress を構築をしてみた</h1>
+<div class="info">
+    <div>
+        作成日 : <time datetime="2021-01-26T00:00:00+09:00">2021/01/26</time>
+    </div>
+    <div>
+        更新日 : <time datetime="2021-01-26T00:00:00+09:00">2021/01/26</time>
+    </div>
+    <div class="category-item">
+        <i class="material-icons">folder</i>
+        ：        <a href="/category/docker.html" class="category">
+            docker
+        </a>    </div>
+        <div class="tag-list">
+        <i class="material-icons">
+            local_offer
+        </i>
+        ：        <a href="/tag/wsl2.html" class="tag">WSL2</a>,<a href="/tag/docker.html" class="tag">docker</a>,<a href="/tag/wordpress.html" class="tag">wordpress</a>,<a href="/tag/nginx.html" class="tag">nginx</a>    </div>
+</div><p>WSL2 上で wordpress のコンテナを新規で構築した時の方法をメモ。<br>
+とりあえず、動くことを目的としている。<br>
+データベースが MySQL ではなく、mariadb を使っているのは特に理由はない。</p>
+<h2>ホストの環境</h2>
+<ul>
+<li>WSL2: Ubuntu20をインストール済み</li>
+<li>Docker Engine: v20.10.2</li>
+</ul>
+<h2>使用するイメージとバージョン</h2>
+<ul>
+<li>nginx: 1.19.6</li>
+<li>mariadb: 10.5.8</li>
+<li>wordpress: 5.6</li>
+</ul>
+<h2>初期のフォルダ構成</h2>
+<div class="highlight"><pre><span></span><code>任意のフォルダ/
+    ├ .env
+    ├ docker-compose.yml
+    ├ nginx/
+    │   ├ log/
+    │   ├ nginx/
+    │   │   └ default.conf
+    │   └ nginx.conf
+    └ wordpress/
+</code></pre></div>
+
+<h2>各ファイルの設定</h2>
+<h3>docker-compose.yml</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="s">&quot;3&quot;</span>
+<span class="nt">services</span><span class="p">:</span>
+  <span class="nt">nginx</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nginx:1.19.6</span>
+    <span class="nt">volumes</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;./nginx/nginx.conf:/etc/nginx/nginx.conf&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;./nginx/conf.d:/etc/nginx/conf.d&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;./nginx/log:/var/log/nginx&quot;</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;./wordpress:/var/www/html&quot;</span>
+    <span class="nt">ports</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;${NGINX_HOST_PORT}:80&quot;</span>
+    <span class="nt">depends_on</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">wordpress</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nginx</span>
+  <span class="nt">wordpress</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">wordpress:5.6-php7.4-fpm</span>
+    <span class="nt">depends_on</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">db</span>
+    <span class="nt">volumes</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;./wordpress:/var/www/html&quot;</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+    <span class="nt">environment</span><span class="p">:</span>
+      <span class="nt">WORDPRESS_DB_HOST</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">db:3306</span>
+      <span class="nt">WORDPRESS_DB_USER</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${MYSQL_USER}</span>
+      <span class="nt">WORDPRESS_DB_PASSWORD</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${MYSQL_PASSWORD}</span>
+      <span class="nt">WORDPRESS_DB_NAME</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${MYSQL_DATABASE}</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">wordpress</span>
+  <span class="nt">db</span><span class="p">:</span>
+    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mariadb:10.5.8</span>
+    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
+    <span class="nt">volumes</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="s">&quot;./db-data:/var/lib/mysql&quot;</span>
+    <span class="nt">environment</span><span class="p">:</span>
+      <span class="nt">MYSQL_ROOT_PASSWORD</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${MYSQL_ROOT_PASSWORD}</span>
+      <span class="nt">MYSQL_DATABASE</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${MYSQL_DATABASE}</span>
+      <span class="nt">MYSQL_USER</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${MYSQL_USER}</span>
+      <span class="nt">MYSQL_PASSWORD</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${MYSQL_PASSWORD}</span>
+      <span class="nt">TZ</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Asia/Tokyo</span>
+    <span class="nt">ports</span><span class="p">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">3306:3306</span>
+    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">db</span>
+<span class="nt">volumes</span><span class="p">:</span>
+    <span class="nt">db</span><span class="p">:</span>
+</code></pre></div>
+
+<h3>.env</h3>
+<div class="highlight"><pre><span></span><code><span class="o">#</span> <span class="n">MySQL</span>
+<span class="n">MYSQL_ROOT_PASSWORD</span><span class="o">=</span><span class="n">passowrd</span>
+<span class="n">MYSQL_DATABASE</span><span class="o">=</span><span class="n">wordpress</span>
+<span class="n">MYSQL_USER</span><span class="o">=</span><span class="n">root</span>
+<span class="n">MYSQL_PASSWORD</span><span class="o">=</span><span class="n">password</span>
+
+<span class="o">#</span> <span class="n">nginx</span>
+<span class="n">NGINX_HOST_PORT</span><span class="o">=</span><span class="mi">8080</span>
+</code></pre></div>
+
+<h3>nginx.conf</h3>
+<div class="highlight"><pre><span></span><code><span class="k">user</span>  <span class="s">nginx</span><span class="p">;</span>
+<span class="k">worker_processes</span>  <span class="mi">1</span><span class="p">;</span>
+
+<span class="k">error_log</span>  <span class="s">/var/log/nginx/error.log</span> <span class="s">warn</span><span class="p">;</span>
+<span class="k">pid</span>        <span class="s">/var/run/nginx.pid</span><span class="p">;</span>
+
+
+<span class="k">events</span> <span class="p">{</span>
+    <span class="kn">worker_connections</span>  <span class="mi">1024</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="k">http</span> <span class="p">{</span>
+    <span class="kn">include</span>       <span class="s">/etc/nginx/mime.types</span><span class="p">;</span>
+    <span class="kn">default_type</span>  <span class="s">application/octet-stream</span><span class="p">;</span>
+
+    <span class="kn">log_format</span>  <span class="s">main</span>  <span class="s">&#39;</span><span class="nv">$remote_addr</span> <span class="s">-</span> <span class="nv">$remote_user</span> <span class="s">[</span><span class="nv">$time_local]</span> <span class="s">&quot;</span><span class="nv">$request&quot;</span> <span class="s">&#39;</span>
+                      <span class="s">&#39;</span><span class="nv">$status</span> <span class="nv">$body_bytes_sent</span> <span class="s">&quot;</span><span class="nv">$http_referer&quot;</span> <span class="s">&#39;</span>
+                      <span class="s">&#39;&quot;</span><span class="nv">$http_user_agent&quot;</span> <span class="s">&quot;</span><span class="nv">$http_x_forwarded_for&quot;&#39;</span><span class="p">;</span>
+
+    <span class="kn">access_log</span>  <span class="s">/var/log/nginx/access.log</span>  <span class="s">main</span><span class="p">;</span>
+
+    <span class="kn">sendfile</span>        <span class="no">on</span><span class="p">;</span>
+    <span class="c1">#tcp_nopush     on;</span>
+
+    <span class="kn">keepalive_timeout</span>  <span class="mi">65</span><span class="p">;</span>
+
+    <span class="c1">#gzip  on;</span>
+
+    <span class="kn">include</span> <span class="s">/etc/nginx/conf.d/*.conf</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3>default.conf</h3>
+<div class="highlight"><pre><span></span><code><span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
+    <span class="kn">server_name</span> <span class="s">localhost</span><span class="p">;</span>
+    <span class="kn">charset</span> <span class="s">utf-8</span><span class="p">;</span>
+
+    <span class="kn">root</span> <span class="s">/var/www/html</span><span class="p">;</span>
+    <span class="kn">index</span> <span class="s">index.php</span><span class="p">;</span>
+
+    <span class="kn">access_log</span> <span class="s">/var/log/nginx/access.log</span><span class="p">;</span>
+    <span class="kn">error_log</span> <span class="s">/var/log/nginx/error.log</span><span class="p">;</span>
+
+    <span class="kn">location</span> <span class="p">~</span><span class="sr">*</span> <span class="s">/wp-config.php</span> <span class="p">{</span>
+        <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+        <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri/</span> <span class="s">/index.php?</span><span class="nv">$args</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kn">location</span> <span class="p">~</span> <span class="sr">\.php$</span> <span class="p">{</span>
+        <span class="kn">fastcgi_split_path_info</span> <span class="s">^(.+\.php)(\.+)</span>$<span class="p">;</span>
+        <span class="kn">fastcgi_index</span> <span class="s">index.php</span><span class="p">;</span>
+        <span class="kn">fastcgi_pass</span> <span class="n">wordpress</span><span class="p">:</span><span class="mi">9000</span><span class="p">;</span>
+        <span class="kn">include</span> <span class="s">fastcgi_params</span><span class="p">;</span>
+        <span class="kn">fastcgi_param</span> <span class="s">SCRIPT_FILENAME</span> <span class="nv">$document_root$fastcgi_script_name</span><span class="p">;</span>
+        <span class="kn">fastcgi_param</span> <span class="s">PATH_INFO</span> <span class="nv">$fastcgi_path_info</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="kn">location</span> <span class="p">~</span><span class="sr">*</span> <span class="s">.(html|css|js|jpe?g|png|gif|svg|mpg|flv|swf)</span>$ <span class="p">{</span>
+        <span class="kn">expires</span> <span class="s">max</span><span class="p">;</span>
+        <span class="kn">access_log</span> <span class="no">off</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2>docker を実行</h2>
+<div class="highlight"><pre><span></span><code>docker-compose up -d
+</code></pre></div>
+
+<p>コンテナ立ち上げでエラーが出ていなければ、<code>localhost:8080</code> にアクセス。  </p>            </main>
+            <div class="right-area"></div>
+            <footer class="footer">
+                <span class="copyright">
+                    (c) 2019 鉢本　一二
+                </span>
+            </footer>
+        </div>    </body>
+</html>
