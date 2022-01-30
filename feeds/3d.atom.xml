@@ -1,32 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>鉢本 一二のブログ - 3D</title><link href="https://hachimoto12.com/" rel="alternate"></link><link href="https://hachimoto12.com/feeds/3d.atom.xml" rel="self"></link><id>https://hachimoto12.com/</id><updated>2020-01-25T00:00:00+09:00</updated><entry><title>Unrealで雨が降った後に波紋を出す</title><link href="https://hachimoto12.com/unreal_particle_rain_repple.html" rel="alternate"></link><published>2020-01-25T00:00:00+09:00</published><updated>2020-01-25T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2020-01-25:/unreal_particle_rain_repple.html</id><summary type="html">&lt;p&gt;ゲームエンジンを使って雨を降らせるというのを行いたいと思い、google先生で調べたところ &lt;a href="http://nn-hokuson.hatenablog.com/entry/2019/07/05/090946"&gt;おもちゃラボさんの【Unity】広重のような雨のエフェクトを作る&lt;/a&gt;が見つかり、雨の感じが自分好みだった。&lt;/p&gt;
-&lt;p&gt;このような雨の降らせ方をUnrealでもできないかと、素人ながらに試行錯誤し、それらしく作れたのでその時の手順をメモした。&lt;/p&gt;
-&lt;h2&gt;環境&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Unreal Engin: v4.23.1&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;手順&lt;/h2&gt;
-&lt;h3&gt;プロジェクトの作成&lt;/h3&gt;
-&lt;p&gt;とりあえず、プロジェクトを作成。&lt;br&gt;
-プロジェクト名は、&lt;code&gt;Rain_Project&lt;/code&gt;とする。&lt;/p&gt;
-&lt;h3&gt;床の設定&lt;/h3&gt;
-&lt;p&gt;デフォルトの床のマテリアルを変更する。&lt;br&gt;
-&lt;code&gt;Floor&lt;/code&gt;を選択し、マテリアルは&lt;code&gt;M_Floor_01&lt;/code&gt;にする。&lt;br&gt;
-&lt;img alt="床のマテリアルを設定" src="images/2020_01_25_32.png" title="床のマテリアルを設定"&gt;  &lt;/p&gt;
-&lt;h3&gt;雨マテリアルを作成&lt;/h3&gt;
-&lt;p&gt;テクスチャはこのような感じを作成。&lt;br&gt;
-名前は、とりあえず&lt;code&gt;T_Rain&lt;/code&gt;という名前を付けて、Unrealにインポート。&lt;br&gt;
-&lt;img alt="雨のテクスチャ" src="images/2020_01_25_01.png" title="雨のテクスチャ"&gt;  &lt;/p&gt;
-&lt;p&gt;次に雨のマテリアルを作成する。&lt;br&gt;
-マテリアルの名前は、&lt;code&gt;M_Rain&lt;/code&gt;とした。&lt;br&gt;
-&lt;code&gt;M_Rain&lt;/code&gt;を開くと、メインマテリアルが１つある状態となっている。
-&lt;img alt="雨のマテリアル" src="images/2020_01_25_02.png" title="雨のマテリアル"&gt;  &lt;/p&gt;
-&lt;p&gt;メインマテリアルの設定を変更する。&lt;/p&gt;
-&lt;p&gt;詳細タブにある&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Material -&amp;gt; Blend Mode&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;の …&lt;/p&gt;</summary><content type="html">&lt;p&gt;ゲームエンジンを使って雨を降らせるというのを行いたいと思い、google先生で調べたところ &lt;a href="http://nn-hokuson.hatenablog.com/entry/2019/07/05/090946"&gt;おもちゃラボさんの【Unity】広重のような雨のエフェクトを作る&lt;/a&gt;が見つかり、雨の感じが自分好みだった。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>鉢本 一二のブログ - 3D</title><link href="https://hachimoto12.com/" rel="alternate"></link><link href="https://hachimoto12.com/feeds/3d.atom.xml" rel="self"></link><id>https://hachimoto12.com/</id><updated>2020-01-25T00:00:00+09:00</updated><entry><title>Unrealで雨が降った後に波紋を出す</title><link href="https://hachimoto12.com/unreal_particle_rain_repple.html" rel="alternate"></link><published>2020-01-25T00:00:00+09:00</published><updated>2020-01-25T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2020-01-25:/unreal_particle_rain_repple.html</id><summary type="html">&lt;p&gt;ゲームエンジンを使って雨を降らせるというのを行いたいと思い、google先生で調べたところ &lt;a href="http://nn-hokuson.hatenablog.com/entry/2019/07/05/090946"&gt;おもちゃラボさんの【Unity】広 …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;ゲームエンジンを使って雨を降らせるというのを行いたいと思い、google先生で調べたところ &lt;a href="http://nn-hokuson.hatenablog.com/entry/2019/07/05/090946"&gt;おもちゃラボさんの【Unity】広重のような雨のエフェクトを作る&lt;/a&gt;が見つかり、雨の感じが自分好みだった。&lt;/p&gt;
 &lt;p&gt;このような雨の降らせ方をUnrealでもできないかと、素人ながらに試行錯誤し、それらしく作れたのでその時の手順をメモした。&lt;/p&gt;
 &lt;h2&gt;環境&lt;/h2&gt;
 &lt;ul&gt;

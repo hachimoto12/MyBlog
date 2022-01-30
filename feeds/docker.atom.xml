@@ -5,33 +5,7 @@
 &lt;ul&gt;
 &lt;li&gt;Docker Engine: v20.10.2&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2&gt;使用するイメージとバージョン&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;nginx: 1.19.6&lt;/li&gt;
-&lt;li&gt;mariadb: 10.5.8&lt;/li&gt;
-&lt;li&gt;wordpress: 5.6&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;ファイルとフォルダ構成&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;任意のフォルダ/
-    ├ .env
-    ├ db-data/
-    ├ docker-compose.yml
-    ├ nginx/
-    │   ├ log/
-    │   ├ nginx/
-    │   │   └ default.conf
-    │   └ nginx.conf
-    └ wordpress/
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;h2&gt;各ファイルの設定&lt;/h2&gt;
-&lt;h3&gt;docker-compose.yml&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;version&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;3&amp;quot;&lt;/span&gt;
-&lt;span class="nt"&gt;services&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-  &lt;span class="nt"&gt;nginx&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-    &lt;span class="nt"&gt;image&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="l l-Scalar l-Scalar-Plain"&gt;nginx:1.19.6&lt;/span&gt;
-    &lt;span class="nt"&gt;volumes&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-      &lt;span class="p p-Indicator"&gt;-&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;./nginx …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;wordpress のコンテナを新規で構築した時の方法をメモ。&lt;br&gt;
+&lt;h2&gt;使 …&lt;/h2&gt;</summary><content type="html">&lt;p&gt;wordpress のコンテナを新規で構築した時の方法をメモ。&lt;br&gt;
 とりあえず、動くことを目的としている。  &lt;/p&gt;
 &lt;h2&gt;ホストの環境&lt;/h2&gt;
 &lt;ul&gt;

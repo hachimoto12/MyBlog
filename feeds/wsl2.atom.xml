@@ -5,17 +5,7 @@
 &lt;li&gt;WSL2&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;問題&lt;/h2&gt;
-&lt;p&gt;windows10 のバージョンが 1903 か 1909 の時に WSL1 で Linux を使えるようにしたが、しばらく使わず。その後Linuxをアンインストール。&lt;br&gt;
-最近になってまた使おうと思い、WSLのバージョンを 1 から 2 にした後 Ubuntu をインストールし起動しようとしたところ&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;WslRegisterDistribution failed with error: 0x800701bc
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;というエラーが出た。&lt;/p&gt;
-&lt;h2&gt;原因&lt;/h2&gt;
-&lt;p&gt;kernel component を更新していないせいだった。&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://qiita.com/hali/items/bf04a1e4012025a38d6b"&gt;参考 - WslRegisterDistribution failed with error: 0x800701bc - Qiita&lt;/a&gt;&lt;/p&gt;
-&lt;h2&gt;対策&lt;/h2&gt;
-&lt;p&gt;&lt;a href="https://docs.microsoft.com/ja-jp/windows/wsl/install-win10#step-4---download-the-linux-kernel-update-package"&gt;手順 4 - Linux カーネル更新プログラム パッケージをダウンロードする&lt;/a&gt; から …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;環境&lt;/h2&gt;
+&lt;p&gt;windows10 のバージョンが 1903 か 1909 の時に WSL1 で Linux を使えるようにしたが、しばらく使わず。その後Linuxをアンイ …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;環境&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;windows10 Oct 2020&lt;/li&gt;
 &lt;li&gt;WSL2&lt;/li&gt;

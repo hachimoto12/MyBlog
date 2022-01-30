@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>鉢本 一二のブログ - Blender</title><link href="https://hachimoto12.com/" rel="alternate"></link><link href="https://hachimoto12.com/feeds/blender.atom.xml" rel="self"></link><id>https://hachimoto12.com/</id><updated>2020-10-23T00:00:00+09:00</updated><entry><title>Blenderのアドオン作成</title><link href="https://hachimoto12.com/blender_addon_hexagons.html" rel="alternate"></link><published>2020-10-23T00:00:00+09:00</published><updated>2020-10-23T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2020-10-23:/blender_addon_hexagons.html</id><content type="html">&lt;p&gt;&lt;img alt="Blenderアドオン" src="images/2020_10_23_01.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>鉢本 一二のブログ - Blender</title><link href="https://hachimoto12.com/" rel="alternate"></link><link href="https://hachimoto12.com/feeds/blender.atom.xml" rel="self"></link><id>https://hachimoto12.com/</id><updated>2020-10-23T00:00:00+09:00</updated><entry><title>Blenderのアドオン作成</title><link href="https://hachimoto12.com/blender_addon_hexagons.html" rel="alternate"></link><published>2020-10-23T00:00:00+09:00</published><updated>2020-10-23T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2020-10-23:/blender_addon_hexagons.html</id><summary type="html">&lt;p&gt;&lt;img alt="Blenderアドオン" src="images/2020_10_23_01.png"&gt;&lt;/p&gt;
+&lt;p&gt;ふと、なんとなく Blender のアドオンが作りたくなったので作成。&lt;br&gt;
+内容は、六角形が均等に並んだメッシュを作成するもの。&lt;br&gt;
+六 …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;img alt="Blenderアドオン" src="images/2020_10_23_01.png"&gt;&lt;/p&gt;
 &lt;p&gt;ふと、なんとなく Blender のアドオンが作りたくなったので作成。&lt;br&gt;
 内容は、六角形が均等に並んだメッシュを作成するもの。&lt;br&gt;
 六角形の床ってなんがいいよねって、てな感じで自動で作成できるものが欲しかった。  &lt;/p&gt;

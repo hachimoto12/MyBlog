@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>鉢本 一二のブログ - プログラミング</title><link href="https://hachimoto12.com/" rel="alternate"></link><link href="https://hachimoto12.com/feeds/programming.atom.xml" rel="self"></link><id>https://hachimoto12.com/</id><updated>2021-06-27T00:00:00+09:00</updated><entry><title>VSCode上でDockerを使ってRustの開発環境を構築</title><link href="https://hachimoto12.com/build_rust_dev_evn_with_docker_and_vscode.html" rel="alternate"></link><published>2021-06-27T00:00:00+09:00</published><updated>2021-06-27T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2021-06-27:/build_rust_dev_evn_with_docker_and_vscode.html</id><summary type="html">&lt;p&gt;今回、ふと Rust が使いたくなり、開発環境を構築しようと思い立った。
-(&lt;a href="https://hachimoto12.com/rust_install.html"&gt;前&lt;/a&gt; は、WSL に Rust をインストールした…が、もうアンインストールした)&lt;br&gt;
-ちょっと使いたいだけなので、Rust をインストールするのもめんどくさい…&lt;br&gt;
-そこで、VSCoder 上で Docker を使ったお手軽 Rust 開発環境を構築した時のやり方をメモ。  &lt;/p&gt;
-&lt;h2&gt;環境&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Windows10 21H1&lt;/li&gt;
-&lt;li&gt;WSL2&lt;ul&gt;
-&lt;li&gt;Ubuntu 20 を使用&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;Docker Desktop v3.4.0&lt;/li&gt;
-&lt;li&gt;VSCode v1.57.1&lt;ul&gt;
-&lt;li&gt;拡張機能: Remote - Containers v0.183.0  &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2&gt;構築方法&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;Docker Desktop を起動した状態にする。&lt;/li&gt;
-&lt;li&gt;Windows上に開発用フォルダを作成 …&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;今回、ふと Rust が使いたくなり、開発環境を構築しようと思い立った。
+<feed xmlns="http://www.w3.org/2005/Atom"><title>鉢本 一二のブログ - プログラミング</title><link href="https://hachimoto12.com/" rel="alternate"></link><link href="https://hachimoto12.com/feeds/programming.atom.xml" rel="self"></link><id>https://hachimoto12.com/</id><updated>2022-01-30T00:00:00+09:00</updated><entry><title>VSCode上でDockerを使ってRustの開発環境を構築</title><link href="https://hachimoto12.com/build_rust_dev_evn_with_docker_and_vscode.html" rel="alternate"></link><published>2021-06-27T00:00:00+09:00</published><updated>2021-06-27T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2021-06-27:/build_rust_dev_evn_with_docker_and_vscode.html</id><summary type="html">&lt;p&gt;今回、ふと Rust が使いたくなり、開発環境を構築しようと思い立った。
+(&lt;a href="https://hachimoto12.com/rust_install.html"&gt;前&lt;/a&gt; は、WSL に Rust をインストールした…が、もうアンインス …&lt;/p&gt;</summary><content type="html">&lt;p&gt;今回、ふと Rust が使いたくなり、開発環境を構築しようと思い立った。
 (&lt;a href="https://hachimoto12.com/rust_install.html"&gt;前&lt;/a&gt; は、WSL に Rust をインストールした…が、もうアンインストールした)&lt;br&gt;
 ちょっと使いたいだけなので、Rust をインストールするのもめんどくさい…&lt;br&gt;
 そこで、VSCoder 上で Docker を使ったお手軽 Rust 開発環境を構築した時のやり方をメモ。  &lt;/p&gt;
@@ -71,7 +52,16 @@
 &lt;li&gt;環境構築が始まるので、終わるまで待つ。  &lt;/li&gt;
 &lt;li&gt;環境構築が完了すると、&lt;code&gt;"workspace/開発用フォルダ名"&lt;/code&gt; フォルダが開いている状態となる。  &lt;/li&gt;
 &lt;li&gt;VSCode のターミナルを開くと、 &lt;code&gt;"workspace/開発用フォルダ名"&lt;/code&gt; がルートとなっており、これで開発を始めることができるようになった。&lt;/li&gt;
-&lt;/ol&gt;</content><category term="プログラミング"></category><category term="Rust"></category><category term="docker"></category><category term="VSCode"></category></entry><entry><title>OpenGLのマウス操作の実装メモ</title><link href="https://hachimoto12.com/OpenGL_Camera.html" rel="alternate"></link><published>2020-10-02T00:00:00+09:00</published><updated>2020-10-02T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2020-10-02:/OpenGL_Camera.html</id><summary type="html">&lt;p&gt;3D画面をマウス操作したときのカメラの動きの実装をメモ。 &lt;br&gt;
+&lt;/ol&gt;</content><category term="プログラミング"></category><category term="Rust"></category><category term="docker"></category><category term="VSCode"></category></entry><entry><title>OpenGLのマウス操作の実装メモ</title><link href="https://hachimoto12.com/OpenGL_Camera.html" rel="alternate"></link><published>2020-10-02T00:00:00+09:00</published><updated>2022-01-30T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2020-10-02:/OpenGL_Camera.html</id><summary type="html">&lt;hr&gt;
+&lt;p&gt;2022/01/30&lt;br&gt;
+微修正&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;3D画面をマウス操作したときのカメラの動きの実装をメモ。 &lt;br&gt;
+自分的にはいい感じに動いているが、もし …&lt;/p&gt;</summary><content type="html">&lt;hr&gt;
+&lt;p&gt;2022/01/30&lt;br&gt;
+微修正&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;3D画面をマウス操作したときのカメラの動きの実装をメモ。 &lt;br&gt;
 自分的にはいい感じに動いているが、もしかしたら間違いがあるかもしれない。  &lt;/p&gt;
 &lt;p&gt;カメラは以下のようにした場合の実装のメモとなっている。  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;Camera&lt;/span&gt;
@@ -85,27 +75,13 @@
     &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;vec3&lt;/span&gt; &lt;span class="n"&gt;pos&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;vec3&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;// 位置&lt;/span&gt;
     &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;vec3&lt;/span&gt; &lt;span class="n"&gt;center&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;vec3&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;    &lt;span class="c1"&gt;// 注視点&lt;/span&gt;
     &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;vec3&lt;/span&gt; &lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;vec3&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;  &lt;span class="c1"&gt;// 上方向&lt;/span&gt;
-    &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;uvec2&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;  &lt;span class="c1"&gt;// ウィンドウサイズ&lt;/span&gt;
+    &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;uvec2&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;                    &lt;span class="c1"&gt;// ウィンドウサイズ&lt;/span&gt;
 
+    &lt;span class="c1"&gt;// ズーム&lt;/span&gt;
     &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;zoom&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ZoomType&lt;/span&gt; &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;noexcept&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;move&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;dvec2&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;mouse_pos0 …&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;3D画面をマウス操作したときのカメラの動きの実装をメモ。 &lt;br&gt;
-自分的にはいい感じに動いているが、もしかしたら間違いがあるかもしれない。  &lt;/p&gt;
-&lt;p&gt;カメラは以下のようにした場合の実装のメモとなっている。  &lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;Camera&lt;/span&gt;
-&lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="k"&gt;enum&lt;/span&gt; &lt;span class="n"&gt;ZoomType&lt;/span&gt;
-    &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="n"&gt;IN&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-        &lt;span class="n"&gt;OUT&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-    &lt;span class="p"&gt;};&lt;/span&gt;
-
-    &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;vec3&lt;/span&gt; &lt;span class="n"&gt;pos&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;vec3&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;// 位置&lt;/span&gt;
-    &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;vec3&lt;/span&gt; &lt;span class="n"&gt;center&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;vec3&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;    &lt;span class="c1"&gt;// 注視点&lt;/span&gt;
-    &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;vec3&lt;/span&gt; &lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;vec3&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;  &lt;span class="c1"&gt;// 上方向&lt;/span&gt;
-    &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;uvec2&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;  &lt;span class="c1"&gt;// ウィンドウサイズ&lt;/span&gt;
-
-    &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;zoom&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ZoomType&lt;/span&gt; &lt;span class="n"&gt;type&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;noexcept&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="c1"&gt;// 移動&lt;/span&gt;
     &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;move&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;dvec2&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;mouse_pos0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;dvec2&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;mouse_pos1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;noexcept&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="c1"&gt;// 回転&lt;/span&gt;
     &lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;revolution&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;dvec2&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;old_cursor_pos&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;dvec2&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;new_cursor_pos&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;noexcept&lt;/span&gt;
 &lt;span class="p"&gt;};&lt;/span&gt;    
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -145,8 +121,12 @@
 &lt;h3&gt;実装&lt;/h3&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="n"&gt;Camera&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;move&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;dvec2&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;mouse_pos0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;dvec2&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;mouse_pos1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;noexcept&lt;/span&gt;
 &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="k"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;view&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;viewMatrix&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-    &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="k"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;proj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;projectionMatrix&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="k"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;view&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;lookAt&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pos&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;center&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;up&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="k"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;proj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;perspectiveFov&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;radians&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fovy&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+                                          &lt;span class="k"&gt;static_cast&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="kt"&gt;float&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+                                          &lt;span class="k"&gt;static_cast&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="kt"&gt;float&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+                                          &lt;span class="n"&gt;znear&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                                          &lt;span class="n"&gt;zfar&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
     &lt;span class="k"&gt;const&lt;/span&gt; &lt;span class="k"&gt;auto&lt;/span&gt; &lt;span class="n"&gt;viewport&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;glm&lt;/span&gt;&lt;span class="o"&gt;::&lt;/span&gt;&lt;span class="n"&gt;vec4&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;size&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 
     &lt;span class="c1"&gt;// マウス座標をワールド座標に変換&lt;/span&gt;
@@ -194,7 +174,15 @@
     &lt;span class="n"&gt;pos&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;tmp_pos&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
     &lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;q&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="プログラミング"></category><category term="OpenGL"></category></entry><entry><title>AndroidのTextViewを右寄せにする方法</title><link href="https://hachimoto12.com/android_textview_right_justfit.html" rel="alternate"></link><published>2019-11-05T00:00:00+09:00</published><updated>2019-11-05T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2019-11-05:/android_textview_right_justfit.html</id><content type="html">&lt;p&gt;AndroidでTextViewを右寄せにする方法をメモ。&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="プログラミング"></category><category term="OpenGL"></category></entry><entry><title>AndroidのTextViewを右寄せにする方法</title><link href="https://hachimoto12.com/android_textview_right_justfit.html" rel="alternate"></link><published>2019-11-05T00:00:00+09:00</published><updated>2019-11-05T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2019-11-05:/android_textview_right_justfit.html</id><summary type="html">&lt;p&gt;AndroidでTextViewを右寄せにする方法をメモ。&lt;/p&gt;
+&lt;h2&gt;環境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Android Studio : 3.5.2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;方法&lt;/h2&gt;
+&lt;p&gt;まず、Aundroid Studio上でTextViewを図のように配置してみた。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="初期設定" src="images/2019_11_05_01.png" title="初期設定"&gt;&lt;/p&gt;
+&lt;p&gt;この状態でビル …&lt;/p&gt;</summary><content type="html">&lt;p&gt;AndroidでTextViewを右寄せにする方法をメモ。&lt;/p&gt;
 &lt;h2&gt;環境&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Android Studio : 3.5.2&lt;/li&gt;
@@ -219,19 +207,7 @@
 &lt;p&gt;&lt;img alt="実行2" src="images/2019_11_05_07.png" title="実行2"&gt;  &lt;/p&gt;</content><category term="プログラミング"></category><category term="Android"></category></entry><entry><title>Rustのインストール方法 Linuxの場合</title><link href="https://hachimoto12.com/rust_install.html" rel="alternate"></link><published>2019-11-01T00:00:00+09:00</published><updated>2019-11-01T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2019-11-01:/rust_install.html</id><summary type="html">&lt;p&gt;Rustのインストール方法をメモ。&lt;br&gt;
 今回インストールされたRustのバージョンは、&lt;strong&gt;rustc 1.38.0 (625451e37 2019-09-23)&lt;/strong&gt;  &lt;/p&gt;
 &lt;p&gt;まず、コマンドを実行。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ curl https://sh.rustup.rs -sSf &lt;span class="p"&gt;|&lt;/span&gt; sh
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-&lt;p&gt;コマンドを実行すると、インストールが始まる。&lt;br&gt;
-インストールの方法を入力する必要がある。とりあえず、１を選択。&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;info: downloading installer
-
-Welcome to Rust!
-
-This will download and install the official compiler for the Rust
-programming language, and its package manager, Cargo.
-
-It will add the …&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Rustのインストール方法をメモ。&lt;br&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ curl https://sh …&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;Rustのインストール方法をメモ。&lt;br&gt;
 今回インストールされたRustのバージョンは、&lt;strong&gt;rustc 1.38.0 (625451e37 2019-09-23)&lt;/strong&gt;  &lt;/p&gt;
 &lt;p&gt;まず、コマンドを実行。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ curl https://sh.rustup.rs -sSf &lt;span class="p"&gt;|&lt;/span&gt; sh
@@ -334,7 +310,9 @@ envファイルを使ってを起動時にRustを実行できるようにする�
 
 &lt;p&gt;次のようにバージョン情報が出力されれば、OK。&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;rustc &lt;span class="m"&gt;1&lt;/span&gt;.38.0 &lt;span class="o"&gt;(&lt;/span&gt;625451e37 &lt;span class="m"&gt;2019&lt;/span&gt;-09-23&lt;span class="o"&gt;)&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="プログラミング"></category><category term="Rust"></category></entry><entry><title>Visual StudioでqDebugのログを表示させる方法</title><link href="https://hachimoto12.com/qDebug_in_VS.html" rel="alternate"></link><published>2019-09-20T00:00:00+09:00</published><updated>2019-09-20T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2019-09-20:/qDebug_in_VS.html</id><content type="html">&lt;h2&gt;問題&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="プログラミング"></category><category term="Rust"></category></entry><entry><title>Visual StudioでqDebugのログを表示させる方法</title><link href="https://hachimoto12.com/qDebug_in_VS.html" rel="alternate"></link><published>2019-09-20T00:00:00+09:00</published><updated>2019-09-20T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2019-09-20:/qDebug_in_VS.html</id><summary type="html">&lt;h2&gt;問題&lt;/h2&gt;
+&lt;p&gt;Visual Studioを使ってQt5 GUIアプリケーションを作成しているときに、qDebugでログを表示させたかった。
+しかし実行時、Visual Studioの …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;問題&lt;/h2&gt;
 &lt;p&gt;Visual Studioを使ってQt5 GUIアプリケーションを作成しているときに、qDebugでログを表示させたかった。
 しかし実行時、Visual Studioの出力ウィンドウでログがでず、ほかに出力ウィンドウに出力されていなかった。&lt;/p&gt;
 &lt;h2&gt;対策&lt;/h2&gt;
@@ -349,15 +327,7 @@ envファイルを使ってを起動時にRustを実行できるようにする�
 &lt;/ul&gt;
 &lt;h2&gt;問題&lt;/h2&gt;
 &lt;p&gt;FBX SDKを使ってみようと思い、Visual Studio 2017でソースコードをビルド。
-その時の設定として、以下の設定を行った。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;プロパティ -&amp;gt; C/C++ -&amp;gt; 言語 -&amp;gt; 準拠モードを「いいえ」に設定&lt;/li&gt;
-&lt;li&gt;プロパティ -&amp;gt; C/C++ -&amp;gt; 全般 -&amp;gt; 追加のインクルードディレクトリでFBX SDKのインクルードパスを追加&lt;/li&gt;
-&lt;li&gt;プロパティ -&amp;gt; リンカ -&amp;gt; 全般 -&amp;gt; 追加のライブラリディレクトリでdebug, releaseそれぞれに合わせてライブラリパスを追加&lt;/li&gt;
-&lt;li&gt;プロパティ -&amp;gt; リンカ -&amp;gt; 入力でfbxsdk-md.libを追加
-プロパティ -&amp;gt; C/C++ -&amp;gt; コード生成 -&amp;gt; ランタイム　ライブラリで&lt;ul&gt;
-&lt;li&gt;debug   : マルチスレッド デバック DLL&lt;/li&gt;
-&lt;li&gt;release : マルチスレッド …&lt;/li&gt;&lt;/ul&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;h2&gt;環境&lt;/h2&gt;
+その時の設定として、以下の設 …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;環境&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Visual Studio 2017&lt;/li&gt;
 &lt;li&gt;FBX SDK 2019.5&lt;/li&gt;
@@ -391,7 +361,17 @@ envファイルを使ってを起動時にRustを実行できるようにする�
 &lt;li&gt;その2. fbxsdk.libをリンクしてビルドする。
   ただしfbxsdk.libをリンクした場合、実行時にexeファイルと同じところにfbxsdk.dllを置かない動かないと実行されない。
   *-md.libをリンクして実行した場合は、dllなしでもexeファイルを実行できた。&lt;/li&gt;
-&lt;/ul&gt;</content><category term="プログラミング"></category><category term="c++"></category></entry><entry><title>AMD APP SDKが無いので、代わりにOpenCL Install Client Driver(ICD) LoaderでOpenCLを使ってみる</title><link href="https://hachimoto12.com/opencl_with_icd.html" rel="alternate"></link><published>2019-07-07T00:00:00+09:00</published><updated>2019-07-07T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2019-07-07:/opencl_with_icd.html</id><content type="html">&lt;p&gt;&lt;a href="https://developer.amd.com/amd-accelerated-parallel-processing-app-sdk/"&gt;AMD APP SDK&lt;/a&gt;が404のため。&lt;/p&gt;
+&lt;/ul&gt;</content><category term="プログラミング"></category><category term="c++"></category></entry><entry><title>AMD APP SDKが無いので、代わりにOpenCL Install Client Driver(ICD) LoaderでOpenCLを使ってみる</title><link href="https://hachimoto12.com/opencl_with_icd.html" rel="alternate"></link><published>2019-07-07T00:00:00+09:00</published><updated>2019-07-07T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2019-07-07:/opencl_with_icd.html</id><summary type="html">&lt;p&gt;&lt;a href="https://developer.amd.com/amd-accelerated-parallel-processing-app-sdk/"&gt;AMD APP SDK&lt;/a&gt;が404のため。&lt;/p&gt;
+&lt;h2&gt;環境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Windows 10&lt;/li&gt;
+&lt;li&gt;Radeon RX 560.&lt;/li&gt;
+&lt;li&gt;Visual Studio 2017 Communityインストール済み。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;やり方&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;AMDのドライバーを最新にしておく。&lt;/li&gt;
+&lt;li&gt;c:/windowsにある …&lt;/li&gt;&lt;/ol&gt;</summary><content type="html">&lt;p&gt;&lt;a href="https://developer.amd.com/amd-accelerated-parallel-processing-app-sdk/"&gt;AMD APP SDK&lt;/a&gt;が404のため。&lt;/p&gt;
 &lt;h2&gt;環境&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Windows 10&lt;/li&gt;
