@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <!-- icon -->
+        <link rel="shortcut icon" href="https://hachimoto12.com/theme/images/favicon.ico"/>
+        <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="https://hachimoto12.com/theme/images/icon180.png">
+        <link rel="icon" type="image/png" href="https://hachimoto12.com/theme/images/icon256.png">        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-150670088-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'UA-150670088-1');
+        </script>        <meta charset=utf-8>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0" />
+        <!-- ogp -->
+        <meta property="og:type" content="website"/>        <meta property="og:title" content="Windows11でHoudiniのUIスケール問題とその解決 | 鉢本　一二のブログ"/>
+        <meta property="og:url" content="https://hachimoto12.com/problem_houdini_ui_scale_windows11.html" />        <meta property="og:site_name" content="鉢本　一二のブログ" />
+        <!--
+        <title>鉢本　一二のブログ</title>
+        -->        <title>Windows11でHoudiniのUIスケール問題とその解決 | 鉢本　一二のブログ</title>        <link rel="stylesheet" type="text/css" href="https://hachimoto12.com/theme/css/stylesheet.css" /><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="https://hachimoto12.com/theme/css/pygment.css" />
+<style type="text/css">
+.content {
+    margin: 30px;
+}
+.title {
+    margin-bottom: 2em;
+    text-align: left;
+}
+.info {
+    margin: 2em auto;
+}
+.section {
+    margin-top: 2em;
+}
+.section h2, .section h3 {
+    margin: 2em auto;
+    padding: 0.7em 0 0.7em 1em;
+}
+.section h2 {
+    border-left: 10px solid rgb(66, 66, 66);
+    border-bottom: 2px solid rgb(66, 66, 66);
+}
+.section h3 {
+    border-left: 5px solid rgb(66, 66, 66);
+}
+.section ul, .section ol {
+    margin: 0.7em 1em;
+}
+.section li {
+    margin: 0.7em auto;
+}
+.section dl {
+    margin: 1em auto;
+}
+.section dd {
+    margin-left: 1em;
+}
+.highlight pre {
+    margin: 2em auto;
+    padding: 1em auto;
+    font-family: "Source Han Code JP", sans-serif;
+    font-size: 0.8em;
+    line-height: 1.5em;
+    overflow: auto;
+}
+.note {
+    border: 2px solid rgb(66, 66, 66);
+    border-radius: 5px;
+}
+.warning {
+    /*border: 2px solid rgb(66, 66, 66);*/
+    border: 2px solid rgb(200, 60, 50);
+    border-radius: 5px;
+}
+.admonition {
+    margin: 2em auto;
+    padding: 0.7em;
+}
+.admonition-title {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.warning .admonition-title {
+    color: rgb(200, 60, 50);
+}
+</style>    </head>
+    <body>
+        <div class="wrapper">
+            <header class="header">
+                <h1 class="header-title" ontouchstart="">
+                    <a href="https://hachimoto12.com/">
+                        <strong>鉢本　一二のブログ</strong>
+                    </a>
+                </h1>
+            </header>
+            <nav class="navigation" ontouchstart="">
+                <ul>
+                    <li>
+                       <a href="https://hachimoto12.com/">
+                           Top
+                       </a>
+                    </li>
+                    <li>
+                        <a href="https://hachimoto12.com/archives.html">
+                            アーカイブ
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/categories.html">
+                            カテゴリ
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://hachimoto12.com/tags.html">
+                            タグ
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="left-area"></div>
+            <main class="content" ontouchstart=""><h1 class="title">Windows11でHoudiniのUIスケール問題とその解決</h1>
+<div class="info">
+    <div>
+        作成日 : <time datetime="2022-04-22T00:00:00+09:00">2022/04/22</time>
+    </div>
+    <div>
+        更新日 : <time datetime="2022-04-22T00:00:00+09:00">2022/04/22</time>
+    </div>
+    <div class="category-item">
+        <i class="material-icons">folder</i>
+        ：        <a href="https://hachimoto12.com/category/houdini.html" class="category">
+            Houdini
+        </a>    </div>
+        <div class="tag-list">
+        <i class="material-icons">
+            local_offer
+        </i>
+        ：        <a href="/tag/houdini.html" class="tag">Houdini</a>    </div>
+</div><h2>問題</h2>
+<p>ふとHoudiniを触ってみたくなり、Houdini Apprentice 19をインストールした。<br>
+インストール完了後、Houdiniを起動したらUIがおかしなかことになっていた。</p>
+<p><img alt="HoudiniのUIのスケールがおかしい01" src="images/2022_04_22_01.png" title="HoudiniのUIのスケールがおかしい01">  </p>
+<p><img alt="HoudiniのUIのスケールがおかしい02" src="images/2022_04_22_02.png" title="HoudiniのUIのスケールがおかしい02">  </p>
+<h2>使用環境</h2>
+<ul>
+<li>CPU: AMD Ryzen7 3700</li>
+<li>GPU: AMD Radeon RX 5700</li>
+<li>OS: Windows 11</li>
+<li>ディスプレイ: 4K(3840x2160)  </li>
+</ul>
+<h2>解決方法</h2>
+<p>ざっくり言うと、<a href="https://www.sidefx.com/forum/topic/58187/">Houdiniフォーラムのトピック</a>にある最後の投稿内容を試したところ、解決した。<br>
+あと、システム環境変数にある「QT_DEVICE_PIXEL_RATIO」を削除も行ったが、関係あるかはわからない。<br>
+トピックの投稿内容は英語で書かれており翻訳すればいいのだが、日本語の記事として残しておきたいので改めて書いておく。</p>
+<ol>
+<li>Houdiniアプリケーションを右クリック</li>
+<li>プロパティを選択</li>
+<li>互換性タブ選択<br>
+<img alt="互換性タブ選択" src="images/2022_04_22_03.png" title="互換性タブ選択"></li>
+<li>「高DPI設定の変更」を選択<br>
+<img alt="高DPI設定の変更を選択" src="images/2022_04_22_04.png" title="高DPI設定の変更を選択"></li>
+<li>下部にある「高DPIスケーリングオーバーライド」ボックスをチェックして、プルダウンメニューから「システム」を選択
+<img alt="高DPIスケーリングオーバーライドボックスをチェックして、プルダウンメニューからシステムを選択" src="images/2022_04_22_05.png" title="「高DPIスケーリングオーバーライド」ボックスをチェックして、プルダウンメニューから「システム」を選択">  </li>
+<li>OKボタンをクリックし、適応ボタンをクリック。Houdiniアプリケーションを起動。UIが正常に表示された。
+<img alt="正常なスケールのUIが表示" src="images/2022_04_22_06.png" title="正常なスケールのUIが表示"></li>
+</ol>
+<h3>解決までの過程</h3>
+<p>※読んでも読まなくてもよい。  </p>
+<ol>
+<li>
+<p>まず現在にて、HoudiniのUIの問題について最初に検索で出てきたのは <a href="https://support.indyzone.jp/hc/ja/articles/360039390171-Houdini%E3%82%92%E8%B5%B7%E5%8B%95%E3%81%97%E3%81%9F%E9%9A%9B%E3%81%ABUI%E3%81%8C%E6%AD%A3%E3%81%97%E3%81%8F%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%AA%E3%81%84">Houdiniを起動した際にUIが正しく表示されない</a> などのIntelのグラフィックを使用している場合の解決方法についての記事。<br>
+しかし、現在の使用環境は全く違っていたので、上記記事は関係なかった。<br>
+そして、<a href="https://www.sidefx.com/ja/Support/system-requirements/">Houdini 19.0 システム環境</a>に該当しているスペックのため問題ない…はず</p>
+</li>
+<li>
+<p>とりあえず次にHoudiniのフォーラムで問題解決できそうなトピックを探す。<br>
+最初に関連しそうだなと思ったトピックスが、</p>
+<ul>
+<li><a href="https://www.sidefx.com/forum/topic/50039/?page=1#post-310567">https://www.sidefx.com/forum/topic/50039/?page=1#post-310567</a>  </li>
+</ul>
+<p>この環境変数が関係あるかどうか、関連しそうな記事をGoogleで検索してみた。<br>
+<a href="https://knowledge.autodesk.com/ja/support/3ds-max/troubleshooting/caas/sfdcarticles/sfdcarticles/JPN/Poor-scaling-causes-black-boxes-to-appear-in-3ds-Max-Viewport-and-UI.html">4Kモニタを使用すると、3ds Maxで黒いボックスとビューポートのスケーリングが正しく表示されない</a>という記事が見つかった。<br>
+4kディスプレイを使用しているため該当するかと思い、環境変数にある「QT_DEVICE_PIXEL_RATIO」を削除、Windowsを再起動をしてみた。<br>
+が、解決ならず。</p>
+</li>
+<li>
+<p>また、Houdiniのトピックを検索し、次に以下のトピックが見つかった。</p>
+<ul>
+<li><a href="https://www.sidefx.com/forum/topic/58187/">https://www.sidefx.com/forum/topic/58187/</a></li>
+</ul>
+<p>このトピックの最後の投稿内容が、Houdiniアプリケーションの設定で高DPIについて設定すると解決した、とあった。<br>
+そして、自分の環境下ではこの設定が正解だった。  </p>
+</li>
+</ol><p>
+<br>
+<br>
+<br>
+</p>
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://bo-ben-yi-er-noburogu-1.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>            </main>
+            <div class="right-area"></div>
+            <footer class="footer">
+                <span class="copyright">
+                    (c) 2019 鉢本　一二
+                </span>
+            </footer>
+        </div>        <script id="dsq-count-scr" src="//bo-ben-yi-er-noburogu-1.disqus.com/count.js" async></script>    </body>
+</html>

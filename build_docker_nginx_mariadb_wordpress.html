@@ -165,132 +165,132 @@
 
 <h2>各ファイルの設定</h2>
 <h3>docker-compose.yml</h3>
-<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="s">&quot;3&quot;</span>
-<span class="nt">services</span><span class="p">:</span>
-  <span class="nt">nginx</span><span class="p">:</span>
-    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nginx:1.19.6</span>
-    <span class="nt">volumes</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="s">&quot;./nginx/nginx.conf:/etc/nginx/nginx.conf&quot;</span>
-      <span class="p p-Indicator">-</span> <span class="s">&quot;./nginx/conf.d:/etc/nginx/conf.d&quot;</span>
-      <span class="p p-Indicator">-</span> <span class="s">&quot;./nginx/log:/var/log/nginx&quot;</span>
-      <span class="p p-Indicator">-</span> <span class="s">&quot;./wordpress:/var/www/html&quot;</span>
-    <span class="nt">ports</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="s">&quot;${NGINX_HOST_PORT}:80&quot;</span>
-    <span class="nt">depends_on</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">wordpress</span>
-    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
-    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">nginx</span>
-  <span class="nt">wordpress</span><span class="p">:</span>
-    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">wordpress:5.6-php7.4-fpm</span>
-    <span class="nt">depends_on</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">db</span>
-    <span class="nt">volumes</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="s">&quot;./wordpress:/var/www/html&quot;</span>
-    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
-    <span class="nt">environment</span><span class="p">:</span>
-      <span class="nt">WORDPRESS_DB_HOST</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">db</span>
-      <span class="nt">WORDPRESS_DB_USER</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${MYSQL_USER}</span>
-      <span class="nt">WORDPRESS_DB_PASSWORD</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${MYSQL_PASSWORD}</span>
-      <span class="nt">WORDPRESS_DB_NAME</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${MYSQL_DATABASE}</span>
-    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">wordpress</span>
-  <span class="nt">db</span><span class="p">:</span>
-    <span class="nt">image</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mariadb:10.5.8</span>
-    <span class="nt">restart</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">always</span>
-    <span class="nt">volumes</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="s">&quot;./db-data:/var/lib/mysql&quot;</span>
-    <span class="nt">environment</span><span class="p">:</span>
-      <span class="nt">MYSQL_ROOT_PASSWORD</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${MYSQL_ROOT_PASSWORD}</span>
-      <span class="nt">MYSQL_DATABASE</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${MYSQL_DATABASE}</span>
-      <span class="nt">MYSQL_USER</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${MYSQL_USER}</span>
-      <span class="nt">MYSQL_PASSWORD</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">${MYSQL_PASSWORD}</span>
-      <span class="nt">TZ</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Asia/Tokyo</span>
-    <span class="nt">ports</span><span class="p">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">3306:3306</span>
-    <span class="nt">container_name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">db</span>
-<span class="nt">volumes</span><span class="p">:</span>
-    <span class="nt">db</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;3&quot;</span><span class="w"></span>
+<span class="nt">services</span><span class="p">:</span><span class="w"></span>
+<span class="w">  </span><span class="nt">nginx</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx:1.19.6</span><span class="w"></span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;./nginx/nginx.conf:/etc/nginx/nginx.conf&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;./nginx/conf.d:/etc/nginx/conf.d&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;./nginx/log:/var/log/nginx&quot;</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;./wordpress:/var/www/html&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;${NGINX_HOST_PORT}:80&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wordpress</span><span class="w"></span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span><span class="w"></span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nginx</span><span class="w"></span>
+<span class="w">  </span><span class="nt">wordpress</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wordpress:5.6-php7.4-fpm</span><span class="w"></span>
+<span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span><span class="w"></span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;./wordpress:/var/www/html&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span><span class="w"></span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">WORDPRESS_DB_HOST</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span><span class="w"></span>
+<span class="w">      </span><span class="nt">WORDPRESS_DB_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${MYSQL_USER}</span><span class="w"></span>
+<span class="w">      </span><span class="nt">WORDPRESS_DB_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${MYSQL_PASSWORD}</span><span class="w"></span>
+<span class="w">      </span><span class="nt">WORDPRESS_DB_NAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${MYSQL_DATABASE}</span><span class="w"></span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wordpress</span><span class="w"></span>
+<span class="w">  </span><span class="nt">db</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mariadb:10.5.8</span><span class="w"></span>
+<span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">always</span><span class="w"></span>
+<span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;./db-data:/var/lib/mysql&quot;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="nt">MYSQL_ROOT_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${MYSQL_ROOT_PASSWORD}</span><span class="w"></span>
+<span class="w">      </span><span class="nt">MYSQL_DATABASE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${MYSQL_DATABASE}</span><span class="w"></span>
+<span class="w">      </span><span class="nt">MYSQL_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${MYSQL_USER}</span><span class="w"></span>
+<span class="w">      </span><span class="nt">MYSQL_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${MYSQL_PASSWORD}</span><span class="w"></span>
+<span class="w">      </span><span class="nt">TZ</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Asia/Tokyo</span><span class="w"></span>
+<span class="w">    </span><span class="nt">ports</span><span class="p">:</span><span class="w"></span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3306:3306</span><span class="w"></span>
+<span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span><span class="w"></span>
+<span class="nt">volumes</span><span class="p">:</span><span class="w"></span>
+<span class="w">    </span><span class="nt">db</span><span class="p">:</span><span class="w"></span>
 </code></pre></div>
 
 <h3>.env</h3>
-<div class="highlight"><pre><span></span><code><span class="o">#</span> <span class="n">MySQL</span>
-<span class="n">MYSQL_ROOT_PASSWORD</span><span class="o">=</span><span class="n">passowrd</span>
-<span class="n">MYSQL_DATABASE</span><span class="o">=</span><span class="n">wordpress</span>
-<span class="n">MYSQL_USER</span><span class="o">=</span><span class="n">root</span>
-<span class="n">MYSQL_PASSWORD</span><span class="o">=</span><span class="n">password</span>
+<div class="highlight"><pre><span></span><code># MySQL
+MYSQL_ROOT_PASSWORD=passowrd
+MYSQL_DATABASE=wordpress
+MYSQL_USER=root
+MYSQL_PASSWORD=password
 
-<span class="o">#</span> <span class="n">nginx</span>
-<span class="n">NGINX_HOST_PORT</span><span class="o">=</span><span class="mi">8080</span>
+# nginx
+NGINX_HOST_PORT=8080
 </code></pre></div>
 
 <h3>nginx.conf</h3>
 <p>nginxのインストール時に生成される nginx.conf をそのまま使っている。</p>
-<div class="highlight"><pre><span></span><code><span class="k">user</span>  <span class="s">nginx</span><span class="p">;</span>
-<span class="k">worker_processes</span>  <span class="mi">1</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">user</span><span class="w">  </span><span class="s">nginx</span><span class="p">;</span><span class="w"></span>
+<span class="k">worker_processes</span><span class="w">  </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
 
-<span class="k">error_log</span>  <span class="s">/var/log/nginx/error.log</span> <span class="s">warn</span><span class="p">;</span>
-<span class="k">pid</span>        <span class="s">/var/run/nginx.pid</span><span class="p">;</span>
-
-
-<span class="k">events</span> <span class="p">{</span>
-    <span class="kn">worker_connections</span>  <span class="mi">1024</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="k">error_log</span><span class="w">  </span><span class="s">/var/log/nginx/error.log</span><span class="w"> </span><span class="s">warn</span><span class="p">;</span><span class="w"></span>
+<span class="k">pid</span><span class="w">        </span><span class="s">/var/run/nginx.pid</span><span class="p">;</span><span class="w"></span>
 
 
-<span class="k">http</span> <span class="p">{</span>
-    <span class="kn">include</span>       <span class="s">/etc/nginx/mime.types</span><span class="p">;</span>
-    <span class="kn">default_type</span>  <span class="s">application/octet-stream</span><span class="p">;</span>
+<span class="k">events</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kn">worker_connections</span><span class="w">  </span><span class="mi">1024</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
-    <span class="kn">log_format</span>  <span class="s">main</span>  <span class="s">&#39;</span><span class="nv">$remote_addr</span> <span class="s">-</span> <span class="nv">$remote_user</span> <span class="s">[</span><span class="nv">$time_local]</span> <span class="s">&quot;</span><span class="nv">$request&quot;</span> <span class="s">&#39;</span>
-                      <span class="s">&#39;</span><span class="nv">$status</span> <span class="nv">$body_bytes_sent</span> <span class="s">&quot;</span><span class="nv">$http_referer&quot;</span> <span class="s">&#39;</span>
-                      <span class="s">&#39;&quot;</span><span class="nv">$http_user_agent&quot;</span> <span class="s">&quot;</span><span class="nv">$http_x_forwarded_for&quot;&#39;</span><span class="p">;</span>
 
-    <span class="kn">access_log</span>  <span class="s">/var/log/nginx/access.log</span>  <span class="s">main</span><span class="p">;</span>
+<span class="k">http</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kn">include</span><span class="w">       </span><span class="s">/etc/nginx/mime.types</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kn">default_type</span><span class="w">  </span><span class="s">application/octet-stream</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kn">sendfile</span>        <span class="no">on</span><span class="p">;</span>
-    <span class="c1">#tcp_nopush     on;</span>
+<span class="w">    </span><span class="kn">log_format</span><span class="w">  </span><span class="s">main</span><span class="w">  </span><span class="s">&#39;</span><span class="nv">$remote_addr</span><span class="w"> </span><span class="s">-</span><span class="w"> </span><span class="nv">$remote_user</span><span class="w"> </span><span class="s">[</span><span class="nv">$time_local]</span><span class="w"> </span><span class="s">&quot;</span><span class="nv">$request&quot;</span><span class="w"> </span><span class="s">&#39;</span><span class="w"></span>
+<span class="w">                      </span><span class="s">&#39;</span><span class="nv">$status</span><span class="w"> </span><span class="nv">$body_bytes_sent</span><span class="w"> </span><span class="s">&quot;</span><span class="nv">$http_referer&quot;</span><span class="w"> </span><span class="s">&#39;</span><span class="w"></span>
+<span class="w">                      </span><span class="s">&#39;&quot;</span><span class="nv">$http_user_agent&quot;</span><span class="w"> </span><span class="s">&quot;</span><span class="nv">$http_x_forwarded_for&quot;&#39;</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kn">keepalive_timeout</span>  <span class="mi">65</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">access_log</span><span class="w">  </span><span class="s">/var/log/nginx/access.log</span><span class="w">  </span><span class="s">main</span><span class="p">;</span><span class="w"></span>
 
-    <span class="c1">#gzip  on;</span>
+<span class="w">    </span><span class="kn">sendfile</span><span class="w">        </span><span class="no">on</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">#tcp_nopush     on;</span>
 
-    <span class="kn">include</span> <span class="s">/etc/nginx/conf.d/*.conf</span><span class="p">;</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="kn">keepalive_timeout</span><span class="w">  </span><span class="mi">65</span><span class="p">;</span><span class="w"></span>
+
+<span class="w">    </span><span class="c1">#gzip  on;</span>
+
+<span class="w">    </span><span class="kn">include</span><span class="w"> </span><span class="s">/etc/nginx/conf.d/*.conf</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 
 <h3>default.conf</h3>
-<div class="highlight"><pre><span></span><code><span class="k">server</span> <span class="p">{</span>
-    <span class="kn">listen</span> <span class="mi">80</span><span class="p">;</span>
-    <span class="kn">server_name</span> <span class="s">localhost</span><span class="p">;</span>
-    <span class="kn">charset</span> <span class="s">utf-8</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">server</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="mi">80</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">localhost</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kn">charset</span><span class="w"> </span><span class="s">utf-8</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kn">root</span> <span class="s">/var/www/html</span><span class="p">;</span>
-    <span class="kn">index</span> <span class="s">index.php</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">root</span><span class="w"> </span><span class="s">/var/www/html</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kn">index</span><span class="w"> </span><span class="s">index.php</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kn">access_log</span> <span class="s">/var/log/nginx/access.log</span><span class="p">;</span>
-    <span class="kn">error_log</span> <span class="s">/var/log/nginx/error.log</span><span class="p">;</span>
+<span class="w">    </span><span class="kn">access_log</span><span class="w"> </span><span class="s">/var/log/nginx/access.log</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kn">error_log</span><span class="w"> </span><span class="s">/var/log/nginx/error.log</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kn">location</span> <span class="p">~</span><span class="sr">*</span> <span class="s">/wp-config.php</span> <span class="p">{</span>
-        <span class="kn">deny</span> <span class="s">all</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="p">~</span><span class="sr">*</span><span class="w"> </span><span class="s">/wp-config.php</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kn">deny</span><span class="w"> </span><span class="s">all</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
-        <span class="kn">try_files</span> <span class="nv">$uri</span> <span class="nv">$uri/</span> <span class="s">/index.php?</span><span class="nv">$args</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kn">try_files</span><span class="w"> </span><span class="nv">$uri</span><span class="w"> </span><span class="nv">$uri/</span><span class="w"> </span><span class="s">/index.php?</span><span class="nv">$args</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="kn">location</span> <span class="p">~</span> <span class="sr">\.php$</span> <span class="p">{</span>
-        <span class="kn">fastcgi_split_path_info</span> <span class="s">^(.+\.php)(\.+)</span>$<span class="p">;</span>
-        <span class="kn">fastcgi_index</span> <span class="s">index.php</span><span class="p">;</span>
-        <span class="kn">fastcgi_pass</span> <span class="n">wordpress</span><span class="p">:</span><span class="mi">9000</span><span class="p">;</span>
-        <span class="kn">include</span> <span class="s">fastcgi_params</span><span class="p">;</span>
-        <span class="kn">fastcgi_param</span> <span class="s">SCRIPT_FILENAME</span> <span class="nv">$document_root$fastcgi_script_name</span><span class="p">;</span>
-        <span class="kn">fastcgi_param</span> <span class="s">PATH_INFO</span> <span class="nv">$fastcgi_path_info</span><span class="p">;</span>
-    <span class="p">}</span>
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="p">~</span><span class="w"> </span><span class="sr">\.php$</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kn">fastcgi_split_path_info</span><span class="w"> </span><span class="s">^(.+\.php)(\.+)</span>$<span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kn">fastcgi_index</span><span class="w"> </span><span class="s">index.php</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kn">fastcgi_pass</span><span class="w"> </span><span class="n">wordpress</span><span class="p">:</span><span class="mi">9000</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kn">include</span><span class="w"> </span><span class="s">fastcgi_params</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kn">fastcgi_param</span><span class="w"> </span><span class="s">SCRIPT_FILENAME</span><span class="w"> </span><span class="nv">$document_root$fastcgi_script_name</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kn">fastcgi_param</span><span class="w"> </span><span class="s">PATH_INFO</span><span class="w"> </span><span class="nv">$fastcgi_path_info</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 
-    <span class="kn">location</span> <span class="p">~</span><span class="sr">*</span> <span class="s">.(html|css|js|jpe?g|png|gif|svg|mpg|flv|swf)</span>$ <span class="p">{</span>
-        <span class="kn">expires</span> <span class="s">max</span><span class="p">;</span>
-        <span class="kn">access_log</span> <span class="no">off</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="p">~</span><span class="sr">*</span><span class="w"> </span><span class="s">.(html|css|js|jpe?g|png|gif|svg|mpg|flv|swf)</span>$<span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kn">expires</span><span class="w"> </span><span class="s">max</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kn">access_log</span><span class="w"> </span><span class="no">off</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </code></pre></div>
 
 <h2>docker を実行</h2>

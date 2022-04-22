@@ -147,22 +147,22 @@
 <h2>問題</h2>
 <p>スケッチを書き込もうとしたら失敗。
 失敗したときのログ</p>
-<div class="highlight"><pre><span></span><code><span class="o">[</span><span class="n">Starting</span><span class="o">]</span><span class="w"> </span><span class="n">Upload</span><span class="w"> </span><span class="n">sketch</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">01</span><span class="err">\</span><span class="mf">01.</span><span class="n">ino</span><span class="w"></span>
-<span class="o">[</span><span class="n">Warning</span><span class="o">]</span><span class="w"> </span><span class="k">Output</span><span class="w"> </span><span class="k">path</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">specified</span><span class="p">.</span><span class="w"> </span><span class="n">Unable</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">reuse</span><span class="w"> </span><span class="n">previously</span><span class="w"> </span><span class="n">compiled</span><span class="w"> </span><span class="n">files</span><span class="p">.</span><span class="w"> </span><span class="n">Upload</span><span class="w"> </span><span class="n">could</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">slow</span><span class="p">.</span><span class="w"> </span><span class="n">See</span><span class="w"> </span><span class="n">README</span><span class="p">.</span><span class="w"></span>
-<span class="n">構成をロード中</span><span class="err">…</span><span class="w"></span>
-<span class="n">パッケージを初期化中</span><span class="err">…</span><span class="w"></span>
-<span class="n">ボードを準備中</span><span class="err">…</span><span class="w"></span>
-<span class="n">検証中</span><span class="err">…</span><span class="w"></span>
-<span class="n">最大1310720バイトのフラッシュメモリのうち</span><span class="err">、</span><span class="n">スケッチが255788バイト</span><span class="err">（</span><span class="mi">19</span><span class="o">%</span><span class="err">）</span><span class="n">を使っています</span><span class="err">。</span><span class="w"></span>
-<span class="n">最大327680バイトのRAMのうち</span><span class="err">、</span><span class="n">グローバル変数が13932バイト</span><span class="err">（</span><span class="mi">4</span><span class="o">%</span><span class="err">）</span><span class="n">を使っていて</span><span class="err">、</span><span class="n">ローカル変数で313748バイト使うことができます</span><span class="err">。</span><span class="w"></span>
-<span class="n">マイコンボードに書き込んでいます</span><span class="p">...</span><span class="w"></span>
-<span class="n">esptool</span><span class="p">.</span><span class="n">py</span><span class="w"> </span><span class="n">v2</span><span class="mf">.6</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">Starting</span><span class="p">]</span><span class="w"> </span><span class="n">Upload</span><span class="w"> </span><span class="n">sketch</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">01</span>\<span class="mf">01.</span><span class="n">ino</span><span class="w"></span>
+<span class="p">[</span><span class="n">Warning</span><span class="p">]</span><span class="w"> </span><span class="n">Output</span><span class="w"> </span><span class="n">path</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="ow">not</span><span class="w"> </span><span class="n">specified</span><span class="o">.</span><span class="w"> </span><span class="n">Unable</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">reuse</span><span class="w"> </span><span class="n">previously</span><span class="w"> </span><span class="n">compiled</span><span class="w"> </span><span class="n">files</span><span class="o">.</span><span class="w"> </span><span class="n">Upload</span><span class="w"> </span><span class="n">could</span><span class="w"> </span><span class="n">be</span><span class="w"> </span><span class="n">slow</span><span class="o">.</span><span class="w"> </span><span class="n">See</span><span class="w"> </span><span class="n">README</span><span class="o">.</span><span class="w"></span>
+<span class="err">構成をロード中…</span><span class="w"></span>
+<span class="err">パッケージを初期化中…</span><span class="w"></span>
+<span class="err">ボードを準備中…</span><span class="w"></span>
+<span class="err">検証中…</span><span class="w"></span>
+<span class="err">最大</span><span class="mi">1310720</span><span class="err">バイトのフラッシュメモリのうち、スケッチが</span><span class="mi">255788</span><span class="err">バイト（</span><span class="mi">19</span><span class="o">%</span><span class="err">）を使っています。</span><span class="w"></span>
+<span class="err">最大</span><span class="mi">327680</span><span class="err">バイトの</span><span class="n">RAMのうち</span><span class="err">、グローバル変数が</span><span class="mi">13932</span><span class="err">バイト（</span><span class="mi">4</span><span class="o">%</span><span class="err">）を使っていて、ローカル変数で</span><span class="mi">313748</span><span class="err">バイト使うことができます。</span><span class="w"></span>
+<span class="err">マイコンボードに書き込んでいます</span><span class="o">...</span><span class="w"></span>
+<span class="n">esptool</span><span class="o">.</span><span class="n">py</span><span class="w"> </span><span class="n">v2</span><span class="o">.</span><span class="mi">6</span><span class="w"></span>
 <span class="n">Serial</span><span class="w"> </span><span class="n">port</span><span class="w"> </span><span class="n">COM4</span><span class="w"></span>
-<span class="n">Connecting</span><span class="p">........</span><span class="n">_____</span><span class="p">.....</span><span class="n">_____</span><span class="p">.....</span><span class="n">_____</span><span class="p">.....</span><span class="n">_____</span><span class="p">.....</span><span class="n">_____</span><span class="p">.....</span><span class="n">_____</span><span class="p">.....</span><span class="n">_____</span><span class="w"></span>
+<span class="n">Connecting</span><span class="o">........</span><span class="n">_____</span><span class="o">.....</span><span class="n">_____</span><span class="o">.....</span><span class="n">_____</span><span class="o">.....</span><span class="n">_____</span><span class="o">.....</span><span class="n">_____</span><span class="o">.....</span><span class="n">_____</span><span class="o">.....</span><span class="n">_____</span><span class="w"></span>
 
-<span class="n">A</span><span class="w"> </span><span class="n">fatal</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="nl">occurred</span><span class="p">:</span><span class="w"> </span><span class="n">Failed</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">connect</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="nl">ESP32</span><span class="p">:</span><span class="w"> </span><span class="n">Timed</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="n">waiting</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">packet</span><span class="w"> </span><span class="n">header</span><span class="w"></span>
-<span class="n">スケッチの書き込み中にエラーが発生しました</span><span class="w"></span>
-<span class="o">[</span><span class="n">Error</span><span class="o">]</span><span class="w"> </span><span class="k">Exit</span><span class="w"> </span><span class="k">with</span><span class="w"> </span><span class="n">code</span><span class="o">=</span><span class="mi">1</span><span class="w"></span>
+<span class="n">A</span><span class="w"> </span><span class="n">fatal</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">occurred</span><span class="p">:</span><span class="w"> </span><span class="n">Failed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">connect</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">ESP32</span><span class="p">:</span><span class="w"> </span><span class="n">Timed</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="n">waiting</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">packet</span><span class="w"> </span><span class="n">header</span><span class="w"></span>
+<span class="err">スケッチの書き込み中にエラーが発生しました</span><span class="w"></span>
+<span class="p">[</span><span class="n">Error</span><span class="p">]</span><span class="w"> </span><span class="n">Exit</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">code</span><span class="o">=</span><span class="mi">1</span><span class="w"></span>
 </code></pre></div>
 
 <h2>原因</h2>
@@ -171,8 +171,8 @@
 <p>Connectingが表示されたらRESETボタンを押しっぱなしにする。
 Writtingが始まったら離す。
 最後に</p>
-<div class="highlight"><pre><span></span><code><span class="err">Leaving...</span>
-<span class="err">Hard resetting via RTS pin...</span>
+<div class="highlight"><pre><span></span><code>Leaving...
+Hard resetting via RTS pin...
 </code></pre></div>
 
 <p>が出力されたら書き込み成功。</p><p>
