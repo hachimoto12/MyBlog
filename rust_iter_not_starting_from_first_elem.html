@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <!-- icon -->
+        <link rel="shortcut icon" href="/theme/images/favicon.ico"/>
+        <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="/theme/images/icon180.png">
+        <link rel="icon" type="image/png" href="/theme/images/icon256.png">        <meta charset=utf-8>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0" />
+        <!-- ogp -->
+        <meta property="og:type" content="website"/>        <meta property="og:title" content="[Rust] iterでループする際、iterの開始を最初にある要素ではない位置からスタートさせる | 鉢本　一二のブログ"/>
+        <meta property="og:url" content="/rust_iter_not_starting_from_first_elem.html" />        <meta property="og:site_name" content="鉢本　一二のブログ" />
+        <!--
+        <title>鉢本　一二のブログ</title>
+        -->        <title>[Rust] iterでループする際、iterの開始を最初にある要素ではない位置からスタートさせる | 鉢本　一二のブログ</title>        <link rel="stylesheet" type="text/css" href="/theme/css/stylesheet.css" /><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="/theme/css/pygment.css" />
+<style type="text/css">
+.content {
+    margin: 30px;
+}
+.title {
+    margin-bottom: 2em;
+    text-align: left;
+}
+.info {
+    margin: 2em auto;
+}
+.section {
+    margin-top: 2em;
+}
+.section h2, .section h3 {
+    margin: 2em auto;
+    padding: 0.7em 0 0.7em 1em;
+}
+.section h2 {
+    border-left: 10px solid rgb(66, 66, 66);
+    border-bottom: 2px solid rgb(66, 66, 66);
+}
+.section h3 {
+    border-left: 5px solid rgb(66, 66, 66);
+}
+.section ul, .section ol {
+    margin: 0.7em 1em;
+}
+.section li {
+    margin: 0.7em auto;
+}
+.section dl {
+    margin: 1em auto;
+}
+.section dd {
+    margin-left: 1em;
+}
+.highlight pre {
+    margin: 2em auto;
+    padding: 1em auto;
+    font-family: "Source Han Code JP", sans-serif;
+    font-size: 0.8em;
+    line-height: 1.5em;
+    overflow: auto;
+}
+.note {
+    border: 2px solid rgb(66, 66, 66);
+    border-radius: 5px;
+}
+.warning {
+    /*border: 2px solid rgb(66, 66, 66);*/
+    border: 2px solid rgb(200, 60, 50);
+    border-radius: 5px;
+}
+.admonition {
+    margin: 2em auto;
+    padding: 0.7em;
+}
+.admonition-title {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.warning .admonition-title {
+    color: rgb(200, 60, 50);
+}
+</style>    </head>
+    <body>
+        <div class="wrapper">
+            <header class="header">
+                <h1 class="header-title" ontouchstart="">
+                    <a href="/">
+                        <strong>鉢本　一二のブログ</strong>
+                    </a>
+                </h1>
+            </header>
+            <nav class="navigation" ontouchstart="">
+                <ul>
+                    <li>
+                       <a href="/">
+                           Top
+                       </a>
+                    </li>
+                    <li>
+                        <a href="/archives.html">
+                            アーカイブ
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/categories.html">
+                            カテゴリ
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/tags.html">
+                            タグ
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="left-area"></div>
+            <main class="content" ontouchstart=""><h1 class="title">[Rust] iterでループする際、iterの開始を最初にある要素ではない位置からスタートさせる</h1>
+<div class="info">
+    <div>
+        作成日 : <time datetime="2022-12-29T00:00:00+09:00">2022/12/29</time>
+    </div>
+    <div>
+        更新日 : <time datetime="2022-12-29T00:00:00+09:00">2022/12/29</time>
+    </div>
+    <div class="category-item">
+        <i class="material-icons">folder</i>
+        ：        <a href="/category/rust, programming.html" class="category">
+            Rust, プログラミング
+        </a>    </div>
+        <div class="tag-list">
+        <i class="material-icons">
+            local_offer
+        </i>
+        ：        <a href="/tag/rust.html" class="tag">Rust</a>    </div>
+</div><h2>問題</h2>
+<div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">a</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">10</span><span class="p">).</span><span class="n">into_iter</span><span class="p">().</span><span class="n">collect</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">iter</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="fm">print!</span><span class="p">(</span><span class="s">&quot;{} &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">iter</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+
+<p>Rustをやっていると、ループの時には上記のような書き方になることをよく見かけたことがあると思う。<br>
+この場合、出力結果は </p>
+<div class="highlight"><pre><span></span><code>0 1 2 3 4 5 6 7 8 9
+</code></pre></div>
+
+<p>となる。<br>
+このようなループの際、iterは最初の要素がスタートとなるが最初の要素より後ろにある要素からスタートさせたい。</p>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">iter</span><span class="p">)</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">a</span><span class="p">.</span><span class="n">iter</span><span class="p">().</span><span class="n">enumerate</span><span class="p">(){</span><span class="w"></span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">continue</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="fm">print!</span><span class="p">(</span><span class="s">&quot;{} &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">iter</span><span class="p">);</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+
+<p>という書き方も考えたが、要素番号は不要なのともうちょっと簡素な書き方があるだろうと書き方を模索していた。</p>
+<h2>環境</h2>
+<ul>
+<li>Rust: ver1.65.0</li>
+</ul>
+<h2>解決方法</h2>
+<div class="highlight"><pre><span></span><code><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="n">a</span>: <span class="nb">Vec</span><span class="o">&lt;</span><span class="kt">i32</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mi">0</span><span class="o">..</span><span class="mi">10</span><span class="p">).</span><span class="n">into_iter</span><span class="p">().</span><span class="n">collect</span><span class="p">();</span><span class="w"></span>
+
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="n">iter</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="o">..</span><span class="p">].</span><span class="n">into_iter</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="fm">print!</span><span class="p">(</span><span class="s">&quot;{} &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">iter</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>1 2 3 4 5 6 7 8 9 
+</code></pre></div>
+
+<p>スライスで配列の開始位置を指定し <code>into_iter()</code> とすることで個人的によさげな感じになった。</p>            </main>
+            <div class="right-area"></div>
+            <footer class="footer">
+                <span class="copyright">
+                    (c) 2019 鉢本　一二
+                </span>
+            </footer>
+        </div>    </body>
+</html>

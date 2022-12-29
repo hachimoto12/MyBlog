@@ -2,72 +2,77 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://hachimoto12.com/problem_houdini_ui_scale_windows11.html</loc>
+    <loc>/rust_iter_not_starting_from_first_elem.html</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://hachimoto12.com/build_rust_dev_evn_with_docker_and_vscode.html</loc>
+    <loc>/problem_houdini_ui_scale_windows11.html</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://hachimoto12.com/build_docker_nginx_mariadb_wordpress.html</loc>
+    <loc>/build_rust_dev_evn_with_docker_and_vscode.html</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://hachimoto12.com/change_apt_repo.html</loc>
+    <loc>/build_docker_nginx_mariadb_wordpress.html</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://hachimoto12.com/wsl2_error_0x800701bc.html</loc>
+    <loc>/change_apt_repo.html</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://hachimoto12.com/blender_addon_hexagons.html</loc>
+    <loc>/wsl2_error_0x800701bc.html</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://hachimoto12.com/OpenGL_Camera.html</loc>
+    <loc>/blender_addon_hexagons.html</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://hachimoto12.com/unreal_particle_rain_repple.html</loc>
+    <loc>/OpenGL_Camera.html</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://hachimoto12.com/android_textview_right_justfit.html</loc>
+    <loc>/unreal_particle_rain_repple.html</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://hachimoto12.com/rust_install.html</loc>
+    <loc>/android_textview_right_justfit.html</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://hachimoto12.com/qDebug_in_VS.html</loc>
+    <loc>/rust_install.html</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://hachimoto12.com/fbx_build_error.html</loc>
+    <loc>/qDebug_in_VS.html</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://hachimoto12.com/about_writting_fauilure_of_esp32.html</loc>
+    <loc>/fbx_build_error.html</loc>
     <priority>0.8</priority>
   </url>
 
   <url>
-    <loc>https://hachimoto12.com/opencl_with_icd.html</loc>
+    <loc>/about_writting_fauilure_of_esp32.html</loc>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>/opencl_with_icd.html</loc>
     <priority>0.8</priority>
   </url>
 
