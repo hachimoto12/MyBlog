@@ -5,7 +5,8 @@
 &lt;li&gt;WSL2&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;問題&lt;/h2&gt;
-&lt;p&gt;windows10 のバージョンが 1903 か 1909 の時に WSL1 で Linux を使えるようにしたが、しばらく使わず。その後Linuxをアンイ …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;環境&lt;/h2&gt;
+&lt;p&gt;windows10 のバージョンが 1903 か 1909 の時に WSL1 で Linux を使えるようにしたが、しばらく使わず。その後Linuxをアンインストール。&lt;br&gt;
+最近にな …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;環境&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;windows10 Oct 2020&lt;/li&gt;
 &lt;li&gt;WSL2&lt;/li&gt;

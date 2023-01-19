@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>鉢本 一二のブログ - Houdini</title><link href="https://hachimoto12.com/" rel="alternate"></link><link href="https://hachimoto12.com/feeds/houdini.atom.xml" rel="self"></link><id>https://hachimoto12.com/</id><updated>2022-04-22T00:00:00+09:00</updated><entry><title>Windows11でHoudiniのUIスケール問題とその解決</title><link href="https://hachimoto12.com/problem_houdini_ui_scale_windows11.html" rel="alternate"></link><published>2022-04-22T00:00:00+09:00</published><updated>2022-04-22T00:00:00+09:00</updated><author><name>鉢本 一二</name></author><id>tag:hachimoto12.com,2022-04-22:/problem_houdini_ui_scale_windows11.html</id><summary type="html">&lt;h2&gt;問題&lt;/h2&gt;
 &lt;p&gt;ふとHoudiniを触ってみたくなり、Houdini Apprentice 19をインストールした。&lt;br&gt;
-インストール完了後、Houdiniを起動したらUIがおかしなかこ …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;問題&lt;/h2&gt;
+インストール完了後、Houdiniを起動したらUIがおかしなかことになっていた。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="HoudiniのUIのスケールがおかしい01" src="images/2022_04_22_01.png" title="HoudiniのUIのスケールがおかしい01"&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;img alt="HoudiniのUIのスケールがおかしい02" src="images/2022_04_22_02.png" title="HoudiniのUIのスケールがおかしい02"&gt;  &lt;/p&gt;
+&lt;h2&gt;使用環境&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;CPU: AMD Ryzen7 3700&lt;/li&gt;
+&lt;li&gt;GPU: AMD Radeon RX 5700&lt;/li&gt;
+&lt;li&gt;OS: Windows 11&lt;/li&gt;
+&lt;li&gt;ディスプレイ: 4K(3840x2160)  &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;解決方法&lt;/h2&gt;
+&lt;p&gt;ざっくり …&lt;/p&gt;</summary><content type="html">&lt;h2&gt;問題&lt;/h2&gt;
 &lt;p&gt;ふとHoudiniを触ってみたくなり、Houdini Apprentice 19をインストールした。&lt;br&gt;
 インストール完了後、Houdiniを起動したらUIがおかしなかことになっていた。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="HoudiniのUIのスケールがおかしい01" src="images/2022_04_22_01.png" title="HoudiniのUIのスケールがおかしい01"&gt;  &lt;/p&gt;
